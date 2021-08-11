@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="package net.lunalabs.central.domain.mysql.product">
+	<insert id="save">
+		INSERT INTO product(name, code)
+		VALUES(#{name},#{code})
+	</insert>
+
+	<delete id="deleteById">
+		DELETE FROM product WHERE id = #{id}
+	</delete>
+
+	<update id="update">
+		UPDATE product SET name=#{name}, code=#{code} WHERE
+		id = #{id}
+	</update>
+
+</mapper>
