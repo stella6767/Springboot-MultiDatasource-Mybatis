@@ -36,7 +36,6 @@ create user 'test' @'%' IDENTIFIED by '1234';
 GRANT all PRIVILEGES on *.* to 'test'@'%';
 create DATABASE test;
 
-
 -------접속 후-----------
 
 
@@ -48,6 +47,18 @@ create table product(
 	name varchar(50),
     code varchar(50)
 );
+
+
+create table panama(
+	id int auto_increment primary key,
+	productId int,
+    username varchar(50)
+);
+
+insert into panama(productId, username) values(1, '홍길동');
+insert into panama(productId, username) values(2, '홍길동');
+insert into panama(productId, username) values(3, '강호동');
+
 
 ```
 
