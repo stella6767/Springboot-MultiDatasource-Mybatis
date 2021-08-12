@@ -2,7 +2,7 @@ package net.lunalabs.central.domain.mysql.product;
 
 import java.util.List;
 
-import net.lunalabs.central.config.MysqlConnMapper;
+import net.lunalabs.central.config.db.MysqlConnMapper;
 import net.lunalabs.central.domain.beans.ProductBean;
 
 @MysqlConnMapper //일종의 JPA Repository 역할로 레이어 구분하겠음

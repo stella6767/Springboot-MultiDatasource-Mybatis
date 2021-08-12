@@ -2,7 +2,7 @@ package net.lunalabs.central.domain.oracle.panama;
 
 import java.util.List;
 
-import net.lunalabs.central.config.OracleConnMapper;
+import net.lunalabs.central.config.db.OracleConnMapper;
 
 @OracleConnMapper
 public interface PanamaMapper {

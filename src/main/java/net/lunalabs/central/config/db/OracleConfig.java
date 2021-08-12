@@ -1,4 +1,4 @@
-package net.lunalabs.central.config;
+package net.lunalabs.central.config.db;
 
 import javax.sql.DataSource;
 

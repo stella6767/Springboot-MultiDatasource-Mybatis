@@ -1,4 +1,4 @@
-package net.lunalabs.central.config;
+package net.lunalabs.central.config.db;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
