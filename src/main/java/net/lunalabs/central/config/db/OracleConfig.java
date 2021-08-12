@@ -29,7 +29,7 @@ public class OracleConfig {
     @ConfigurationProperties(prefix="spring.datasource.oracle")
     public DataSource SecondDataSource() {
     	
-    	log.info("oracle datasource 설정");
+    	log.info("oracle datasource yml 설정");
     	
         return DataSourceBuilder.create().build();
     }
