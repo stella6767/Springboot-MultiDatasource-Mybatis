@@ -1,5 +1,5 @@
 # Springboot-MultiDatasource-Mybatis
-oracle과 mybatis mybatis 연동
+oracle과 mysql mybatis 연동
 
 
 ```oracle
