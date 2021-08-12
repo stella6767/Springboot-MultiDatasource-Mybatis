@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
+import net.lunalabs.central.domain.beans.ProductBean;
 import net.lunalabs.central.domain.mysql.product.Product;
 import net.lunalabs.central.domain.mysql.product.ProductMapper;
 
@@ -41,6 +42,21 @@ public class ProductService {
 		}
 		return null;
 	}
+	
+	@Transactional(readOnly = true)
+	public ProductBean findByIdAndJoin(int id) {
+		
+		ProductBean productBean = productMapper.findByIdAndJoin(id);	
+		
+		if(productBean != null) {
+			
+			System.out.println("있음"+ productBean);
+			
+			return productBean;
+		}
+		return null;
+	}
+	
 	
 	
 }

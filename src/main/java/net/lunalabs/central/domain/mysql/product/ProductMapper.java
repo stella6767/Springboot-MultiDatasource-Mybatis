@@ -3,6 +3,7 @@ package net.lunalabs.central.domain.mysql.product;
 import java.util.List;
 
 import net.lunalabs.central.config.MysqlConnMapper;
+import net.lunalabs.central.domain.beans.ProductBean;
 
 @MysqlConnMapper //일종의 JPA Repository 역할로 레이어 구분하겠음
 public interface ProductMapper {	
@@ -11,4 +12,7 @@ public interface ProductMapper {
 	public void update(Product product);
 	public List<Product> findAll();
 	public Product findById(int id);	
+	
+	
+	public ProductBean findByIdAndJoin(int id);
 }

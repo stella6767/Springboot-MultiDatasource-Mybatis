@@ -37,4 +37,12 @@
 	</select>
 	
 
+	<select id="findByIdAndJoin" resultType="net.lunalabs.central.domain.beans.ProductBean">
+		SELECT pm.id, pm.username, pd.name, pd.code  
+		FROM panama pm inner join product pd 
+		ON pm.productId = pd.id 
+		WHERE pm.id = #{id}; 
+	</select>
+
+
 </mapper>
