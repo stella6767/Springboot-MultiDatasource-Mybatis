@@ -10,17 +10,14 @@ grant create sequence to test;
 grant unlimited tablespace to test;
 
 
+  
+  ----접속 후-------
 
 create table panama
 (
   id number not null,
   productId  number ,
   username VARCHAR2(100));
-  
-  
-  
-  
-  ----접속 후-------
   
 create SEQUENCE panama_seq  -- 시퀀스이름은 무조건 이런식으로 정한다고 생각하자
 increment by 1  --1씩 증가
