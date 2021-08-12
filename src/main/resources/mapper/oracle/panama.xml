@@ -6,8 +6,35 @@
 	namespace="net.lunalabs.central.domain.oracle.panama.PanamaMapper">
 	<insert id="save">
 		INSERT INTO panama(id, productId, username)
-		VALUES(panama_seq.nextval, #{name},#{code})
+		VALUES(panama_seq.nextval, #{productId},#{username})
 	</insert>
+
+	
+	<delete id="deleteById">
+		DELETE FROM panama WHERE id = #{id}
+	</delete>
+
+	<update id="update">
+		UPDATE panama SET username=#{username}, productId=#{productId} WHERE
+		id = #{id}
+	</update>
+	
+	
+	<select id="findAll"
+		resultType="net.lunalabs.central.domain.oracle.panama.Panama">
+		<![CDATA[
+		select * from panama order by id desc 
+		]]>
+	</select>
+
+
+
+	<select id="findById"
+		resultType="net.lunalabs.central.domain.oracle.panama.Panama">
+		<![CDATA[
+		select * from panama where id=#{id} 
+		]]>
+	</select>
 
 
 

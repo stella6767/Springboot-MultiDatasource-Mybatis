@@ -13,10 +13,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 @Configuration
-@MapperScan(basePackages="net.lunalabs.central",annotationClass = OracleConnMapper.class,sqlSessionFactoryRef="OracleSqlSessionFactory")//멀티DB사용시 mapper클래스파일 스켄용 basePackages를 DB별로 따로설정, 지금은 따로 어노테이션 만드므로 상관없음
+@MapperScan(value="net.lunalabs.central",annotationClass = OracleConnMapper.class,sqlSessionFactoryRef="OracleSqlSessionFactory")//멀티DB사용시 mapper클래스파일 스켄용 basePackages를 DB별로 따로설정, 지금은 따로 어노테이션 만드므로 상관없음
 public class OracleConfig {
 	
 	
@@ -44,4 +46,12 @@ public class OracleConfig {
     public SqlSessionTemplate oracleSqlSessionTemplate(@Qualifier("OracleSqlSessionFactory") SqlSessionFactory oracleSessionTemplate) {
         return new SqlSessionTemplate(oracleSessionTemplate);
     }
+    
+    
+    @Bean(name = "OracleTransactionManager")
+    public DataSourceTransactionManager PrimaryTransactionManager(@Qualifier("OracleDataSource") DataSource oracleDataSource) {
+        return new DataSourceTransactionManager(oracleDataSource);
+    }
+    
+    
 }

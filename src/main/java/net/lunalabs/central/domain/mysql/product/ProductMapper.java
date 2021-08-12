@@ -9,6 +9,6 @@ public interface ProductMapper {
 	public void save(Product product); 
 	public void deleteById(int id);
 	public void update(Product product);
-//	public List<Product> findAll();
-//	public Product findById(int id);	
+	public List<Product> findAll();
+	public Product findById(int id);	
 }

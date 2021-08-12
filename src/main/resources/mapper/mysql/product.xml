@@ -18,5 +18,23 @@
 		UPDATE product SET name=#{name}, code=#{code} WHERE
 		id = #{id}
 	</update>
+	
+	
+	<select id="findAll"
+		resultType="net.lunalabs.central.domain.mysql.product.Product">
+		<![CDATA[
+		select * from product order by id desc 
+		]]>
+	</select>
+
+
+
+	<select id="findById"
+		resultType="net.lunalabs.central.domain.mysql.product.Product">
+		<![CDATA[
+		select * from product where id=#{id} 
+		]]>
+	</select>
+	
 
 </mapper>
