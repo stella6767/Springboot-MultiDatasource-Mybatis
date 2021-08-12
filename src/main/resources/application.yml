@@ -8,7 +8,6 @@ server:
 
       
       
-      
 
       
 spring:
@@ -23,3 +22,5 @@ spring:
       jdbc-url: jdbc:oracle:thin:@localhost:1521/xe
       username: test
       password: 1234
+#    hikari:
+#      jdbc-url: 

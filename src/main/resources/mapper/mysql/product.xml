@@ -3,7 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper
-	namespace="package net.lunalabs.central.domain.mysql.product">
+	namespace="net.lunalabs.central.domain.mysql.product.ProductMapper">
+	
 	<insert id="save">
 		INSERT INTO product(name, code)
 		VALUES(#{name},#{code})

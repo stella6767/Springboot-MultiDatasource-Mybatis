@@ -24,8 +24,11 @@ public class OracleConfig {
 
 	
     @Bean(name = "OracleDataSource")
-    @ConfigurationProperties(prefix="spring.oracle.datasource")
+    @ConfigurationProperties(prefix="spring.datasource.oracle")
     public DataSource SecondDataSource() {
+    	
+    	log.info("oracle datasource 설정");
+    	
         return DataSourceBuilder.create().build();
     }
 
