@@ -1,16 +1,29 @@
+
 server:
-  port: 8080
   servlet:
-    context-path: /
     encoding:
       charset: utf-8
       enabled: true
 
       
+spring:
+  profiles:
+    active:
+      - dev
       
-
+      
+---
+      
+server:
+  port: 8088           
       
 spring:
+  config:
+    activate:
+      on-profile:
+        - dev
+
+
   datasource:
     mysql:
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -24,3 +37,31 @@ spring:
       password: 1234
 #    hikari:
 #      jdbc-url: 
+
+
+  output:
+    ansi:
+      enabled: always
+
+
+
+---
+
+server:
+  port: 8081
+spring:
+  config:
+    activate:
+      on-profile: prod     
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://hk-mysql:3306/cos?serverTimezone=Asia/Seoul
+    username: root
+    password: bitc5600
+
+  jpa:
+    hibernate:
+      ddl-auto: update # create, update, none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true

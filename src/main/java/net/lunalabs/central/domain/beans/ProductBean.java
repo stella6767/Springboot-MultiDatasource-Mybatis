@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductBean {
+public class ProductBean { //mysql DB
 	private int id; //panmae
 	private String username; //panmae   //oracle과 mysql이라 조인을 못하겠군..
 	private String name; //product
