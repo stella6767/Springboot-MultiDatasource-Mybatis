@@ -25,6 +25,15 @@ public class TestController {
 	}
 	
 	
+	@GetMapping("/test2")
+	public CMRespDto<?> test2() {
+		
+		logger.info("젠킨스 script test");
+		
+		return new CMRespDto<>(1, "jenkis script test", null);
+	}
+	
+	
 	
 	@GetMapping("/log")
 	public void testLog() {
