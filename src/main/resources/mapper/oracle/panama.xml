@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper
-	namespace="net.lunalabs.central.domain.oracle.panama.PanamaMapper">
+	namespace="net.lunalabs.central.mapper.oracle.PanamaMapper">
 	<insert id="save">
 		INSERT INTO panama(id, productId, username)
 		VALUES(panama_seq.nextval, #{productId},#{username})
@@ -21,7 +21,7 @@
 	
 	
 	<select id="findAll"
-		resultType="net.lunalabs.central.domain.oracle.panama.Panama">
+		resultType="net.lunalabs.central.domain.oracle.Panama">
 		<![CDATA[
 		select * from panama order by id desc 
 		]]>
@@ -30,7 +30,7 @@
 
 
 	<select id="findById"
-		resultType="net.lunalabs.central.domain.oracle.panama.Panama">
+		resultType="net.lunalabs.central.domain.oracle.Panama">
 		<![CDATA[
 		select * from panama where id=#{id} 
 		]]>

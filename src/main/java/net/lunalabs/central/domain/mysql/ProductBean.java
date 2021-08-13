@@ -1,4 +1,4 @@
-package net.lunalabs.central.domain.beans;
+package net.lunalabs.central.domain.mysql;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

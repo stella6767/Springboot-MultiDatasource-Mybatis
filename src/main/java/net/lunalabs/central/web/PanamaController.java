@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import net.lunalabs.central.domain.mysql.product.Product;
-import net.lunalabs.central.domain.oracle.panama.Panama;
+import net.lunalabs.central.domain.mysql.Product;
+import net.lunalabs.central.domain.oracle.Panama;
 import net.lunalabs.central.service.PanamaService;
 
 @RequiredArgsConstructor

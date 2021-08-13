@@ -1,4 +1,4 @@
-package net.lunalabs.central.domain.oracle.panama;
+package net.lunalabs.central.domain.oracle;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

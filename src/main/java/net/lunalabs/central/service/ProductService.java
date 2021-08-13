@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
-import net.lunalabs.central.domain.beans.ProductBean;
-import net.lunalabs.central.domain.mysql.product.Product;
-import net.lunalabs.central.domain.mysql.product.ProductMapper;
+import net.lunalabs.central.domain.mysql.Product;
+import net.lunalabs.central.domain.mysql.ProductBean;
+import net.lunalabs.central.mapper.mysql.ProductMapper;
 
 @RequiredArgsConstructor
 @Service
