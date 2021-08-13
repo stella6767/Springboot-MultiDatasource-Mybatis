@@ -30,7 +30,7 @@ public class TestController {
 		
 		logger.info("젠킨스 script test");
 		
-		return new CMRespDto<>(1, "jenkis script test", null);
+		return new CMRespDto<>(1, "jenkis github push trigger event", null);
 	}
 	
 	
