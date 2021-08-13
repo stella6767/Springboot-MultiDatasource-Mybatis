@@ -222,6 +222,115 @@ log4jdbc.dump.sql.maxlinelength=0
 ```
 
 
+## DB config
+
+
+```
+
+
+@Configuration
+//@EnableTransactionManagement
+@MapperScan(value = "net.lunalabs.central", annotationClass=MysqlConnMapper.class, sqlSessionFactoryRef="MySqlSessionFactory")//멀티DB사용시 mapper클래스파일 스켄용 basePackages를 DB별로 따로설정, 지금은 따로 어노테이션 만드므로 상관없음
+public class MysqlConfig{
+	
+	 private static final Logger log = LoggerFactory.getLogger(MysqlConfig.class);
+	
+	
+     @Primary//동일한 유형의 Bean이 여러 개 있을 때 해당 Bean에 더 높은 우선권을 부여
+     @Bean(name = "MysqlDataSource")
+     @ConfigurationProperties(prefix = "spring.datasource.mysql") //application.yaml에서 어떤 properties를 읽을 지 지정
+     public DataSource mysqlDataSource() {
+    	 
+    	 log.info("yml 설정으로 Mysql Datasource set" );    	 
+         return DataSourceBuilder
+        		 .create()  
+        		 .build(); //type(HikariDataSource.class).
+     }
+
+     @Primary
+     @Bean(name = "MySqlSessionFactory")
+     public SqlSessionFactory mySqlSessionFactory(@Qualifier("MysqlDataSource") DataSource mysqlDataSource, ApplicationContext applicationContex) throws Exception {
+            SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+            sqlSessionFactoryBean.setDataSource(mysqlDataSource);
+            //sqlSessionFactoryBean.setConfigLocation(applicationContext.getResource("classpath:mybatis-config-primary.xml")); //mybatis 설정 xml 파일매핑
+            sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("mapper/mysql/*.xml"));
+            //sqlSessionFactoryBean.setMapperLocations(applicationContex.getResources("classpath:mapper/mysql/*.xml"));
+            //sqlSessionFactoryBean.setTypeAliasesPackage("net.lunalabs.central.domain.mysql.product"); //benas pakage에 dao나 vo 모아둘 때 구분하기 위해 쓰는 것도 좋음
+            //log.info("여기" + new PathMatchingResourcePatternResolver().getResources("mapper/mysql/*.xml").toString());
+            
+            //sqlSessionFactoryBean.setTypeAliasesPackage(null); //Mapper 에서 사용하고자하는 VO 및 Entity 에 대해서
+            return sqlSessionFactoryBean.getObject();
+     }
+
+     @Primary
+     @Bean(name = "MysqlSessionTemplate")
+     public SqlSessionTemplate mySqlSessionTemplate(@Qualifier("MySqlSessionFactory") SqlSessionFactory mySqlSessionFactory) {
+         return new SqlSessionTemplate(mySqlSessionFactory);
+     }
+     
+     
+     @Bean(name = "MysqlTransactionManager")
+     @Primary
+     public DataSourceTransactionManager PrimaryTransactionManager(@Qualifier("MysqlDataSource") DataSource mysqlDataSource) {
+         return new DataSourceTransactionManager(mysqlDataSource);
+     }
+     
+     
+     
+     
+}
+
+
+```
+
+
+
+
+```
+
+@Configuration
+@MapperScan(value="net.lunalabs.central",annotationClass = OracleConnMapper.class,sqlSessionFactoryRef="OracleSqlSessionFactory")//멀티DB사용시 mapper클래스파일 스켄용 basePackages를 DB별로 따로설정, 지금은 따로 어노테이션 만드므로 상관없음
+public class OracleConfig {
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(OracleConfig.class);
+
+	
+    @Bean(name = "OracleDataSource")
+    @ConfigurationProperties(prefix="spring.datasource.oracle")
+    public DataSource SecondDataSource() {
+    	
+    	log.info("oracle datasource yml 설정");
+    	
+        return DataSourceBuilder.create().build();
+    }
+
+    @Bean(name = "OracleSqlSessionFactory")
+    public SqlSessionFactory oracleSqlSessionFactory(@Qualifier("OracleDataSource") DataSource oracleDataSource) throws Exception {
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(oracleDataSource);
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("mapper/oracle/*.xml"));
+        return sqlSessionFactoryBean.getObject();
+    }
+
+    @Bean(name = "OracleSessionTemplate")
+    public SqlSessionTemplate oracleSqlSessionTemplate(@Qualifier("OracleSqlSessionFactory") SqlSessionFactory oracleSessionTemplate) {
+        return new SqlSessionTemplate(oracleSessionTemplate);
+    }
+    
+    
+    @Bean(name = "OracleTransactionManager")
+    public DataSourceTransactionManager PrimaryTransactionManager(@Qualifier("OracleDataSource") DataSource oracleDataSource) {
+        return new DataSourceTransactionManager(oracleDataSource);
+    }
+    
+    
+}
+
+
+
+
+```
 
 
 
