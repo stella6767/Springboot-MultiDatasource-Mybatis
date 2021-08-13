@@ -87,3 +87,69 @@
 [2021-08-13 13:48:45:169604][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.346 seconds (JVM running for 170.54)
 [2021-08-13 13:53:07:431998][http-nio-8088-exec-1] INFO n.l.central.web.TestController - test 통신 성공
 [2021-08-13 13:54:53:537870][http-nio-8088-exec-3] INFO n.l.central.web.TestController - lombok log
+[2021-08-13 14:23:10:596][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16596 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 14:23:11:599][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 14:23:12:1653][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 14:23:12:1819][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 14:23:12:2159][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.973 seconds (JVM running for 3.141)
+[2021-08-13 14:23:24:14252][http-nio-8088-exec-1] INFO n.l.central.web.TestController - lombok log
+[2021-08-13 14:40:05:598][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 21852 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 14:40:05:600][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 14:40:06:1632][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 14:41:44:587][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 7916 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 14:41:44:589][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 14:41:45:1613][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 14:41:45:1782][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 14:44:11:601][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 10860 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 14:44:11:604][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 14:44:12:1635][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 14:44:13:1808][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 14:44:13:2160][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.976 seconds (JVM running for 3.102)
+[2021-08-13 14:48:59:602][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 23476 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 14:48:59:605][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 14:49:00:1642][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 14:51:19:602][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 15656 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 14:51:19:604][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 14:51:20:1625][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 14:51:20:1791][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 14:55:06:601][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 8360 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 14:55:06:603][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 14:55:07:1635][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 14:55:07:1798][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 16:53:27:715][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 7244 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 16:53:27:718][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 16:53:28:1740][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 16:53:29:1909][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 16:58:32:585][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 2976 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 16:58:32:587][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 16:58:33:1607][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 16:58:33:1773][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 17:00:13:587][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 14580 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 17:00:13:589][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 17:00:14:1607][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 17:00:14:1774][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 17:06:56:589][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16420 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 17:06:56:590][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 17:06:57:1621][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 17:06:57:1790][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 17:06:57:2156][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.975 seconds (JVM running for 3.085)
+[2021-08-13 17:08:55:119899][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16420 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 17:08:55:119900][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 17:08:55:120141][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 17:08:55:120161][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 17:08:55:120259][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.393 seconds (JVM running for 121.188)
+[2021-08-13 17:09:09:588][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 17960 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 17:09:09:590][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 17:09:10:1607][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 17:09:10:1782][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 17:09:10:2136][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.954 seconds (JVM running for 3.061)
+[2021-08-13 17:10:11:62714][http-nio-8088-exec-1] INFO n.l.central.web.TestController - lombok log
+[2021-08-13 17:14:14:306331][http-nio-8088-exec-3] INFO n.l.central.web.ProductController - Product(id=0, name=product3, code=3)
+[2021-08-13 17:16:13:590][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 23084 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-13 17:16:13:592][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-13 17:16:14:1598][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-13 17:16:14:1771][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-13 17:16:15:2117][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.939 seconds (JVM running for 3.046)
+[2021-08-13 17:16:25:12457][http-nio-8088-exec-1] INFO n.l.central.web.ProductController - Product(id=0, name=product4, code=4)
+[2021-08-13 17:17:08:55951][http-nio-8088-exec-2] INFO n.l.central.web.PanamaController - Panama(id=0, productId=3, username=kang3)
+[2021-08-13 17:18:53:160968][http-nio-8088-exec-4] INFO n.l.central.web.ProductController - 리스트 뿌리기
