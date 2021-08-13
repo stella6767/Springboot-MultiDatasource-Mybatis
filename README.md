@@ -382,9 +382,7 @@ log4jdbc.dump.sql.maxlinelength=0
 
 
 ## 결과
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/da8d019a-4c0d-4116-bd1a-1a0f20841867/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2b8f4aa4-03c5-4393-bb0c-cafdc1889ae1/Untitled.png)
+![image](https://user-images.githubusercontent.com/65489223/129328027-3383fe3a-74ea-4d7f-9a1e-a7f45e254815.png)
+![image](https://user-images.githubusercontent.com/65489223/129328054-90ac46a7-3064-421a-84a7-92b60ed20ec3.png)
 
 
