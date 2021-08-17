@@ -38,9 +38,7 @@ spring:
 #      jdbc-url: jdbc:oracle:thin:@localhost:1521/xe
 
       driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-#      jdbc-url: jdbc:log4jdbc:oracle:thin:@localhost:1521/xe
       jdbc-url: jdbc:log4jdbc:oracle:thin:@db.rigel.kr:1521:xe
-#      jdbc-url: jdbc:oracle:thin:@db.rigel.kr:1521:xe
       username: bilab
       password: 1234
 #    hikari:

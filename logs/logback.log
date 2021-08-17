@@ -151,3 +151,8 @@
 [2021-08-17 13:44:37:1782][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
 [2021-08-17 13:44:38:2124][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.947 seconds (JVM running for 3.054)
 [2021-08-17 13:44:41:5330][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
+[2021-08-17 13:48:21:225685][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 21044 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-17 13:48:21:225686][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-17 13:48:22:225936][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-17 13:48:22:225963][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-17 13:48:22:226064][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.414 seconds (JVM running for 226.995)
