@@ -1,4 +1,4 @@
-package net.lunalabs.central.domain.oracle;
+package net.lunalabs.central.domain.mysql;
 
 import java.util.Date;
 
@@ -9,13 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class MeasureData {
+public class SessionData {
 	
-	private int mid;
-	private int pid; //환자 id
-	private String parame;
-	private String value;
+	private int sid;  //일단 int로
+	private int pid;
+	private String deviceId;
 	private Date startTime;
 	private Date endTime;
-	
+
 }

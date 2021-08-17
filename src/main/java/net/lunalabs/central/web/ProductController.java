@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 import net.lunalabs.central.domain.mysql.Product;
 import net.lunalabs.central.domain.mysql.ProductBean;
-import net.lunalabs.central.service.ProductService;
+import net.lunalabs.central.service.mysql.ProductService;
 
 @RequiredArgsConstructor
 @RestController

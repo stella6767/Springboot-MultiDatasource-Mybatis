@@ -1,4 +1,4 @@
-package net.lunalabs.central.service;
+package net.lunalabs.central.service.mysql;
 
 import java.util.List;
 
