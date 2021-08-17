@@ -1,0 +1,67 @@
+package net.lunalabs.central.config;
+
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.beans.factory.support.BeanNameGenerator;
+import org.springframework.context.annotation.AnnotationBeanNameGenerator;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Configuration
+@Slf4j
+public class CustomBeanNaming implements BeanNameGenerator {
+
+    private final AnnotationBeanNameGenerator defaultGenerator = new AnnotationBeanNameGenerator();
+
+	   
+	@Override
+	public String generateBeanName(BeanDefinition definition, BeanDefinitionRegistry registry) {
+		
+		String beanName;
+		
+		
+		//Service anootain일 경우 full package 명으로 Bean 이름이 결정
+		if(isService(definition)) {
+			
+			log.info("@service bean naming");
+
+            beanName = generateFullBeanName((AnnotatedBeanDefinition) definition);
+			
+		}else {
+			
+			beanName = defaultGenerator.generateBeanName(definition, registry);
+		}
+		
+		return beanName; 
+	}
+	
+	
+
+    private String generateFullBeanName(final AnnotatedBeanDefinition definition) {
+        // 패키지를 포함한 전체 이름을 반환
+        return definition.getMetadata().getClassName();
+    }
+	
+	
+	
+	
+    private boolean isService(final BeanDefinition definition) {
+    	
+        if (definition instanceof AnnotatedBeanDefinition) {
+            final Set<String> annotationTypes = ((AnnotatedBeanDefinition) definition).getMetadata()
+                    .getAnnotationTypes();
+
+            return annotationTypes.stream()
+                    .filter(type -> type.equals(Service.class.getName()))
+                    .findAny()
+                    .isPresent();
+        }
+        return false;
+    }
+	
+}
