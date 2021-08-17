@@ -27,6 +27,13 @@ create SEQUENCE panama_seq  -- 시퀀스이름은 무조건 이런식으로 정�
 increment by 1  --1씩 증가
 start with 1; -- 1부터
 
+
+drop SEQUENCE panama_seq; 
+ 
+drop table panama;
+  
+
+
 ```
 
 ### mysql

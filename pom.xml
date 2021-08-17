@@ -25,6 +25,14 @@
 		</dependency>
 
 
+<!-- 	아래 의존성이 없으면 원격 ORACLE 접속이 안 됨 -->
+ 		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>orai18n</artifactId>
+			<version>19.3.0.0</version>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,14 +57,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-				<exclusions> 
-				<!-- 스프링 부트에서 Log4j2를 사용하기위해선 내부로깅에서 쓰이는 의존성을 제외해주어야 합니다. 기본적으로 Spring은 Slf4j라는 로깅 프레임워크를 사용합니다.
-				 구현체를 손쉽게 교체할 수 있도록 도와주는 프레임 워크입니다. Slf4j는 인터페이스고 내부 구현체로 logback을 가지고 있는데, Log4j2를 사용하기 위해 exclude 해야 합니다. -->
-					<exclusion>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-starter-logging</artifactId>
-					</exclusion>
-			    </exclusions>
+			<exclusions>
+				<!-- 스프링 부트에서 Log4j2를 사용하기위해선 내부로깅에서 쓰이는 의존성을 제외해주어야 합니다. 기본적으로 Spring은 Slf4j라는 로깅 프레임워크를 사용합니다. 구현체를 손쉽게 교체할 수 있도록 도와주는 프레임 워크입니다. Slf4j는 인터페이스고 내부 구현체로 logback을 가지고 있는데, Log4j2를 사용하기 위해 exclude 해야 합니다. -->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
