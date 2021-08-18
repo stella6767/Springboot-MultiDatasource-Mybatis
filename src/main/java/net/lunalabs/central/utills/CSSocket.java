@@ -25,65 +25,14 @@ public class CSSocket {
 	private final AsyncService asyncService;
 
 	
-	@PostConstruct
+	@PostConstruct //객체가 생성된 후 바로 실행, @PreDestory 마지막 소멸 단계 때 실행
 	public void start(){
 		
 		//System.out.println("로그가 안 찍히네?");
 		
+		asyncService.serverSocketThread();				
+
 		
-		logger.info("CsSocketStart!!!!!");
-		
-		try {
-			
-			ServerSocketChannel serverSocketChannel = null;
-			//SocketChannel socketChannel = null;
-			
-			serverSocketChannel = ServerSocketChannel.open();
-			serverSocketChannel.socket().bind(new InetSocketAddress (5051));
-						
-			boolean bLoop = true;
-			
-			logger.info("CsSocketStart2!!!!!");
-
-			
-			while (bLoop) {
-				logger.info("CsSocketStart3!!!!!");
-
-				
-				try {
-					logger.info("CsSocketStart4!!!!!");
-
-					SocketChannel socketChannel = serverSocketChannel.accept();
-					socketChannel.configureBlocking(true);
-				
-
-					//System.out.println("[ESMLC Listen[" + "] Socket Accept EsmlcIfWorkThread Start");
-					logger.info("[ESMLC Listen[" + "] Socket Accept EsmlcIfWorkThread Start");					
-					asyncService.serverSocketThread(socketChannel);				
-					
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-					try{
-						Thread.sleep(5000);
-					} catch (InterruptedException e1) {
-						e1.printStackTrace();
-					}
-				}
-
-				try{
-					Thread.sleep(50);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch(Exception e1) {
-			e1.printStackTrace();
-		}
 		
 	}
 	
