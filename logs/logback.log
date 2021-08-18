@@ -2459,3 +2459,67 @@
 [2021-08-18 16:00:29:1683][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
 [2021-08-18 16:00:29:1908][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
 [2021-08-18 16:00:29:2278][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 2.094 seconds (JVM running for 3.248)
+[2021-08-18 17:07:38:603][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 24456 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:07:38:605][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:07:39:1712][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:07:39:1934][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:07:39:1969][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:25:04:600][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 19184 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:25:04:603][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:25:05:1700][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:25:05:1915][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:25:05:1954][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:25:06:2291][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 2.102 seconds (JVM running for 3.245)
+[2021-08-18 17:25:24:595][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 25436 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:25:24:598][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:25:25:1687][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:25:25:1905][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:25:25:1939][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:27:45:599][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 20696 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:27:45:601][restartedMain] DEBUGn.l.central.CentralApplication - Running with Spring Boot v2.5.3, Spring v5.3.9
+[2021-08-18 17:27:45:601][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:27:46:1694][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:27:46:1913][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:27:46:1949][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:28:20:602][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 24548 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:28:20:603][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:28:21:1739][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:28:21:1949][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:28:21:1983][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:28:39:600][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 12716 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:28:39:601][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:28:41:1702][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:28:41:1920][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:28:41:1954][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:29:24:600][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 22852 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:29:24:601][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:29:25:1687][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:29:25:1906][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:29:25:1939][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:29:53:597][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 7868 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:29:53:598][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:29:54:1694][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:29:54:1912][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:29:54:1947][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:36:16:604][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16888 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:36:16:606][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:36:17:1714][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:36:18:1937][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:36:18:1973][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:36:18:2340][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 2.152 seconds (JVM running for 3.299)
+[2021-08-18 17:36:33:606][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 13460 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:36:33:609][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:36:34:1707][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:36:34:1924][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:36:34:1958][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:36:59:602][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 17200 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:36:59:604][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:37:00:1704][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:37:00:1915][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:37:00:1950][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!
+[2021-08-18 17:37:34:604][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 21340 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 17:37:34:606][restartedMain] DEBUGn.l.central.CentralApplication - Running with Spring Boot v2.5.3, Spring v5.3.9
+[2021-08-18 17:37:34:606][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 17:37:35:1705][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 17:37:35:1919][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 17:37:35:1952][restartedMain] INFO n.lunalabs.central.utills.CSSocket - CsSocketStart!!!!!

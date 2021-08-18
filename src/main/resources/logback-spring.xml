@@ -22,28 +22,44 @@
 		</encoder>
 	</appender>
 
-	<appender name="DAILY_ROLLING_FILE_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+
+    <!-- 에러의 경우 파일에 로그 처리 -->	
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>error</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+
+
 		<file>${LOGS_PATH}/logback.log</file>
 		<encoder>
 			<pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level%logger{35} - %msg%n</pattern>
-			<charset>UTF-8</charset>			
+			<charset>UTF-8</charset>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		    <!-- .gz,.zip 등을 넣으면 자동 일자별 로그파일 압축 -->
 			<fileNamePattern>${LOGS_PATH}/logback.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-				<!-- or whenever the file size reaches 100MB -->
+				<!-- 파일당 최고 용량 -->
 				<maxFileSize>5MB</maxFileSize>
 				<!-- kb, mb, gb -->
 			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- 일자별 로그파일 최대 보관주기(~일), 해당 설정일 이상된 파일은 자동으로 제거-->
 			<maxHistory>30</maxHistory>
 		</rollingPolicy>
 	</appender>
 
 
-<!-- 여기서 파일에 기록할 로그레벨 지정 -->
-	<logger name="net.lunalabs.central" level="ERROR">
-		<appender-ref ref="DAILY_ROLLING_FILE_APPENDER" />
-	</logger>
+	<!-- 여기서 파일에 기록할 로그레벨 지정 additivity="false" 중복 제거 -->
+	<!-- <logger name="net.lunalabs.central" level="DEBUG" > <appender-ref ref="DAILY_ROLLING_FILE_APPENDER" /> </logger> -->
+
+	<!-- root레벨 설정 -->
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
 
 	<!-- log4jdbc 옵션 설정 -->
 	<logger name="jdbc" level="OFF" /> <!-- 커넥션 open close 이벤트를 로그로 남긴다. -->
@@ -56,7 +72,5 @@
 
 
 
-	<root level="INFO">
-		<appender-ref ref="STDOUT" />
-	</root>
+
 </configuration>

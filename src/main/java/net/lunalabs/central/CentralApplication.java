@@ -14,4 +14,13 @@ public class CentralApplication {
 	}
 
 
+//	@Bean
+//	public CommandLineRunner emulatorStart(CSSocket emulator) {
+//		return (args) -> {
+//			// 데이터 초기화 하기			
+//			emulator.start();;			
+//		};
+//	}
+
+	
 }
