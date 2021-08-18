@@ -5,13 +5,16 @@
 <mapper
 	namespace="net.lunalabs.central.mapper.mysql.PatientMapper">
 	
+	
+	<!-- Table 대소문자 구분함!! -->
+	
 <!-- 	<insert id="save">
 		INSERT INTO MeasureData(name, code)
 		VALUES(#{name},#{code})
 	</insert> -->
 
 	<delete id="deleteById">
-		DELETE FROM Patient WHERE pid = #{id}
+		DELETE FROM patient WHERE pid = #{id}
 	</delete>
 
 <!-- 	<update id="update">
@@ -23,7 +26,7 @@
 	<select id="findAll"
 		resultType="net.lunalabs.central.domain.mysql.Patient">
 		<![CDATA[
-		select * from Patient order by pid desc 
+		select * from patient order by pid desc 
 		]]>
 	</select>
 
@@ -32,7 +35,7 @@
 	<select id="findById"
 		resultType="net.lunalabs.central.domain.mysql.Patient">
 		<![CDATA[
-		select * from Patient where pid=#{id} 
+		select * from patient where pid=#{id} 
 		]]>
 	</select>
 	

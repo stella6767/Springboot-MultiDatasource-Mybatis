@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class BeanListCheck {
+public class ConfigTest {
 	
 	
 	@Autowired
@@ -19,7 +19,7 @@ public class BeanListCheck {
 	
 	
 	@Test
-	public void beansList() {
+	public void beansListCheck() {
 		
 		for(String name : df.getBeanDefinitionNames()) {
 			//log.info("등록된 beans: " + df.getBean(name).getClass().getName());

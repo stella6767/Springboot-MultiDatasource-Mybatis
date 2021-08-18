@@ -11,7 +11,7 @@
 	</insert> -->
 
 	<delete id="deleteById">
-		DELETE FROM SessionData WHERE sid = #{id}
+		DELETE FROM sessionData WHERE sid = #{id}
 	</delete>
 
 <!-- 	<update id="update">
@@ -23,7 +23,7 @@
 	<select id="findAll"
 		resultType="net.lunalabs.central.domain.mysql.SessionData">
 		<![CDATA[
-		select * from SessionData order by sid desc 
+		select * from sessionData order by sid desc 
 		]]>
 	</select>
 
@@ -32,7 +32,7 @@
 	<select id="findById"
 		resultType="net.lunalabs.central.domain.mysql.SessionData">
 		<![CDATA[
-		select * from SessionData where sid=#{id} 
+		select * from sessionData where sid=#{id} 
 		]]>
 	</select>
 	
