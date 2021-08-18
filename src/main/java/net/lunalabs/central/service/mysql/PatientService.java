@@ -7,7 +7,7 @@ import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
 
 @RequiredArgsConstructor
-@Service
+@Service("MysqlPatientService")
 public class PatientService {
 
 	private final PatientMapper patientMapper;

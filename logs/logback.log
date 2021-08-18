@@ -1,253 +1,470 @@
-[2021-08-17 09:41:45:658][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 13520 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 09:41:45:662][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 09:41:46:1700][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 09:41:47:1926][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 09:41:47:2303][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 2.103 seconds (JVM running for 3.464)
-[2021-08-17 09:43:04:78962][http-nio-8088-exec-1] INFO n.l.central.web.MemberController - 리스트 뿌리기
-[2021-08-17 09:43:13:88494][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 13520 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 09:43:13:88494][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 09:43:13:88759][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 09:43:13:88782][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 09:43:14:88886][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.426 seconds (JVM running for 90.045)
-[2021-08-17 09:43:20:94990][http-nio-8088-exec-1] INFO n.l.central.web.MemberController - 리스트 뿌리기
-[2021-08-17 11:26:48:586][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 20224 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 11:26:48:588][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 11:26:49:1617][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 11:26:49:1815][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 11:27:30:588][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 19108 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 11:27:30:591][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 11:27:31:1615][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 11:27:31:1812][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 11:27:32:2161][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.982 seconds (JVM running for 3.108)
-[2021-08-17 11:27:40:10793][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 11:35:58:578][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 6372 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 11:35:58:580][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 11:35:59:1585][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 11:35:59:1777][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 11:36:00:2123][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.946 seconds (JVM running for 3.06)
-[2021-08-17 11:36:05:7513][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 11:52:35:590][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 8596 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 11:52:35:591][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 11:52:36:1598][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 11:52:36:1792][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 11:52:37:2131][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.947 seconds (JVM running for 3.067)
-[2021-08-17 11:54:32:590][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 1236 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 11:54:32:593][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 11:54:39:124031][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 11:59:19:404040][http-nio-8088-exec-2] INFO n.l.central.web.ProductController - 리스트 뿌리기
-[2021-08-17 12:07:46:586][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 1076 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:07:46:588][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:07:47:1593][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:07:47:1785][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:08:10:579][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 17944 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:08:10:582][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:08:11:1573][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:08:12:1763][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:08:12:2102][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.926 seconds (JVM running for 3.028)
-[2021-08-17 12:09:06:55967][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 12:16:41:586][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 5716 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:16:41:588][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:16:42:1600][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:16:43:1793][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:16:43:2141][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.965 seconds (JVM running for 3.072)
-[2021-08-17 12:16:49:7746][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 12:22:45:364693][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 5716 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:22:45:364693][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:22:46:364933][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:22:46:364959][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:22:46:365084][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.424 seconds (JVM running for 366.015)
-[2021-08-17 12:22:59:589][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16896 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:22:59:591][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:23:00:1626][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:23:00:1821][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:23:01:2180][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.997 seconds (JVM running for 3.112)
-[2021-08-17 12:23:11:12513][http-nio-8088-exec-1] INFO n.l.central.web.MemberController - 리스트 뿌리기
-[2021-08-17 12:23:50:51288][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16896 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:23:50:51288][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:23:50:51535][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:23:50:51561][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:23:50:51662][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.408 seconds (JVM running for 52.594)
-[2021-08-17 12:24:05:65947][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16896 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:24:05:65948][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:24:05:66159][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:24:05:66183][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:24:05:66279][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.361 seconds (JVM running for 67.211)
-[2021-08-17 12:24:47:108579][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 12:28:52:353230][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16896 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:28:52:353231][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:28:58:592][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 18800 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:28:58:594][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:28:59:1607][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:28:59:1798][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:29:00:2158][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.976 seconds (JVM running for 3.084)
-[2021-08-17 12:29:17:18985][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 12:30:35:97342][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 18800 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:30:35:97343][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:30:41:574][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 18584 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:30:41:576][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:30:42:1574][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:30:42:1766][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:30:42:2107][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.927 seconds (JVM running for 3.045)
-[2021-08-17 12:30:55:14239][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 12:32:20:602][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 17308 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:32:20:605][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:32:22:1637][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:32:22:1832][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:32:22:2188][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 2.004 seconds (JVM running for 3.119)
-[2021-08-17 12:32:42:21647][http-nio-8088-exec-1] INFO n.l.central.web.MemberController - 리스트 뿌리기
-[2021-08-17 12:34:28:127956][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 17308 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:34:28:127956][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:34:36:600][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 19192 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 12:34:36:603][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 12:34:37:1637][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 12:34:37:1835][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 12:34:37:2191][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 2.005 seconds (JVM running for 3.129)
-[2021-08-17 12:34:45:9493][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 13:26:30:591][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16664 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 13:26:30:593][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 13:26:31:1612][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 13:26:31:1810][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 13:26:31:2165][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.983 seconds (JVM running for 3.105)
-[2021-08-17 13:27:02:33188][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 13:34:44:589][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 4772 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 13:34:44:592][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 13:34:46:1610][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 13:34:46:1804][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 13:34:46:2150][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.965 seconds (JVM running for 3.097)
-[2021-08-17 13:34:53:9445][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 13:35:19:583][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 18288 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 13:35:19:584][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 13:35:20:1594][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 13:35:21:1779][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 13:35:21:2131][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.955 seconds (JVM running for 3.061)
-[2021-08-17 13:35:27:7804][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 13:37:17:614][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 17768 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 13:37:17:615][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 13:37:18:1638][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 13:37:18:1825][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 13:37:19:2187][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.997 seconds (JVM running for 3.117)
-[2021-08-17 13:37:23:6320][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 13:38:15:586][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 20900 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 13:38:15:589][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 13:38:16:1606][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 13:38:17:1804][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 13:38:17:2154][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.972 seconds (JVM running for 3.085)
-[2021-08-17 13:38:20:5468][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 13:41:34:608][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 21040 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 13:41:34:611][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 13:41:35:1640][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 13:41:36:1839][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 13:41:36:2194][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.993 seconds (JVM running for 3.13)
-[2021-08-17 13:41:41:7113][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 13:42:20:585][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 21744 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 13:42:20:587][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 13:42:21:1583][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 13:42:21:1776][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 13:42:21:2121][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.942 seconds (JVM running for 3.047)
-[2021-08-17 13:42:25:5998][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 13:44:36:581][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 21044 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 13:44:36:583][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 13:44:37:1590][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 13:44:37:1782][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 13:44:38:2124][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.947 seconds (JVM running for 3.054)
-[2021-08-17 13:44:41:5330][http-nio-8088-exec-1] INFO n.l.central.web.TestController - oracle 원격접속
-[2021-08-17 13:48:21:225685][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 21044 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 13:48:21:225686][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 13:48:22:225936][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
-[2021-08-17 13:48:22:225963][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
-[2021-08-17 13:48:22:226064][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.414 seconds (JVM running for 226.995)
-[2021-08-17 16:16:26:581][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 14412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 16:16:26:583][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 16:17:49:589][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 21936 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 16:17:49:592][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 16:25:32:592][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16760 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 16:25:32:594][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 16:46:29:587][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 17080 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 16:46:29:590][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 16:47:47:578][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 21220 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 16:47:47:581][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 16:48:16:583][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 22108 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 16:48:16:586][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 16:50:56:583][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 17784 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 16:50:56:586][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 16:50:56:612][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:724][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:725][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:725][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:726][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:726][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:726][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:726][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:726][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:726][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:727][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:727][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:727][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:980][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:991][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:991][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:994][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:994][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1006][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1008][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1009][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1010][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1014][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1020][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1022][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1024][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1031][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1032][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1059][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1064][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1064][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1064][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1067][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1070][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1072][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1074][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1076][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1076][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1077][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1077][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1078][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1082][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1083][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1084][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1085][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1085][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1086][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1088][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1090][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1091][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1091][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1094][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1097][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1099][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1099][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1103][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1103][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1104][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1108][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1109][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1110][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1111][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1113][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1117][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1118][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1123][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1126][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1126][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1126][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1129][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1133][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1136][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:50:56:1138][restartedMain] INFO n.l.central.config.CustomBeanNaming - bean naming 짓기
-[2021-08-17 16:52:42:587][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 12016 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
-[2021-08-17 16:52:42:589][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
-[2021-08-17 16:52:42:728][restartedMain] INFO n.l.central.config.CustomBeanNaming - @service bean naming
-[2021-08-17 16:52:42:728][restartedMain] INFO n.l.central.config.CustomBeanNaming - @service bean naming
-[2021-08-17 16:52:42:728][restartedMain] INFO n.l.central.config.CustomBeanNaming - @service bean naming
-[2021-08-17 16:52:42:728][restartedMain] INFO n.l.central.config.CustomBeanNaming - @service bean naming
-[2021-08-17 16:52:42:728][restartedMain] INFO n.l.central.config.CustomBeanNaming - @service bean naming
-[2021-08-17 16:52:42:728][restartedMain] INFO n.l.central.config.CustomBeanNaming - @service bean naming
+[2021-08-18 09:08:59:677][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 21552 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 09:08:59:683][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 09:10:14:589][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 27532 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 09:10:14:590][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 09:10:15:1678][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 09:10:15:1958][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 09:10:16:2344][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 2.164 seconds (JVM running for 3.288)
+[2021-08-18 09:54:01:577][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 16404 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 09:54:01:578][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 09:54:18:584][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 24448 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 09:54:18:585][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 09:54:19:1614][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 09:54:19:1828][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 09:54:19:2190][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 2.011 seconds (JVM running for 3.126)
+[2021-08-18 09:55:17:576][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 09:55:17:578][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 09:55:18:1596][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 09:55:18:1811][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 09:55:19:2165][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 1.987 seconds (JVM running for 3.111)
+[2021-08-18 09:56:14:57552][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 09:56:14:57552][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 09:56:14:57795][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 09:56:14:57836][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 09:56:14:57941][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.425 seconds (JVM running for 58.888)
+[2021-08-18 09:57:14:117444][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 09:57:14:117444][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 09:57:14:117668][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 09:57:14:117705][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 09:57:14:117802][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.386 seconds (JVM running for 118.748)
+[2021-08-18 09:57:45:148582][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 09:57:45:148582][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 09:57:45:148799][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 09:57:45:148834][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 09:57:45:148928][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.373 seconds (JVM running for 149.874)
+[2021-08-18 10:01:05:348149][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 10:01:05:348149][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 10:01:05:348368][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 10:01:05:348400][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 10:01:05:348491][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.371 seconds (JVM running for 349.436)
+[2021-08-18 10:02:33:436720][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 10:02:33:436721][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 10:02:33:436936][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 10:02:33:436968][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 10:02:34:437056][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.362 seconds (JVM running for 438.002)
+[2021-08-18 10:02:54:457584][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 10:02:54:457584][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 10:02:54:457798][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 10:02:54:457828][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 10:02:54:457917][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.36 seconds (JVM running for 458.863)
+[2021-08-18 10:03:22:485599][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 10:03:22:485599][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 10:03:22:485811][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 10:03:22:485843][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 10:03:22:485933][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.362 seconds (JVM running for 486.879)
+[2021-08-18 10:03:37:500279][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 10:03:37:500279][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 10:03:37:500493][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 10:03:37:500527][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 10:03:37:500620][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.364 seconds (JVM running for 501.566)
+[2021-08-18 10:06:53:696560][restartedMain] INFO n.l.central.CentralApplication - Starting CentralApplication using Java 11.0.12 on DESKTOP-36LPDNR with PID 412 (C:\kangminkyu\stswork\central\target\classes started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 10:06:53:696560][restartedMain] INFO n.l.central.CentralApplication - The following profiles are active: dev
+[2021-08-18 10:06:53:696775][restartedMain] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 10:06:53:696807][restartedMain] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 10:06:53:696892][restartedMain] INFO n.l.central.CentralApplication - Started CentralApplication in 0.358 seconds (JVM running for 697.838)
+[2021-08-18 10:36:12:855][main] INFO n.l.central.utills.BeanListCheck - Starting BeanListCheck using Java 11.0.12 on DESKTOP-36LPDNR with PID 21816 (started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 10:36:12:856][main] INFO n.l.central.utills.BeanListCheck - The following profiles are active: dev
+[2021-08-18 10:36:14:2866][main] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 10:36:14:3212][main] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 10:36:15:3929][main] INFO n.l.central.utills.BeanListCheck - Started BeanListCheck in 3.552 seconds (JVM running for 4.496)
+[2021-08-18 10:36:15:4333][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.annotation.ConfigurationClassPostProcessor
+[2021-08-18 10:36:15:4333][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor
+[2021-08-18 10:36:15:4333][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.annotation.CommonAnnotationBeanPostProcessor
+[2021-08-18 10:36:15:4334][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.event.EventListenerMethodProcessor
+[2021-08-18 10:36:15:4334][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.event.DefaultEventListenerFactory
+[2021-08-18 10:36:15:4334][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.test.mock.mockito.MockitoPostProcessor$SpyPostProcessor
+[2021-08-18 10:36:15:4334][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.test.mock.mockito.MockitoPostProcessor
+[2021-08-18 10:36:15:4334][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer$TestRestTemplateRegistrar
+[2021-08-18 10:36:15:4334][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.CentralApplication$$EnhancerBySpringCGLIB$$3d287086
+[2021-08-18 10:36:15:4334][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory
+[2021-08-18 10:36:15:4334][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.config.db.MysqlConfig$$EnhancerBySpringCGLIB$$25fda0a3
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.config.db.OracleConfig$$EnhancerBySpringCGLIB$$a530b52f
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.handler.GlobalExceptionHandler
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.service.mysql.MeasureDataService
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.service.mysql.PatientService
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.service.mysql.ProductService$$EnhancerBySpringCGLIB$$1df6849f
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.service.mysql.SessionDataService
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.service.oracle.MeasureDataService
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.service.oracle.PatientService
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.web.ProductController
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.web.TestController
+[2021-08-18 10:36:15:4335][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.zaxxer.hikari.HikariDataSource
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.apache.ibatis.session.defaults.DefaultSqlSessionFactory
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.mybatis.spring.SqlSessionTemplate
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.jdbc.datasource.DataSourceTransactionManager
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.mybatis.spring.mapper.MapperScannerConfigurer
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.zaxxer.hikari.HikariDataSource
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.apache.ibatis.session.defaults.DefaultSqlSessionFactory
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.mybatis.spring.SqlSessionTemplate
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.jdbc.datasource.DataSourceTransactionManager
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.mybatis.spring.mapper.MapperScannerConfigurer
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.AutoConfigurationPackages$BasePackages
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration
+[2021-08-18 10:36:16:4336][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.support.PropertySourcesPlaceholderConfigurer
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.websocket.servlet.TomcatWebSocketServletWebServerCustomizer
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.TomcatServletWebServerFactoryCustomizer
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.context.properties.ConfigurationPropertiesBinder$Factory
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.context.properties.ConfigurationPropertiesBinder
+[2021-08-18 10:36:16:4337][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.context.properties.BoundConfigurationProperties
+[2021-08-18 10:36:16:4338][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.validation.beanvalidation.MethodValidationExcludeFilter$$Lambda$711/0x00000008004fec40
+[2021-08-18 10:36:16:4338][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.ServerProperties
+[2021-08-18 10:36:16:4338][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor
+[2021-08-18 10:36:16:4338][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.web.server.ErrorPageRegistrarBeanPostProcessor
+[2021-08-18 10:36:16:4338][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration$DispatcherServletConfiguration
+[2021-08-18 10:36:16:4338][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.DispatcherServlet
+[2021-08-18 10:36:16:4338][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties
+[2021-08-18 10:36:16:4338][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.DispatcherServletRegistrationBean
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.task.TaskExecutorBuilder
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.task.TaskExecutionProperties
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.validation.beanvalidation.LocalValidatorFactoryBean
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.validation.beanvalidation.FilteredMethodValidationPostProcessor
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration
+[2021-08-18 10:36:16:4339][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$StaticView
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.view.BeanNameViewResolver
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.DefaultErrorViewResolver
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.ResourceProperties
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.WebProperties
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.web.servlet.error.DefaultErrorAttributes
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$ErrorPageCustomizer
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$PreserveErrorControllerTargetClassPostProcessor
+[2021-08-18 10:36:16:4340][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration
+[2021-08-18 10:36:16:4341][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter
+[2021-08-18 10:36:16:4341][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+[2021-08-18 10:36:16:4341][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping
+[2021-08-18 10:36:16:4341][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver
+[2021-08-18 10:36:16:4341][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.theme.FixedThemeResolver
+[2021-08-18 10:36:16:4341][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.support.SessionFlashMapManager
+[2021-08-18 10:36:16:4341][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.format.WebConversionService
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.validation.ValidatorAdapter
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.accept.ContentNegotiationManager
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.util.pattern.PathPatternParser
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.util.UrlPathHelper
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.util.AntPathMatcher
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.beans.factory.support.NullBean
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.function.support.RouterFunctionMapping
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.handler.SimpleUrlHandlerMapping
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.resource.ResourceUrlProvider
+[2021-08-18 10:36:16:4342][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.beans.factory.support.NullBean
+[2021-08-18 10:36:16:4343][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.function.support.HandlerFunctionAdapter
+[2021-08-18 10:36:16:4343][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.method.support.CompositeUriComponentsContributor
+[2021-08-18 10:36:16:4343][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter
+[2021-08-18 10:36:16:4343][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter
+[2021-08-18 10:36:16:4343][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.handler.HandlerExceptionResolverComposite
+[2021-08-18 10:36:16:4343][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.view.ViewResolverComposite
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.handler.HandlerMappingIntrospector
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.view.InternalResourceViewResolver
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.servlet.view.ContentNegotiatingViewResolver
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.web.servlet.filter.OrderedRequestContextFilter
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.web.servlet.filter.OrderedFormContentFilter
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration$$Lambda$1004/0x00000008006ac440
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration
+[2021-08-18 10:36:16:4351][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.DataSourceProperties
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.mybatis.spring.boot.autoconfigure.MybatisLanguageDriverAutoConfiguration$$EnhancerBySpringCGLIB$$233d4ec2
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$78994782
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.mybatis.spring.boot.autoconfigure.MybatisProperties
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$ClassProxyingConfiguration
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$705/0x00000008004fb440
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.aop.AopAutoConfiguration
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.availability.ApplicationAvailabilityBean
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration$StandardJackson2ObjectMapperBuilderCustomizer
+[2021-08-18 10:36:16:4352][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonProperties
+[2021-08-18 10:36:16:4353][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration
+[2021-08-18 10:36:16:4355][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.http.converter.json.Jackson2ObjectMapperBuilder
+[2021-08-18 10:36:16:4355][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$ParameterNamesModuleConfiguration
+[2021-08-18 10:36:16:4355][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.fasterxml.jackson.module.paramnames.ParameterNamesModule
+[2021-08-18 10:36:16:4355][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration
+[2021-08-18 10:36:16:4355][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.fasterxml.jackson.databind.ObjectMapper
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.jackson.JsonComponentModule
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.support.DefaultLifecycleProcessor
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.context.LifecycleProperties
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslationAutoConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.http.converter.StringHttpMessageConverter
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.http.JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.http.JacksonHttpMessageConvertersConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.http.HttpMessageConverters
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.info.ProjectInfoProperties
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.JdbcTemplateConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.jdbc.core.JdbcTemplate
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.NamedParameterJdbcTemplateConfiguration
+[2021-08-18 10:36:16:4356][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.JdbcProperties
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.task.ScheduledBeanLazyInitializationExcludeFilter
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.task.TaskSchedulerBuilder
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.task.TaskSchedulingProperties
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration$JdbcTransactionManagerConfiguration
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.transaction.interceptor.BeanFactoryTransactionAttributeSourceAdvisor
+[2021-08-18 10:36:16:4357][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.transaction.annotation.AnnotationTransactionAttributeSource
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.transaction.interceptor.TransactionInterceptor
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.transaction.event.TransactionalEventListenerFactory
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$EnableTransactionManagementConfiguration$CglibAutoProxyConfiguration
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.aop.framework.autoproxy.InfrastructureAdvisorAutoProxyCreator
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$EnableTransactionManagementConfiguration
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$TransactionTemplateConfiguration
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.transaction.support.TransactionTemplate
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizers
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.transaction.TransactionProperties
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.client.RestTemplateAutoConfiguration
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.client.RestTemplateBuilderConfigurer
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.web.client.RestTemplateBuilder
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.embedded.TomcatWebServerFactoryCustomizer
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.web.servlet.filter.OrderedCharacterEncodingFilter
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration$LocaleCharsetMappingsCustomizer
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: javax.servlet.MultipartConfigElement
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.web.multipart.support.StandardServletMultipartResolver
+[2021-08-18 10:36:16:4358][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.MultipartProperties
+[2021-08-18 10:36:16:4360][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.test.web.client.TestRestTemplate
+[2021-08-18 10:36:16:4360][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.sun.proxy.$Proxy75
+[2021-08-18 10:36:16:4360][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.sun.proxy.$Proxy76
+[2021-08-18 10:36:16:4360][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.sun.proxy.$Proxy78
+[2021-08-18 10:36:16:4360][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.sun.proxy.$Proxy79
+[2021-08-18 10:36:16:4360][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.sun.proxy.$Proxy80
+[2021-08-18 10:36:16:4360][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.sun.proxy.$Proxy81
+[2021-08-18 10:36:16:4360][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: com.sun.proxy.$Proxy84
+[2021-08-18 10:38:28:889][main] INFO n.l.central.utills.BeanListCheck - Starting BeanListCheck using Java 11.0.12 on DESKTOP-36LPDNR with PID 25264 (started by songn in C:\kangminkyu\stswork\central)
+[2021-08-18 10:38:28:889][main] INFO n.l.central.utills.BeanListCheck - The following profiles are active: dev
+[2021-08-18 10:38:30:3001][main] INFO n.l.central.config.db.MysqlConfig - yml 설정으로 Mysql Datasource set
+[2021-08-18 10:38:31:3344][main] INFO n.l.central.config.db.OracleConfig - oracle datasource yml 설정
+[2021-08-18 10:38:31:4076][main] INFO n.l.central.utills.BeanListCheck - Started BeanListCheck in 3.688 seconds (JVM running for 4.708)
+[2021-08-18 10:38:32:4446][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.annotation.internalConfigurationAnnotationProcessor
+[2021-08-18 10:38:32:4447][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.annotation.internalAutowiredAnnotationProcessor
+[2021-08-18 10:38:32:4447][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.annotation.internalCommonAnnotationProcessor
+[2021-08-18 10:38:32:4447][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.event.internalEventListenerProcessor
+[2021-08-18 10:38:32:4447][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.context.event.internalEventListenerFactory
+[2021-08-18 10:38:32:4447][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.test.mock.mockito.MockitoPostProcessor$SpyPostProcessor
+[2021-08-18 10:38:32:4447][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.test.mock.mockito.MockitoPostProcessor
+[2021-08-18 10:38:32:4448][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer$TestRestTemplateRegistrar
+[2021-08-18 10:38:32:4448][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: centralApplication
+[2021-08-18 10:38:32:4448][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory
+[2021-08-18 10:38:32:4448][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mysqlConfig
+[2021-08-18 10:38:32:4448][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: oracleConfig
+[2021-08-18 10:38:32:4448][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: globalExceptionHandler
+[2021-08-18 10:38:32:4448][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mysqlMeasureDataService
+[2021-08-18 10:38:32:4448][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mysqlPatientService
+[2021-08-18 10:38:32:4448][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: productService
+[2021-08-18 10:38:32:4448][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: sessionDataService
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: measureDataService
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: patientService
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: productController
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: testController
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: MysqlDataSource
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: MySqlSessionFactory
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: MysqlSessionTemplate
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: MysqlTransactionManager
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.config.db.MysqlConfig#MapperScannerRegistrar#0
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: OracleDataSource
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: OracleSqlSessionFactory
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: OracleSessionTemplate
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: OracleTransactionManager
+[2021-08-18 10:38:32:4449][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: net.lunalabs.central.config.db.OracleConfig#MapperScannerRegistrar#0
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.AutoConfigurationPackages
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: propertySourcesPlaceholderConfigurer
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: websocketServletWebServerCustomizer
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryConfiguration$EmbeddedTomcat
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: tomcatServletWebServerFactory
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: servletWebServerFactoryCustomizer
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: tomcatServletWebServerFactoryCustomizer
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.context.internalConfigurationPropertiesBinderFactory
+[2021-08-18 10:38:32:4450][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.context.internalConfigurationPropertiesBinder
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.context.properties.BoundConfigurationProperties
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.context.properties.EnableConfigurationPropertiesRegistrar.methodValidationExcludeFilter
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: server-org.springframework.boot.autoconfigure.web.ServerProperties
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: webServerFactoryCustomizerBeanPostProcessor
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: errorPageRegistrarBeanPostProcessor
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration$DispatcherServletConfiguration
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: dispatcherServlet
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.mvc-org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: dispatcherServletRegistration
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration
+[2021-08-18 10:38:32:4451][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: taskExecutorBuilder
+[2021-08-18 10:38:32:4452][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: applicationTaskExecutor
+[2021-08-18 10:38:32:4452][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties
+[2021-08-18 10:38:32:4452][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration
+[2021-08-18 10:38:32:4452][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: defaultValidator
+[2021-08-18 10:38:32:4453][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: methodValidationPostProcessor
+[2021-08-18 10:38:32:4453][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration
+[2021-08-18 10:38:32:4453][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: error
+[2021-08-18 10:38:32:4453][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: beanNameViewResolver
+[2021-08-18 10:38:32:4453][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration
+[2021-08-18 10:38:32:4453][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: conventionErrorViewResolver
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.resources-org.springframework.boot.autoconfigure.web.ResourceProperties
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.web-org.springframework.boot.autoconfigure.web.WebProperties
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: errorAttributes
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: basicErrorController
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: errorPageCustomizer
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: preserveErrorControllerTargetClassPostProcessor
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: requestMappingHandlerAdapter
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: requestMappingHandlerMapping
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: welcomePageHandlerMapping
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: localeResolver
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: themeResolver
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: flashMapManager
+[2021-08-18 10:38:32:4454][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mvcConversionService
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mvcValidator
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mvcContentNegotiationManager
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mvcPatternParser
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mvcUrlPathHelper
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mvcPathMatcher
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: viewControllerHandlerMapping
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: beanNameHandlerMapping
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: routerFunctionMapping
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: resourceHandlerMapping
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mvcResourceUrlProvider
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: defaultServletHandlerMapping
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: handlerFunctionAdapter
+[2021-08-18 10:38:32:4455][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mvcUriComponentsContributor
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: httpRequestHandlerAdapter
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: simpleControllerHandlerAdapter
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: handlerExceptionResolver
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mvcViewResolver
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mvcHandlerMappingIntrospector
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: viewNameTranslator
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: defaultViewResolver
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: viewResolver
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: requestContextFilter
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: formContentFilter
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: hikariPoolDataSourceMetadataProvider
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.mybatis.spring.boot.autoconfigure.MybatisLanguageDriverAutoConfiguration
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties
+[2021-08-18 10:38:32:4456][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$ClassProxyingConfiguration
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: forceAutoProxyCreatorToUseClassProxying
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.aop.AopAutoConfiguration
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: applicationAvailability
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: standardJacksonObjectMapperBuilderCustomizer
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.jackson-org.springframework.boot.autoconfigure.jackson.JacksonProperties
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: jacksonObjectMapperBuilder
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$ParameterNamesModuleConfiguration
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: parameterNamesModule
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: jacksonObjectMapper
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: jsonComponentModule
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: lifecycleProcessor
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties
+[2021-08-18 10:38:32:4457][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslationAutoConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: persistenceExceptionTranslationPostProcessor
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: stringHttpMessageConverter
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.http.JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mappingJackson2HttpMessageConverter
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.http.JacksonHttpMessageConvertersConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: messageConverters
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.JdbcTemplateConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: jdbcTemplate
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.NamedParameterJdbcTemplateConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: namedParameterJdbcTemplate
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.jdbc-org.springframework.boot.autoconfigure.jdbc.JdbcProperties
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: dataSourceScriptDatabaseInitializer
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: scheduledBeanLazyInitializationExcludeFilter
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: taskSchedulerBuilder
+[2021-08-18 10:38:32:4458][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration$JdbcTransactionManagerConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.transaction.config.internalTransactionAdvisor
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: transactionAttributeSource
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: transactionInterceptor
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.transaction.config.internalTransactionalEventListenerFactory
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$EnableTransactionManagementConfiguration$CglibAutoProxyConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.aop.config.internalAutoProxyCreator
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$EnableTransactionManagementConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration$TransactionTemplateConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: transactionTemplate
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: platformTransactionManagerCustomizers
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.transaction-org.springframework.boot.autoconfigure.transaction.TransactionProperties
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.client.RestTemplateAutoConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: restTemplateBuilderConfigurer
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: restTemplateBuilder
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: tomcatWebServerFactoryCustomizer
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: characterEncodingFilter
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: localeCharsetMappingsCustomizer
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration
+[2021-08-18 10:38:32:4459][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: multipartConfigElement
+[2021-08-18 10:38:32:4460][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: multipartResolver
+[2021-08-18 10:38:32:4460][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties
+[2021-08-18 10:38:32:4460][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: org.springframework.boot.test.web.client.TestRestTemplate
+[2021-08-18 10:38:32:4460][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: MysqlMeasureDataMapper
+[2021-08-18 10:38:32:4460][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: mysqlPatientMapper
+[2021-08-18 10:38:32:4460][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: productMapper
+[2021-08-18 10:38:32:4460][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: sessionDataMapper
+[2021-08-18 10:38:32:4460][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: measureDataMapper
+[2021-08-18 10:38:32:4460][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: patientMapper
+[2021-08-18 10:38:32:4460][main] INFO n.l.central.utills.BeanListCheck - 등록된 beans: testMapper

@@ -7,7 +7,7 @@ import net.lunalabs.central.domain.oracle.MeasureData;
 
 
 
-@OracleConnMapper
+@OracleConnMapper("OracleMeasureDataMapper")
 public interface MeasureDataMapper {
 	
 	

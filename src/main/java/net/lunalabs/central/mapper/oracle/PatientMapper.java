@@ -5,7 +5,7 @@ import java.util.List;
 import net.lunalabs.central.config.db.OracleConnMapper;
 import net.lunalabs.central.domain.oracle.Patient;
 
-@OracleConnMapper
+@OracleConnMapper("OracleMeasureDataMapper")
 public interface PatientMapper {
 	
 	

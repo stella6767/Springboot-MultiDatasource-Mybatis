@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import net.lunalabs.central.mapper.oracle.MeasureDataMapper;
 
 @RequiredArgsConstructor
-@Service
+@Service("OracleMeasureDataService")
 public class MeasureDataService {
 
 	private final MeasureDataMapper measureDataMapper; //oracle package 안에 MAPPER, 이름이 같으니 주의

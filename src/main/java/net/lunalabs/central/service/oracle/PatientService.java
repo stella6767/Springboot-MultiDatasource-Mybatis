@@ -7,7 +7,7 @@ import net.lunalabs.central.mapper.oracle.PatientMapper;
 
 
 @RequiredArgsConstructor
-@Service
+@Service("OraclePatientService")
 public class PatientService {
 
 	private final PatientMapper patientMapper;
