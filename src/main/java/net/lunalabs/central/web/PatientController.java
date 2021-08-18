@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.lunalabs.central.domain.mysql.Patient;
 import net.lunalabs.central.service.mysql.PatientService;
+import net.lunalabs.central.web.dto.CMRespDto;
 
 
 @Slf4j
@@ -24,9 +25,9 @@ public class PatientController {
 	
 	
 	@GetMapping("/patient")
-	public List<Patient> findAll() {
+	public CMRespDto<?> findAll() {
 		
-		return patientService.findAll();
+		return new CMRespDto<>(1, "환자 더미데이터", patientService.findAll());
 		
 	}
 	
