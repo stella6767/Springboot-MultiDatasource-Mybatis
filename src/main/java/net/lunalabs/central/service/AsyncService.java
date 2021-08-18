@@ -26,6 +26,10 @@ public class AsyncService {
 	public void serverSocketThread() {
 
 		SocketChannel schn = null;
+		
+		boolean bLoop = true; //1번째 조건문
+
+		boolean isRunning = true; //2번쨰 while문 조건
 
 		logger.info("CsSocketStart!!!!!");
 		try {
@@ -36,7 +40,6 @@ public class AsyncService {
 			serverSocketChannel = ServerSocketChannel.open();
 			serverSocketChannel.socket().bind(new InetSocketAddress(5051));
 
-			boolean bLoop = true;
 
 			logger.info("CsSocketStart2!!!!!");
 
@@ -75,8 +78,9 @@ public class AsyncService {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-
-		boolean isRunning = true;
+		
+		
+		
 
 		while (isRunning) {
 

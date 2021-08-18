@@ -28,11 +28,7 @@ public class CSSocket {
 	@PostConstruct //객체가 생성된 후 바로 실행, @PreDestory 마지막 소멸 단계 때 실행
 	public void start(){
 		
-		//System.out.println("로그가 안 찍히네?");
-		
 		asyncService.serverSocketThread();				
-
-		
 		
 	}
 	
