@@ -31,11 +31,11 @@ public class PatientController {
 		
 	}
 	
-	@GetMapping("/patient2")
-	public List<net.lunalabs.central.domain.oracle.Patient> findAll2() {
-		
-		return patientService.findAll2();
-		
-	}
+//	@GetMapping("/patient2")
+//	public List<net.lunalabs.central.domain.oracle.Patient> findAll2() {
+//		
+//		return patientService.findAll2();
+//		
+//	}
 	
 }
