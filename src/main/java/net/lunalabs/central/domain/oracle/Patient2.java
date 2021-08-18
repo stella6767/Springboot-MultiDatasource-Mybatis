@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Patient {
+public class Patient2 {
 	
 	private int pid;
 	private String name;
