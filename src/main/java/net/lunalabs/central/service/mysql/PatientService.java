@@ -19,9 +19,9 @@ public class PatientService {
 	private final PatientMapper patientMapper;
 	
 	
-//	@Qualifier("OraclePatientMapper")
-//	private final net.lunalabs.central.mapper.oracle.PatientMapper patientMapper2;
-//	
+	@Qualifier("OraclePatientMapper")
+	private final net.lunalabs.central.mapper.oracle.PatientMapper patientMapper2;
+	
 	
 	@Transactional(readOnly = true)
 	public List<Patient> findAll(){	
@@ -30,12 +30,12 @@ public class PatientService {
 	}
 	
 	
-//	@Transactional(readOnly = true)
-//	public List<net.lunalabs.central.domain.oracle.Patient> findAll2(){	
-//		List<net.lunalabs.central.domain.oracle.Patient> patients = patientMapper2.findAll();	
-//		return patients;
-//	}
-//	
+	@Transactional(readOnly = true)
+	public List<net.lunalabs.central.domain.oracle.Patient> findAll2(){	
+		List<net.lunalabs.central.domain.oracle.Patient> patients = patientMapper2.findAll();	
+		return patients;
+	}
+	
 	
 	
 }
