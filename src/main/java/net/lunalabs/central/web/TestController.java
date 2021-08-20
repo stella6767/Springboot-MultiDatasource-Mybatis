@@ -45,9 +45,9 @@ public class TestController {
 	@GetMapping("/kang")
 	public CMRespDto<?> test3() {
 		
-		logger.info("젠킨스 build trigger test");
+		logger.info("젠킨스 build trigger test real last try");
 		
-		return new CMRespDto<>(1, "kkkkkkkk", null);
+		return new CMRespDto<>(1, "kkkkkkkk real last try", null);
 	}
 	
 	
