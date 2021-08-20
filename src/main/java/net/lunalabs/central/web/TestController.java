@@ -42,6 +42,15 @@ public class TestController {
 		return new CMRespDto<>(1, "jenkis github push trigger event test real", null);
 	}
 	
+	@GetMapping("/kang")
+	public CMRespDto<?> test3() {
+		
+		logger.info("젠킨스 build trigger test");
+		
+		return new CMRespDto<>(1, "why!!!!!", null);
+	}
+	
+	
 	
 	
 	@GetMapping("/log")
