@@ -37,7 +37,7 @@ public class TestController {
 	@GetMapping("/jenkins")
 	public CMRespDto<?> test2() {
 		
-		logger.info("젠킨스 build trigger test");
+		logger.info("젠킨스 build trigger test22222");
 		
 		return new CMRespDto<>(1, "jenkis github push trigger event success", null);
 	}
