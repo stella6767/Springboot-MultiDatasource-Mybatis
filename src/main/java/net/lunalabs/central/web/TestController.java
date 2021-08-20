@@ -30,7 +30,7 @@ public class TestController {
 		
 		logger.info("test 통신 성공");
 		
-		return new CMRespDto<>(1, "test 통신 성공", null);
+		return new CMRespDto<>(1, "test 통신 성공 trigger", null);
 	}
 	
 	
