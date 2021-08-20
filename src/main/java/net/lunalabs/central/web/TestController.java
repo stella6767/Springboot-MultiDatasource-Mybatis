@@ -39,7 +39,7 @@ public class TestController {
 		
 		logger.info("젠킨스 build trigger test");
 		
-		return new CMRespDto<>(1, "jenkis github push trigger event", null);
+		return new CMRespDto<>(1, "jenkis github push trigger event success", null);
 	}
 	
 	
