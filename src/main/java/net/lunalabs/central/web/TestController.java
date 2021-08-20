@@ -47,7 +47,7 @@ public class TestController {
 		
 		logger.info("젠킨스 build trigger test");
 		
-		return new CMRespDto<>(1, "why!!!!!", null);
+		return new CMRespDto<>(1, "kkkkkkkk", null);
 	}
 	
 	
