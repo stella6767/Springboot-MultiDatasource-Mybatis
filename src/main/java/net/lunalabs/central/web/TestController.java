@@ -30,7 +30,7 @@ public class TestController {
 		
 		logger.info("test 통신 성공");
 		
-		return new CMRespDto<>(1, "test 통신 성공 trigger", null);
+		return new CMRespDto<>(1, "test 통신 성공", null);
 	}
 	
 	
@@ -39,18 +39,10 @@ public class TestController {
 		
 		logger.info("젠킨스 build trigger test");
 		
-		return new CMRespDto<>(1, "jenkis github push trigger event test real", null);
+		return new CMRespDto<>(1, "jenkis github push trigger test real", null);
 	}
 	
-	@GetMapping("/kang")
-	public CMRespDto<?> test3() {
-		
-		logger.info("젠킨스 build trigger test real last try");
-		
-		return new CMRespDto<>(1, "kkkkkkkk real last try", null);
-	}
-	
-	
+
 	
 	
 	@GetMapping("/log")
