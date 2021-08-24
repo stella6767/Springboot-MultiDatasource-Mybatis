@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 public class Patient {
 	
 	private Integer pid; //protoType이니 일단 integer로 받기로
-	private String name;
-	private String gender;
-	private int height;
-	private int weight;
+	private String firstNaame;
+	private String lastName;
+	private double height;
+	private double weight;
+	//private co
 
 }

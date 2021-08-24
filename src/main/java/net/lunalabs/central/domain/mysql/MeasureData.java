@@ -23,9 +23,9 @@ public class MeasureData {
 	private String sid; //세션데이터 id
 	private String parame;
 	private String value;
-	private Timestamp startTime;
+	private String startTime; //이렇게 String으로 받아도 되나??
 	
 	//@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
-	private Timestamp endTime;
+	private String endTime;
 	
 }

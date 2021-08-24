@@ -180,19 +180,20 @@ public class AsyncService {
 
 			//요렇게 받으면 안 되고 배열로 받아야 됨.
 			List<Patient> patients = patientMapper.findByContainId(Integer.parseInt(patiendId));
-			
+			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY |"+ MParsing.parseLocalDateTime() +" ||RPI^I03|"   +  trId + "   |P|2.8\r\n" + "");			
+
 			
 			for (int i = 0; i < patients.size(); i++) { 
 				
-					
-
+//				sb.append("PID||" + patients.get(i).getPid()  +  " | " + patients.get(i).get +" | #height| #firstName| #lastname |#weight|#genderM   |||||||||||\r\n"
+//						+ "");
+				
 																
 			}	
 	
 			
-			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY |"+ MParsing.parseLocalDateTime() +" ||RPI^I03|"   +  trId + "   |P|2.8\r\n" + "");			
 
-			
+			log.info("응답파싱결과: " + sb.toString());
 
 			
 			
@@ -247,8 +248,10 @@ public class AsyncService {
 				 measureData = MeasureData.builder()
 					.parame(splitSecondArray[3])
 					.value(splitSecondArray[5])
-					.endTime(MParsing.stringToDate(startTime))
-					.startTime(MParsing.stringToDate(endTime))
+//					.endTime(MParsing.stringToDate(startTime))
+//					.startTime(MParsing.stringToDate(endTime))
+					.endTime(endTime)
+					.startTime(startTime)
 					.sid(sid)
 					.build();
 				
