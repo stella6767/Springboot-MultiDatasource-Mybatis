@@ -2,6 +2,8 @@ package net.lunalabs.central.utills;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +18,7 @@ public class MParsing {
 		log.info("파싱 전 문자열: " + from);
 
 		try {
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yy.MM.dd-hh:mm:ss.SSS");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yy.MM.dd-hh:mm:ss.SSS"); //형식을 맞춰줘야함ㄴ
 
 			Date parsedDate = dateFormat.parse(from);
 
@@ -28,6 +30,14 @@ public class MParsing {
 
 		log.info("timeStamp 초 단위이하 표기 check: " + timestamp);
 		return timestamp;
+	}
+	
+	
+	public static String parseLocalDateTime() {
+
+		String dummydate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+		return dummydate;
 	}
 
 }

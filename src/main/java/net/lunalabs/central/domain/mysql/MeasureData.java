@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
 @Data
 public class MeasureData {
 	
-	private int mid;
+	private Integer mid;
 	private String sid; //세션데이터 id
 	private String parame;
 	private String value;

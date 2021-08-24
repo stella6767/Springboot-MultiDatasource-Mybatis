@@ -28,7 +28,8 @@ public class MParsingTest {
 				+ "OBX|3|NA|rvs||83766671.93251821^83703921.63870761^83779506.46560705^83684245.16751479^83630464.05741148^83665499.37236984^83568326.53056866^83588762.55610713|mL||||||||2021-08-24 09:09:42|";
 				
 		
-		String rawData2 = "";		
+		String rawData2 = "MSH|^~\\&|BILABGW|NULL|RECEIVER|RECEIVER_FACILITY |2021-08-24 16:29:10||RQI^I02|47c65ee7-4d08-462e-bce0-2efeae4d96ba|P|2.8\r\n"
+				+ "PID||1|Patient_NHS_ID|NULL||NULL|NULL||||||||||||";		
 		
 		String[] splitEnterArray = rawData.split("[\\r\\n]+"); //1차 파싱
 		

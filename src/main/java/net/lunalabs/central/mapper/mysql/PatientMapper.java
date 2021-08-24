@@ -15,5 +15,7 @@ public interface PatientMapper {
 	public List<Patient> findAll();
 	public Patient findById(int id);	
 	
+	public List<Patient> findByContainId(int id);
+	
 
 }

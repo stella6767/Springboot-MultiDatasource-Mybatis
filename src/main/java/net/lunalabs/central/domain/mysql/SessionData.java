@@ -1,5 +1,6 @@
 package net.lunalabs.central.domain.mysql;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -11,10 +12,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class SessionData {
 	
-	private int sid;  //일단 int로
-	private int pid;
+	private String sid;  
+	private Integer pid;
 	private String deviceId;
-	private Date startTime;
-	private Date endTime;
+	private Timestamp startTime;
+	private Timestamp endTime;
 
 }

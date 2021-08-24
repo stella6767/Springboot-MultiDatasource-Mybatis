@@ -6,6 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,9 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.lunalabs.central.domain.mysql.MeasureData;
+import net.lunalabs.central.domain.mysql.Patient;
 import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
+import net.lunalabs.central.mapper.mysql.PatientMapper;
 import net.lunalabs.central.utills.MParsing;
 
 @Slf4j
@@ -30,7 +33,14 @@ public class AsyncService {
 
 	
 	@Qualifier("MysqlMeasureDataMapper")
-	private final MeasureDataMapper mapper;
+	private final MeasureDataMapper measureDataMapper;
+	
+	
+	@Qualifier("MysqlPatientMapper")
+	private final PatientMapper patientMapper;
+	
+	
+	StringBuffer sb = new StringBuffer();
 	
 	
 	@Async // 비동기로 동작하는 메소드
@@ -111,7 +121,7 @@ public class AsyncService {
 		readBuf.get(readByteArr); // 데이터 읽기
 		result = result + new String(readByteArr, Charset.forName("UTF-8")); // 어차피 여기서 계속 더하니까.
 
-		HL7DataToJson(result);
+		HL7DataToJson(result, schn);
 //         log.info("Received Data : " + charset.decode(readBuf).toString());
 		log.info("Received Data : " + result);
 
@@ -119,7 +129,7 @@ public class AsyncService {
 
 	}
 
-	public void HL7DataToJson(String HL7Data) {
+	public void HL7DataToJson(String HL7Data, SocketChannel schn) {
 
 		String[] splitEnterArray = HL7Data.split("[\\r\\n]+"); //개행문자 기준으로 1차 파싱
 		
@@ -130,12 +140,12 @@ public class AsyncService {
 		switch (trigger) {
 		case "ORU^R01":
 			
-			measureDataParsing(splitEnterArray);
+			measureDataParsing(splitEnterArray, schn);
 			
 			break;
 			
 		case "RQI^I02":
-			
+			patientSearchProceed(splitEnterArray, schn);
 			
 			break;	
 
@@ -147,7 +157,69 @@ public class AsyncService {
 	}
 	
 	
-	public void measureDataParsing(String[] array) {  //5개의 parame이 오면 5번 insert
+	//환자정보 요청 처리
+	public void patientSearchProceed(String[] array, SocketChannel schn) {
+			
+		log.info("환자정보 요청 HL7");
+		
+		String[] pidArray = array[1].split("[|]");		
+		String[] mshArray = array[0].split("[|]");		
+		
+	
+		String patiendId = pidArray[2];
+		String patietName = pidArray[5];	
+		
+		String trId = mshArray[10];
+						
+		
+		if(patietName.equals("")) {	
+			log.info("1.patiendId: "  + patiendId +  ",  patientName: " + patietName);	
+			//여기서 다시 HL7 파싱을 해서, 전달
+			
+			sb.delete(0, sb.length()); //초기화
+
+			//요렇게 받으면 안 되고 배열로 받아야 됨.
+			List<Patient> patients = patientMapper.findByContainId(Integer.parseInt(patiendId));
+			
+			
+			for (int i = 0; i < patients.size(); i++) { 
+				
+					
+
+																
+			}	
+	
+			
+			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY |"+ MParsing.parseLocalDateTime() +" ||RPI^I03|"   +  trId + "   |P|2.8\r\n" + "");			
+
+			
+
+			
+			
+			
+//	          byteBuffer = charset.encode("Hello Client");
+//	          socketChannel.write(byteBuffer);
+//	          System.out.println("Sending Success");
+			
+			
+			
+			
+		
+		}else {
+			
+			log.info("2. patiendId: "  + patiendId +  ",  patientName: " + patietName);
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	public void measureDataParsing(String[] array, SocketChannel schn) {  //5개의 parame이 오면 5번 insert
 		
 		
 		String[] obrArray = array[2].split("[|]");				
@@ -162,7 +234,6 @@ public class AsyncService {
 		log.info("endTime: " + endTime);
 		
 		
-		//이걸 한번에 저장해야 되나
 		for (int i = 3; i < array.length; i++) { //3부터 OBX param 시작
 			log.info("개행문자 기준으로 1차 파싱: " + array[i]);
 			
@@ -182,7 +253,7 @@ public class AsyncService {
 					.build();
 				
 			}
-			mapper.save(measureData);				
+			measureDataMapper.save(measureData);				
 
 															
 		}	

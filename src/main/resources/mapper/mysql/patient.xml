@@ -2,29 +2,27 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper
-	namespace="net.lunalabs.central.mapper.mysql.PatientMapper">
-	
-	
+<mapper namespace="net.lunalabs.central.mapper.mysql.PatientMapper">
+
+
 	<!-- Table 대소문자 구분함!! -->
-	
-<!-- 	<insert id="save">
-		INSERT INTO MeasureData(name, code)
-		VALUES(#{name},#{code})
-	</insert> -->
+
+	<!-- <insert id="save"> INSERT INTO MeasureData(name, code) VALUES(#{name},#{code}) </insert> -->
 
 	<delete id="deleteById">
 		DELETE FROM patient WHERE pid = #{id}
 	</delete>
 
-<!-- 	<update id="update">
-		UPDATE MeasureData SET name=#{name}, code=#{code} WHERE
-		mid = #{id}
-	</update> -->
-	
-	
-	<select id="findAll"
-		resultType="net.lunalabs.central.domain.mysql.Patient">
+	<!-- <update id="update"> UPDATE MeasureData SET name=#{name}, code=#{code} WHERE mid = #{id} </update> -->
+
+	<select id="findByContainId" resultType="net.lunalabs.central.domain.mysql.Patient">
+		<![CDATA[
+		select * from patient where pid LIKE '%${id}%' 
+		]]>
+	</select>
+
+
+	<select id="findAll" resultType="net.lunalabs.central.domain.mysql.Patient">
 		<![CDATA[
 		select * from patient order by pid desc 
 		]]>
@@ -32,13 +30,12 @@
 
 
 
-	<select id="findById"
-		resultType="net.lunalabs.central.domain.mysql.Patient">
+	<select id="findById" resultType="net.lunalabs.central.domain.mysql.Patient">
 		<![CDATA[
 		select * from patient where pid=#{id} 
 		]]>
 	</select>
-	
+
 
 
 
