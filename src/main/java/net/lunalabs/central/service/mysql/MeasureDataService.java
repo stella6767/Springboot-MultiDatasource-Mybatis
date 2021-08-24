@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import net.lunalabs.central.domain.mysql.MeasureData;
@@ -37,5 +38,15 @@ public class MeasureDataService {
 		return mapper.findAll();
 	}
 
+	
+	@Transactional
+	public void save(MeasureData measureData){
+		
+		mapper.save(measureData);
+		
+	}
+	
+	
+	
 	
 }

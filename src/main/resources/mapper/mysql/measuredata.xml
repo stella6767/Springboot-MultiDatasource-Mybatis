@@ -5,10 +5,10 @@
 <mapper
 	namespace="net.lunalabs.central.mapper.mysql.MeasureDataMapper">
 	
-<!-- 	<insert id="save">
-		INSERT INTO MeasureData(name, code)
-		VALUES(#{name},#{code})
-	</insert> -->
+	<insert id="save">
+		INSERT INTO MeasureData(sid, parame, value, startTime, endTime)
+		VALUES(#{sid},#{parame}, #{value}, #{startTime}, #{endTime})
+	</insert>
 
 	<delete id="deleteById">
 		DELETE FROM MeasureData WHERE mid = #{id}
