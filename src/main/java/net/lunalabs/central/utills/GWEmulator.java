@@ -12,23 +12,23 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
 import lombok.RequiredArgsConstructor;
-import net.lunalabs.central.service.AsyncService;
+import net.lunalabs.central.service.GWSocketService;
 
 
 @RequiredArgsConstructor
 @Configuration 
-public class CSSocket {
+public class GWEmulator {
 
 
-	private static final Logger logger = LoggerFactory.getLogger(CSSocket.class);
+	private static final Logger logger = LoggerFactory.getLogger(GWEmulator.class);
 
-	private final AsyncService asyncService;
+	private final GWSocketService gWSocketService;
 
 	
 	@PostConstruct //객체가 생성된 후 바로 실행, @PreDestory 마지막 소멸 단계 때 실행
 	public void start(){
 		
-		asyncService.csSocketStart();				
+		gWSocketService.csSocketStart();				
 		
 	}
 	

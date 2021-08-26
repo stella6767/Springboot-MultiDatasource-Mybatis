@@ -1,7 +1,6 @@
 package net.lunalabs.central.service;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
@@ -27,10 +26,12 @@ import net.lunalabs.central.utills.MParsing;
 @RequiredArgsConstructor
 @EnableAsync
 @Service
-public class AsyncService {
+public class SocketThreadService {
 
-	private static final Logger logger = LoggerFactory.getLogger(AsyncService.class);
+	
+	private static final Logger logger = LoggerFactory.getLogger(SocketThreadService.class);
 
+	
 	@Qualifier("MysqlMeasureDataMapper")
 	private final MeasureDataMapper measureDataMapper;
 
@@ -40,69 +41,17 @@ public class AsyncService {
 	StringBuffer sb = new StringBuffer();
 	Charset charset = Charset.forName("UTF-8");
 
+	
+	@Async
+	public void serverSocketThread(ServerSocketChannel serverSocketChannel) throws IOException {
 
-	@Async // 비동기로 동작하는 메소드
-	public void csSocketStart() {
+		SocketChannel schn = null;
+		schn = serverSocketChannel.accept(); // 이 부분에서 연결이 될때까지 블로킹
+		schn.configureBlocking(true); // 블록킹 방식
 
-		logger.info("CsSocketStart!!!!!");
-
-		try {
-
-			ServerSocketChannel serverSocketChannel = null;
-			SocketChannel socketChannel = null;
-
-			serverSocketChannel = ServerSocketChannel.open();
-			serverSocketChannel.bind(new InetSocketAddress(5051)); // socket().
-
-			boolean bLoop = true;
-
-			logger.info("CsSocketStart2!!!!!");
-
-			while (bLoop) {
-				logger.info("CsSocketStart3!!!!!");
-
-				try {
-					logger.info("CsSocketStart4!!!!!");
-
-					socketChannel = serverSocketChannel.accept(); // 이 부분에서 연결이 될때까지 블로킹
-
-					socketChannel.configureBlocking(true); // 블록킹 방식
-
-					logger.info("[ESMLC Listen[" + "] Socket Accept EsmlcIfWorkThread Start");
-					serverSocketThread(socketChannel);
-
-				} catch (Exception e) {
-					//logger.debug("AsynchronousCloseException 터짐");
-					//socketChannel.close();
-
-					e.printStackTrace();
-					try {
-						Thread.sleep(5000);
-					} catch (InterruptedException e1) {
-						e1.printStackTrace();
-					}
-				}
-
-				try {
-					Thread.sleep(50);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-
-	}
-
-	// Socket으로 단순히 HL7 데이터 읽기
-	public void serverSocketThread(SocketChannel schn) throws IOException {
-
-		logger.info("read socket data");
+		logger.info("[ESMLC Listen[" + "] Socket Accept EsmlcIfWorkThread Start");
+		
+		log.info("read socket data");
 
 		String result = "";
 
@@ -121,9 +70,12 @@ public class AsyncService {
 //         log.info("Received Data : " + charset.decode(readBuf).toString());
 		log.info("Received Data : " + result);
 
-		// schn.close();
+		schn.close();
 
 	}
+	
+	
+
 
 	public void HL7DataFirstParse(String HL7Data, SocketChannel schn) {
 
@@ -308,5 +260,5 @@ public class AsyncService {
 //		}
 //		
 //	}
-
+	
 }
