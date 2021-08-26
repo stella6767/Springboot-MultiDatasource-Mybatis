@@ -2,26 +2,28 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper
-	namespace="net.lunalabs.central.mapper.mysql.SessionDataMapper">
-	
-<!-- 	<insert id="save">
-		INSERT INTO MeasureData(name, code)
-		VALUES(#{name},#{code})
-	</insert> -->
+<mapper namespace="net.lunalabs.central.mapper.mysql.SessionDataMapper">
+
+	<insert id="save">
+		INSERT INTO sessionData(sid, pid, deviceId, startTime, endTime)
+		VALUES(#{sid},#{pid}, #{deviceId}, #{startTime}, #{endTime})
+	</insert>
 
 	<delete id="deleteById">
 		DELETE FROM sessionData WHERE sid = #{id}
 	</delete>
 
-<!-- 	<update id="update">
-		UPDATE MeasureData SET name=#{name}, code=#{code} WHERE
-		mid = #{id}
-	</update> -->
-	
-	
-	<select id="findAll"
-		resultType="net.lunalabs.central.domain.mysql.sessiondata.SessionData">
+	<update id="updateStartTime">
+		UPDATE sessionData SET startTime=#{startTime} WHERE
+		sid = #{sid}
+	</update>
+
+	<update id="updateEndTime">
+		UPDATE sessionData SET endTime=#{endTime} WHERE
+		sid = #{sid}
+	</update>
+
+	<select id="findAll" resultType="net.lunalabs.central.domain.mysql.sessiondata.SessionData">
 		<![CDATA[
 		select * from sessionData order by sid desc 
 		]]>
@@ -29,13 +31,12 @@
 
 
 
-	<select id="findById"
-		resultType="net.lunalabs.central.domain.mysql.sessiondata.SessionData">
+	<select id="findById" resultType="net.lunalabs.central.domain.mysql.sessiondata.SessionData">
 		<![CDATA[
 		select * from sessionData where sid=#{id} 
 		]]>
 	</select>
-	
+
 
 
 

@@ -8,11 +8,12 @@ import net.lunalabs.central.domain.mysql.sessiondata.SessionData;
 @MysqlConnMapper
 public interface SessionDataMapper {
 	
-	//public void save(SessionData sessionData); 
-	public void deleteById(int id);
-	//public void update(SessionData sessionData);
+	public void save(SessionData sessionData); 
+	public void deleteById(String id);
+	public void updateStartTime(SessionData sessionData);
+	public void updateEndTime(SessionData sessionData);
 	public List<SessionData> findAll();
-	public SessionData findById(int id);	
+	public SessionData findById(String id);	
 	
 
 }

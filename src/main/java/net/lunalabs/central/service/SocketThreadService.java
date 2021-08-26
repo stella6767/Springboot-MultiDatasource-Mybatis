@@ -7,6 +7,7 @@ import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,12 +15,18 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
 import net.lunalabs.central.domain.mysql.patient.Patient;
+import net.lunalabs.central.domain.mysql.sessiondata.SessionData;
 import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
+import net.lunalabs.central.mapper.mysql.SessionDataMapper;
 import net.lunalabs.central.utills.MParsing;
 
 @Slf4j
@@ -37,10 +44,14 @@ public class SocketThreadService {
 
 	@Qualifier("MysqlPatientMapper")
 	private final PatientMapper patientMapper;
+	
+	private final SessionDataMapper sessionDataMapper;
 
 	StringBuffer sb = new StringBuffer();
 	Charset charset = Charset.forName("UTF-8");
 
+	
+	ObjectMapper objectMapper = new ObjectMapper();
 	
 	@Async
 	public void serverSocketThread(ServerSocketChannel serverSocketChannel, SocketChannel schn) throws IOException {
@@ -81,7 +92,11 @@ public class SocketThreadService {
 		String[] splitEnterArray = HL7Data.split("[\\r\\n]+"); // 개행문자 기준으로 1차 파싱
 
 		String[] headerArray = splitEnterArray[0].split("[|]");
-		String trigger = headerArray[8];
+		
+		String trigger = HL7Data.contains("SS100") ?  "SS100" :headerArray[8];
+		
+		
+		//String trigger = headerArray[8];
 		log.info("trigger: " + trigger);
 
 		switch (trigger) {
@@ -101,11 +116,59 @@ public class SocketThreadService {
 
 			break;
 
+		case "SS100":
+
+			try {
+				sessionDataParsing(HL7Data);
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			break;	
+			
 		default:
 			break;
 		}
 
 	}
+	
+	
+	public void sessionDataParsing(String jsonData) throws JsonMappingException, JsonProcessingException {
+		
+		log.info("sessionData Parsing!!");
+		
+		SessionData sessionData = objectMapper.readValue(jsonData, SessionData.class);
+		
+		log.info("sessionData parsing 결과: " + sessionData);
+		
+		SessionData sessionEntity = sessionDataMapper.findById(sessionData.getSid());
+		
+		
+		if(sessionEntity != null) {
+			
+			log.info("session: " + sessionData);
+			
+			String startTime = sessionData.getStartTime();
+			String endTime = sessionData.getStartTime();
+			
+			if(startTime != null) {
+				
+				sessionDataMapper.updateStartTime(sessionData);
+				
+			}else {
+				sessionDataMapper.updateEndTime(sessionData);
+			}
+			
+			
+		}else {
+			sessionDataMapper.save(sessionData);
+		}
+		
+		
+	}
+	
+	
 
 	// 환자정보 요청 처리
 	public void patientSearchProceed(String[] array, SocketChannel schn) throws IOException {
@@ -124,7 +187,7 @@ public class SocketThreadService {
 
 		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
 
-		if (patietName.equals("")) {
+		if (StringUtils.isNotBlank(patiendId)) {  //             patietName.equals("")
 			log.info("1.patiendId: " + patiendId + ",  patientName: " + patietName);
 			// 여기서 다시 HL7 파싱을 해서, 전달
 
@@ -144,11 +207,10 @@ public class SocketThreadService {
 	
 			logger.info("응답 완료");
 
-		} else {
+		} else if(StringUtils.isNotBlank(patietName)){
 			log.info("2. patiendId: " + patiendId + ",  patientName: " + patietName);
 			
 			sb.delete(0, sb.length()); // 초기화
-			Charset charset = Charset.forName("UTF-8");
 			
 			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
 			+ "||RPI^I03|" + trId + "\r\n" + "");
@@ -166,6 +228,25 @@ public class SocketThreadService {
 			logger.info("응답 완료");
 			
 
+		}else {  //keyword가 없으면 모든 환자데이터 응답해라.
+			
+			sb.delete(0, sb.length()); // 초기화
+			
+			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
+			+ "||RPI^I03|" + trId + "\r\n" + "");
+			
+			
+			List<Patient> patients = patientMapper.findAll();
+			
+			addPatientsList(patients);
+
+			log.info("응답파싱결과: " + sb.toString());
+
+			writeBuffer = charset.encode(sb.toString());
+		    schn.write(writeBuffer);
+	
+			logger.info("응답 완료");
+			
 		}
 
 	}
