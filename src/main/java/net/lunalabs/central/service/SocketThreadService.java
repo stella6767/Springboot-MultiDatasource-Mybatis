@@ -278,13 +278,15 @@ public class SocketThreadService {
 
 		String[] mshArray = array[0].split("[|]");
 		String trId = mshArray[9];
-		
-		
+
 		String[] obrArray = array[2].split("[|]");
 		String sid = obrArray[2];
 
 		String startTime = obrArray[7];
 		String endTime = obrArray[8];
+		
+		sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
+		+ "||RPI^I03|" + trId + "\r\n" + "");
 
 		log.info("session id: " + sid);
 		log.info("startTime: " + startTime);
@@ -307,13 +309,9 @@ public class SocketThreadService {
 
 			}
 			measureDataMapper.save(measureData);
-
+			
 		}
-		
 
-		
-		sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
-		+ "||RPI^I03|" + trId + "\r\n" + "");
 		
 		log.info("응답파싱결과: " + sb.toString());
 
