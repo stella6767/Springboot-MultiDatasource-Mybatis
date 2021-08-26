@@ -43,11 +43,10 @@ public class SocketThreadService {
 
 	
 	@Async
-	public void serverSocketThread(ServerSocketChannel serverSocketChannel) throws IOException {
+	public void serverSocketThread(ServerSocketChannel serverSocketChannel, SocketChannel schn) throws IOException {
 
-		SocketChannel schn = null;
-		schn = serverSocketChannel.accept(); // 이 부분에서 연결이 될때까지 블로킹
-		schn.configureBlocking(true); // 블록킹 방식
+		//SocketChannel schn = null;
+
 
 		logger.info("[ESMLC Listen[" + "] Socket Accept EsmlcIfWorkThread Start");
 		

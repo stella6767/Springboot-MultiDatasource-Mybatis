@@ -54,9 +54,12 @@ public class GWSocketService {
 
 				try {
 					logger.info("CsServerSocketStart4!!!!!");
-
+					SocketChannel schn = null;
+					
+					schn = serverSocketChannel.accept(); // 이 부분에서 연결이 될때까지 블로킹
+					schn.configureBlocking(true); // 블록킹 방식
 					//여기서 계속 한 소켓당 스레드로 분기해서 맡음.
-					socketThreadService.serverSocketThread(serverSocketChannel);
+					socketThreadService.serverSocketThread(serverSocketChannel, schn);
 
 				} catch (Exception e) {
 					//logger.debug("AsynchronousCloseException 터짐");
