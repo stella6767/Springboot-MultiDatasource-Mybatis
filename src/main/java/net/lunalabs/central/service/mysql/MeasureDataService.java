@@ -2,17 +2,14 @@ package net.lunalabs.central.service.mysql;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
-import net.lunalabs.central.domain.mysql.MeasureData;
+import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
 import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
-import net.lunalabs.central.mapper.mysql.ProductMapper;
 
 @Primary 
 @RequiredArgsConstructor

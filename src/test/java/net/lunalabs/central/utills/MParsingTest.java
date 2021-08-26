@@ -9,7 +9,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import lombok.extern.slf4j.Slf4j;
-import net.lunalabs.central.domain.mysql.MeasureData;
+import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
+import net.lunalabs.central.domain.mysql.patient.GenderType;
 
 
 
@@ -148,6 +149,16 @@ public class MParsingTest {
 		
 	
 		return timestamp;
+	}
+	
+	
+	@Test
+	public void gender_값검증() {
+		log.info("1: "+GenderType.FEMALE);
+		log.info("2: "+GenderType.MALE);
+		log.info("3: "+GenderType.MALE.name());
+		log.info("4: "+GenderType.MALE.ordinal()); //숫자로도 맵핑이 된다.
+		GenderType.values();
 	}
 	
 }

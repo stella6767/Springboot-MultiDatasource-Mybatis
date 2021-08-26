@@ -1,4 +1,4 @@
-package net.lunalabs.central.domain.mysql;
+package net.lunalabs.central.domain.mysql.measuredata;
 
 import java.sql.Timestamp;
 import java.util.Date;

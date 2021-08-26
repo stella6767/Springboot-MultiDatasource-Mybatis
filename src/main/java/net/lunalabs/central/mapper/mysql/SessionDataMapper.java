@@ -3,7 +3,7 @@ package net.lunalabs.central.mapper.mysql;
 import java.util.List;
 
 import net.lunalabs.central.config.db.MysqlConnMapper;
-import net.lunalabs.central.domain.mysql.SessionData;
+import net.lunalabs.central.domain.mysql.sessiondata.SessionData;
 
 @MysqlConnMapper
 public interface SessionDataMapper {

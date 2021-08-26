@@ -3,7 +3,7 @@ package net.lunalabs.central.mapper.oracle;
 import java.util.List;
 
 import net.lunalabs.central.config.db.OracleConnMapper;
-import net.lunalabs.central.domain.oracle.Patient;
+import net.lunalabs.central.domain.oracle.patient.Patient;
 
 @OracleConnMapper("OraclePatientMapper")
 public interface PatientMapper {

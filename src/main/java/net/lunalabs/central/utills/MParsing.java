@@ -1,5 +1,10 @@
 package net.lunalabs.central.utills;
 
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+import java.nio.charset.CharsetEncoder;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -39,5 +44,19 @@ public class MParsing {
 
 		return dummydate;
 	}
+	
+	
+	public static ByteBuffer str_to_bb(String msg) {
+		Charset charset = Charset.forName("UTF-8");
+		CharsetEncoder encoder = charset.newEncoder();
+		CharsetDecoder decoder = charset.newDecoder();
+		try {
+			return encoder.encode(CharBuffer.wrap(msg));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 
 }

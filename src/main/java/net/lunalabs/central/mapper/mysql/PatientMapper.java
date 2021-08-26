@@ -3,7 +3,7 @@ package net.lunalabs.central.mapper.mysql;
 import java.util.List;
 
 import net.lunalabs.central.config.db.MysqlConnMapper;
-import net.lunalabs.central.domain.mysql.Patient;
+import net.lunalabs.central.domain.mysql.patient.Patient;
 
 @MysqlConnMapper("MysqlPatientMapper")
 public interface PatientMapper {
@@ -16,6 +16,8 @@ public interface PatientMapper {
 	public Patient findById(int id);	
 	
 	public List<Patient> findByContainId(int id);
+	public List<Patient> findByContainName(String name);
+
 	
 
 }

@@ -1,4 +1,4 @@
-package net.lunalabs.central.domain.oracle;
+package net.lunalabs.central.domain.oracle.measuredata;
 
 import java.util.Date;
 

@@ -21,7 +21,7 @@
 	
 	
 	<select id="findAll"
-		resultType="net.lunalabs.central.domain.oracle.Patient">
+		resultType="net.lunalabs.central.domain.oracle.patient.Patient">
 		<![CDATA[
 		select * from Patient order by pid desc 
 		]]>
@@ -30,7 +30,7 @@
 
 
 	<select id="findById"
-		resultType="net.lunalabs.central.domain.oracle.Patient">
+		resultType="net.lunalabs.central.domain.oracle.patient.Patient">
 		<![CDATA[
 		select * from Patient where pid=#{id} 
 		]]>

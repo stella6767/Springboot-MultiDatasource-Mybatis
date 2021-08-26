@@ -1,4 +1,4 @@
-package net.lunalabs.central.domain.oracle;
+package net.lunalabs.central.domain.oracle.patient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

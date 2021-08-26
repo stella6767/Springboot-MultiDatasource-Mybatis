@@ -15,14 +15,20 @@
 
 	<!-- <update id="update"> UPDATE MeasureData SET name=#{name}, code=#{code} WHERE mid = #{id} </update> -->
 
-	<select id="findByContainId" resultType="net.lunalabs.central.domain.mysql.Patient">
+	<select id="findByContainId" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
 		<![CDATA[
-		select * from patient where pid LIKE '%${id}%' 
+		select * from patient where pid LIKE '%${id}%'
+		]]>
+	</select>
+
+	<select id="findByContainName" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
+		<![CDATA[
+		select * from patient where firstname LIKE '%${name}%' or lastname LIKE '%${name}%'  
 		]]>
 	</select>
 
 
-	<select id="findAll" resultType="net.lunalabs.central.domain.mysql.Patient">
+	<select id="findAll" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
 		<![CDATA[
 		select * from patient order by pid desc 
 		]]>
@@ -30,7 +36,7 @@
 
 
 
-	<select id="findById" resultType="net.lunalabs.central.domain.mysql.Patient">
+	<select id="findById" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
 		<![CDATA[
 		select * from patient where pid=#{id} 
 		]]>

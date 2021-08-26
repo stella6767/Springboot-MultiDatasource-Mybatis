@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import lombok.extern.slf4j.Slf4j;
-import net.lunalabs.central.domain.mysql.Patient;
+import net.lunalabs.central.domain.mysql.patient.Patient;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
 
 @Slf4j
@@ -35,13 +35,11 @@ public class IntegTest {
 		List<Patient> list = patientMapper.findByContainId(7);
 		
 		log.info("findbyContainedIdList check: " + list);
-		
-		
-		
+				
 		for (int i = 0; i < list.size(); i++) { 
 				log.info(list.get(i).toString());
 															
-		}	
+		}		
 	}
 	
 }

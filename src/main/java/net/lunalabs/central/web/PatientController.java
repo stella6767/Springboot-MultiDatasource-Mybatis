@@ -21,9 +21,6 @@ public class PatientController {
 	@Qualifier("MysqlPatientService")
 	private final PatientService patientService;
 	
-
-	
-	
 	
 	@GetMapping("/patient")
 	public CMRespDto<?> findAll() {
@@ -34,7 +31,7 @@ public class PatientController {
 	
 	
 	  @GetMapping("/patient2") 
-	  public List<net.lunalabs.central.domain.oracle.Patient> findAll2() { 
+	  public List<net.lunalabs.central.domain.oracle.patient.Patient> findAll2() { 
 		 return patientService.findAll2(); 
 	  }
 	 	

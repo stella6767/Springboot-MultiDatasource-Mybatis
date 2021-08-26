@@ -1,4 +1,4 @@
-package net.lunalabs.central.domain.mysql;
+package net.lunalabs.central.domain.mysql.measuredata;
 
 
 public class MeasureDataBean { //front에 쏠 beans

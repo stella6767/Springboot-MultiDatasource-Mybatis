@@ -21,7 +21,7 @@
 	
 	
 	<select id="findAll"
-		resultType="net.lunalabs.central.domain.mysql.SessionData">
+		resultType="net.lunalabs.central.domain.mysql.sessiondata.SessionData">
 		<![CDATA[
 		select * from sessionData order by sid desc 
 		]]>
@@ -30,7 +30,7 @@
 
 
 	<select id="findById"
-		resultType="net.lunalabs.central.domain.mysql.SessionData">
+		resultType="net.lunalabs.central.domain.mysql.sessiondata.SessionData">
 		<![CDATA[
 		select * from sessionData where sid=#{id} 
 		]]>

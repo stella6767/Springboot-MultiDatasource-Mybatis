@@ -21,7 +21,7 @@
 	
 	
 	<select id="findAll"
-		resultType="net.lunalabs.central.domain.mysql.MeasureData">
+		resultType="net.lunalabs.central.domain.mysql.measuredata.MeasureData">
 		<![CDATA[
 		select * from MeasureData order by mid desc 
 		]]>
@@ -30,7 +30,7 @@
 
 
 	<select id="findById"
-		resultType="net.lunalabs.central.domain.mysql.MeasureData">
+		resultType="net.lunalabs.central.domain.mysql.measuredata.MeasureData">
 		<![CDATA[
 		select * from MeasureData where mid=#{id} 
 		]]>
