@@ -308,6 +308,8 @@ public class SocketThreadService {
 						.endTime(endTime).startTime(startTime).sid(sid).build();
 
 			}
+			
+						
 			measureDataMapper.save(measureData);
 			
 		}
