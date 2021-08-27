@@ -144,19 +144,25 @@ public class SocketThreadService {
 		
 		SessionData sessionEntity = sessionDataMapper.findById(sessionData.getSid());
 		
+		String startTime = sessionData.getStartTime();
+		String endTime = sessionData.getEndTime();
+		
 		
 		if(sessionEntity != null) {
 			
 			log.info("session: " + sessionData);
 			
-			String startTime = sessionData.getStartTime();
-			String endTime = sessionData.getStartTime();
+
 			
-			if(startTime != null) {
+			log.info("sessionEndTime: "+endTime);
+			log.info("sessionStartTime: "+startTime);
+			
+			
+			if(StringUtils.isNoneBlank(startTime)) {
 				
 				sessionDataMapper.updateStartTime(sessionData);
 				
-			}else {
+			}else if(StringUtils.isNoneBlank(endTime)){
 				sessionDataMapper.updateEndTime(sessionData);
 			}
 			
