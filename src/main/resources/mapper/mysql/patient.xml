@@ -13,6 +13,11 @@
 		DELETE FROM patient WHERE pid = #{id}
 	</delete>
 
+	<update id="updateLastSession">
+		UPDATE patient SET lastSession=#{sid} WHERE
+		pid = #{pid}
+	</update>
+
 	<!-- <update id="update"> UPDATE MeasureData SET name=#{name}, code=#{code} WHERE mid = #{id} </update> -->
 
 	<select id="findByContainId" resultType="net.lunalabs.central.domain.mysql.patient.Patient">

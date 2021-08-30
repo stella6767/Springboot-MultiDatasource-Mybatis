@@ -72,8 +72,8 @@ public class FtpServerMain {
 			user.setName(id);
 			user.setPassword(pwd);
 			user.setEnabled(true);
-			logger.trace("dir==D:/FukudaMI/Upload/");
-			user.setHomeDirectory("D:/FukudaMI/Upload/");
+			logger.trace("dir==C:\\kangminkyu\\aaaaaaa");
+			user.setHomeDirectory("C:\\kangminkyu\\aaaaaaa");
 			java.util.List<Authority> authorities = new java.util.ArrayList<Authority>();
 	        authorities.add(new WritePermission());
 			user.setAuthorities(authorities);
@@ -146,8 +146,8 @@ public class FtpServerMain {
 	        @Override
 	        public FtpletResult onConnect(FtpSession session) throws FtpException, IOException
 	        {
-	            //logger.trace("onConnect " + session.getUserArgument() + " : " + session.toString());
-	            //logger.trace("Thread #" + Thread.currentThread().getId());
+	            logger.info("onConnect " + session.getUserArgument() + " : " + session.toString());
+	            logger.info("Thread #" + Thread.currentThread().getId());
 
 	            //do something
 	            return FtpletResult.DEFAULT;//...or return accordingly
@@ -156,8 +156,8 @@ public class FtpServerMain {
 	        @Override
 	        public FtpletResult onDisconnect(FtpSession session) throws FtpException, IOException
 	        {
-	            //logger.trace("onDisconnect " + session.getUserArgument() + " : " + session.toString());
-	            //logger.trace("Thread #" + Thread.currentThread().getId());
+	            logger.info("onDisconnect " + session.getUserArgument() + " : " + session.toString());
+	            logger.info("Thread #" + Thread.currentThread().getId());
 
 	            //do something
 	            return FtpletResult.DEFAULT;//...or return accordingly

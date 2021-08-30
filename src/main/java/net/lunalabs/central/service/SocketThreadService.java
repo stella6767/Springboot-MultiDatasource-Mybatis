@@ -190,10 +190,11 @@ public class SocketThreadService {
 			measureDataMapper.save(measureData);
 			
 			
-			//webSocketChat.sendAllSessionToMessage(measureData.toString());
-
 			
 			Patient patient = patientMapper.findById(pid);
+			
+			patientMapper.updateLastSession(measureData.getSid(), patient.getPid());
+			
 			
 			String seeMeasurePatientData = "";
 			//this.objectMapper.setSerializationInclusion(Jsoninc);
@@ -385,7 +386,7 @@ public class SocketThreadService {
 			sb.append("PID||" + patients.get(i).getPid() + "|" + patients.get(i).getAge() + "|"
 					+ patients.get(i).getHeight() + "|" + patients.get(i).getFirstname() + "|"
 					+ patients.get(i).getLastname() + "|" + patients.get(i).getWeight() + "|"
-					+ patients.get(i).getGender() + "|"+ patients.get(i).getComment() +"||||||||||\r\n" + "");
+					+ patients.get(i).getGender() + "|"+ patients.get(i).getComment() +"|"+ patients.get(i).getLastSession() +"|||||||||\r\n" + "");
 		}
 		
 		
