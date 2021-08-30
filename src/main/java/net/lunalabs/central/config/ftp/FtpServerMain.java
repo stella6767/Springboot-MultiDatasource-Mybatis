@@ -120,7 +120,7 @@ public class FtpServerMain {
 	            logger.info("afterCommand " + session.getUserArgument() + " : " + session.toString() + " | " + request.getArgument() + " : " + request.getCommand() + " : " + request.getRequestLine() + " | " + reply.getMessage() + " : " + reply.toString());
 	            String strFileName = request.getArgument();
 	            String strMsg = reply.getMessage();
-	        	logger.info("afterCommand " + strFileName + ":" + strMsg);
+	        	logger.info("afterCommand " + strFileName + "::::::" + strMsg);
 	        	
 //	            if (strMsg.equals("Transfer complete.")) {
 	            if (strMsg.equals("Requested file action okay, file renamed.")) {
