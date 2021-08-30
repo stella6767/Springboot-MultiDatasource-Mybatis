@@ -21,6 +21,7 @@ public class MeasureData {
 	
 	private Integer mid;
 	private String sid; //세션데이터 id
+	private Integer pid;
 	private String parame;
 	private String value;
 	private String startTime; //이렇게 String으로 받아도 되나??

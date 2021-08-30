@@ -15,6 +15,12 @@ public interface MeasureDataMapper {
 	public List<MeasureData> findAll();
 	public MeasureData findById(int id);	
 	
+	
+	public List<MeasureData> findRvsAll();
+	public List<MeasureData> findLatestParame();
+
+	
+	
 	public void check();
 	
 

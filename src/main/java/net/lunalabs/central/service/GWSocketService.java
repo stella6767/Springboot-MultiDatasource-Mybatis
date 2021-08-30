@@ -64,7 +64,7 @@ public class GWSocketService {
 				} catch (Exception e) {
 					//logger.debug("AsynchronousCloseException 터짐");
 					//socketChannel.close();
-
+					
 					e.printStackTrace();
 					try {
 						Thread.sleep(5000);

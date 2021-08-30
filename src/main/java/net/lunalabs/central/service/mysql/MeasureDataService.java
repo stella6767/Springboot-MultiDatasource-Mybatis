@@ -29,7 +29,19 @@ public class MeasureDataService {
 	}
 	
 	
+	@Transactional(readOnly = true)
+	public List<MeasureData> findLatestParam() {
+		
+		List<MeasureData> latestParames = mapper.findLatestParame();
+		List<MeasureData> rvsParames = mapper.findRvsAll();
 	
+		
+		return mapper.findAll();		
+	}
+	
+	
+	
+	@Transactional(readOnly = true)
 	public List<MeasureData> findAll() {
 		
 		return mapper.findAll();

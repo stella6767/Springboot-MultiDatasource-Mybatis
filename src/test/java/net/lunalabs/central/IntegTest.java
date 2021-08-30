@@ -10,7 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import lombok.extern.slf4j.Slf4j;
+import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
 import net.lunalabs.central.domain.mysql.patient.Patient;
+import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
 
 @Slf4j
@@ -21,6 +23,11 @@ public class IntegTest {
 	@Qualifier("MysqlPatientMapper")
 	@Autowired
 	private PatientMapper patientMapper;
+	
+	@Qualifier("MysqlMeasureDataMapper")
+	@Autowired
+	private MeasureDataMapper mapper;
+
 	
 	
 	@Test
@@ -40,6 +47,20 @@ public class IntegTest {
 				log.info(list.get(i).toString());
 															
 		}		
+	}
+	
+	
+	
+	@Test
+	public void findParamTest() {
+		List<MeasureData> latestParames = mapper.findLatestParame();
+		
+		log.info("lastestParames: " + latestParames);
+		
+		List<MeasureData> rvsParames = mapper.findRvsAll();
+		
+		log.info("rvsParames: " + rvsParames);
+	
 	}
 	
 }

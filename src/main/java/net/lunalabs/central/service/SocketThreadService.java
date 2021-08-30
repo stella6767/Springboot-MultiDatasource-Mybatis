@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.lunalabs.central.config.MeasureDataSink;
 import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
 import net.lunalabs.central.domain.mysql.patient.Patient;
 import net.lunalabs.central.domain.mysql.sessiondata.SessionData;
@@ -28,6 +29,7 @@ import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
 import net.lunalabs.central.mapper.mysql.SessionDataMapper;
 import net.lunalabs.central.utills.MParsing;
+import reactor.core.publisher.Sinks.EmitResult;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -46,10 +48,13 @@ public class SocketThreadService {
 	private final PatientMapper patientMapper;
 	
 	private final SessionDataMapper sessionDataMapper;
+	
+	private final MeasureDataSink measureDataSink;
 
 	StringBuffer sb = new StringBuffer();
 	Charset charset = Charset.forName("UTF-8");
 
+	
 	
 	ObjectMapper objectMapper = new ObjectMapper();
 	
@@ -132,6 +137,96 @@ public class SocketThreadService {
 		}
 
 	}
+	
+	
+
+	public void measureDataParsing(String[] array, SocketChannel schn) { // 5개의 parame이 오면 5번 insert
+
+		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
+		sb.delete(0, sb.length()); // 초기화
+
+		String[] mshArray = array[0].split("[|]");
+		String trId = mshArray[9];
+		
+		String[] pidArray = array[1].split("[|]");
+		
+		Integer pid = Integer.parseInt(pidArray[2]);
+		
+		String[] obrArray = array[2].split("[|]");
+		String sid = obrArray[2];
+
+		String startTime = obrArray[7];
+		String endTime = obrArray[8];
+		
+		sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
+		+ "||RPI^I03|" + trId + "\r\n" + "");
+
+		log.info("session id: " + sid);
+		log.info("startTime: " + startTime);
+		log.info("endTime: " + endTime);
+		log.info("patient Id: " + pid);
+
+		for (int i = 3; i < array.length; i++) { // 3부터 OBX param 시작
+			log.info("개행문자 기준으로 1차 파싱: " + array[i]);
+
+			String[] splitSecondArray = array[i].split("[|]");
+
+			MeasureData measureData = null;
+
+			for (int j = 0; j < splitSecondArray.length; j++) {
+				log.info("| 기준으로 2차 파싱: " + splitSecondArray[j]);
+
+				measureData = MeasureData.builder()
+						.pid(pid)
+						.parame(splitSecondArray[3]).value(splitSecondArray[5])
+//					.endTime(MParsing.stringToDate(startTime))
+//					.startTime(MParsing.stringToDate(endTime))
+						.endTime(endTime).startTime(startTime).sid(sid).build();
+
+			}
+			
+						
+			measureDataMapper.save(measureData);
+			
+			
+			//webSocketChat.sendAllSessionToMessage(measureData.toString());
+
+			
+			String seeMeasureData = "";
+			try {
+				seeMeasureData = objectMapper.writeValueAsString(measureData);
+				EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasureData);
+				
+				logger.info("sse 로 보낼 결과" + result.toString());
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			//measureDataSink
+			
+			
+
+		}
+
+		
+		log.info("응답파싱결과: " + sb.toString());
+				
+		
+
+		
+		
+		writeBuffer = charset.encode(sb.toString());
+	    try {
+			schn.write(writeBuffer);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	
 	
 	
 	public void sessionDataParsing(String jsonData) throws JsonMappingException, JsonProcessingException {
@@ -276,62 +371,6 @@ public class SocketThreadService {
 	
 	
 	
-
-	public void measureDataParsing(String[] array, SocketChannel schn) { // 5개의 parame이 오면 5번 insert
-
-		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
-		sb.delete(0, sb.length()); // 초기화
-
-		String[] mshArray = array[0].split("[|]");
-		String trId = mshArray[9];
-
-		String[] obrArray = array[2].split("[|]");
-		String sid = obrArray[2];
-
-		String startTime = obrArray[7];
-		String endTime = obrArray[8];
-		
-		sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
-		+ "||RPI^I03|" + trId + "\r\n" + "");
-
-		log.info("session id: " + sid);
-		log.info("startTime: " + startTime);
-		log.info("endTime: " + endTime);
-
-		for (int i = 3; i < array.length; i++) { // 3부터 OBX param 시작
-			log.info("개행문자 기준으로 1차 파싱: " + array[i]);
-
-			String[] splitSecondArray = array[i].split("[|]");
-
-			MeasureData measureData = null;
-
-			for (int j = 0; j < splitSecondArray.length; j++) {
-				log.info("| 기준으로 2차 파싱: " + splitSecondArray[j]);
-
-				measureData = MeasureData.builder().parame(splitSecondArray[3]).value(splitSecondArray[5])
-//					.endTime(MParsing.stringToDate(startTime))
-//					.startTime(MParsing.stringToDate(endTime))
-						.endTime(endTime).startTime(startTime).sid(sid).build();
-
-			}
-			
-						
-			measureDataMapper.save(measureData);
-			
-		}
-
-		
-		log.info("응답파싱결과: " + sb.toString());
-
-		writeBuffer = charset.encode(sb.toString());
-	    try {
-			schn.write(writeBuffer);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
 
 //	@Async
 //	public void FTPServiece() {
