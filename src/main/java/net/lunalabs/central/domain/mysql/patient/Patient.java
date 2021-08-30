@@ -17,6 +17,7 @@ public class Patient {
 	private int age;
 	private double height;
 	private double weight;
+	private String lastSession; //sessionId
 	private String comment;
 
 }

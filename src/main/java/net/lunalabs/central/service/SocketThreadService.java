@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.lunalabs.central.config.MeasureDataSink;
+import net.lunalabs.central.domain.mysql.MeasureDataJoinPatientBean;
 import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
 import net.lunalabs.central.domain.mysql.patient.Patient;
 import net.lunalabs.central.domain.mysql.sessiondata.SessionData;
@@ -192,12 +193,33 @@ public class SocketThreadService {
 			//webSocketChat.sendAllSessionToMessage(measureData.toString());
 
 			
-			String seeMeasureData = "";
+			Patient patient = patientMapper.findById(pid);
+			
+			String seeMeasurePatientData = "";
+			//this.objectMapper.setSerializationInclusion(Jsoninc);
+			
+			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
+					//.deviceId() 굳이?
+					.age(patient.getAge())
+					.endTime(measureData.getEndTime())
+					.startTime(measureData.getStartTime())
+					.mid(measureData.getMid())
+					.parame(measureData.getParame())
+					.value(measureData.getValue())
+					.sid(measureData.getSid())
+					.build();
+			
+
+			
 			try {
-				seeMeasureData = objectMapper.writeValueAsString(measureData);
-				EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasureData);
+				//seeMeasureData = objectMapper.writeValueAsString(measureData);
+
 				
-				logger.info("sse 로 보낼 결과" + result.toString());
+				seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
+				
+				EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData); //sent from server
+				
+				logger.info("sse 로 보낼 결과 " + result.toString());
 			} catch (JsonProcessingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

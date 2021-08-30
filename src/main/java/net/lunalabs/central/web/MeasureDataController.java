@@ -38,7 +38,7 @@ public class MeasureDataController {
 	
 	
 	//data:실제값\n\n
-	@GetMapping(value="/sse")//, produces = MediaType.TEXT_EVENT_STREAM_VALUE
+	@GetMapping(value="/sse")//, produces = MediaType.TEXT_EVENT_STREAM_VALUE (default) // 발행
 	public Flux<ServerSentEvent<String>> sse() { //ServerSentEvent의 ContentType은 text event stream
 		return measureDataSink.sink.asFlux().map(e->ServerSentEvent.builder(e).build()).doOnCancel(()->{
 			log.info("SSE 종료됨");
