@@ -132,8 +132,8 @@ public class FtpServerMain {
 	        	logger.info("afterCommand " + strFileName + "::::::" + strMsg);
 	        	
 	        	
-//	            if (strMsg.equals("Transfer complete.")) {
-	            if (strMsg.equals("Requested file action okay, file renamed.")) {
+	            if (strMsg.equals("Transfer complete.")) {
+//	            if (strMsg.equals("Requested file action okay, file renamed.")) {
 					
 					String ip=	session.getClientAddress().getAddress().toString();
 					

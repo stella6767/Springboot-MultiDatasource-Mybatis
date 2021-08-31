@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class MeasureDataJoinPatientBean {  //sql에서 select 안 하고, 바로 socket 파싱 결과로 빌더.
 	
 	//deviceId로 구분
-	private String deviceId;
+	//private String deviceId;
 	
 	
 	//measureData
