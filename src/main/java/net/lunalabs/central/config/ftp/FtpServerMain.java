@@ -44,7 +44,7 @@ public class FtpServerMain {
 		FtpServerFactory serverFactory = new FtpServerFactory();
 		ListenerFactory factory = new ListenerFactory();
 		// set the port of the listener
-		factory.setPort(21);
+		factory.setPort(2121);
 				
 		//factory.set
 		
