@@ -45,6 +45,8 @@ public class FtpServerMain {
 		ListenerFactory factory = new ListenerFactory();
 		// set the port of the listener
 		factory.setPort(21);
+				
+		//factory.set
 		
 		
 		
@@ -72,11 +74,16 @@ public class FtpServerMain {
 			user.setName(id);
 			user.setPassword(pwd);
 			user.setEnabled(true);
-			logger.trace("dir==C:\\kangminkyu\\aaaaaaa");
-			user.setHomeDirectory("C:\\kangminkyu\\aaaaaaa");
+			logger.trace("dir==C:\\kangminkyu\\FTPfileUpload");
+			
+			
+			user.setHomeDirectory("C:\\kangminkyu\\FTPfileUpload"); //요기가 FTP server file root경로
+			
 			java.util.List<Authority> authorities = new java.util.ArrayList<Authority>();
 	        authorities.add(new WritePermission());
 			user.setAuthorities(authorities);
+			
+	
 			
 			try {
 				um.save(user);
@@ -96,6 +103,8 @@ public class FtpServerMain {
 	        public void init(FtpletContext ftpletContext) throws FtpException {
 	            logger.info("init");
 	            logger.info("Thread #" + Thread.currentThread().getId());
+	            
+	           
 	        }
 
 	        @Override
@@ -122,6 +131,7 @@ public class FtpServerMain {
 	            String strMsg = reply.getMessage();
 	        	logger.info("afterCommand " + strFileName + "::::::" + strMsg);
 	        	
+	        	
 //	            if (strMsg.equals("Transfer complete.")) {
 	            if (strMsg.equals("Requested file action okay, file renamed.")) {
 					
@@ -129,9 +139,8 @@ public class FtpServerMain {
 					
 					try{
 						
-//						ftpService.ftpForward(ip, strFileName);
-//						ftpService.parserRun(ip, strFileName);
-						
+						ftpService.ftpFileDBSave("C:\\kangminkyu\\FTPfileUpload", strFileName); //일단은 하드코딩
+
 					}catch(Exception e)	{
 						
 					}
@@ -162,6 +171,9 @@ public class FtpServerMain {
 	            //do something
 	            return FtpletResult.DEFAULT;//...or return accordingly
 	        }
+	        
+	        
+	        
 
 	    });
 	    serverFactory.setFtplets(m);
