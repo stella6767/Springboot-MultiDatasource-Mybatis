@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,13 @@ public class PatientController {
 		return new CMRespDto<>(1, "환자 더미데이터", patientService.findAll());
 		
 	}
+	
+	@GetMapping
+	public CMRespDto<?> findById(@PathVariable int id){
+				
+		return new CMRespDto<>(1, "Id로 환자 조회", patientService.findById(id));
+	}
+	
 	
 	
 	  @GetMapping("/patient2") 

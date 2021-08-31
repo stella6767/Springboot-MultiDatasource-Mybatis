@@ -31,6 +31,13 @@ public class PatientService {
 	
 	
 	@Transactional(readOnly = true)
+	public Patient findById(Integer id){	
+		Patient patient = patientMapper.findById(id);	
+		return patient;
+	}
+	
+	
+	@Transactional(readOnly = true)
 	public List<net.lunalabs.central.domain.oracle.patient.Patient> findAll2(){	
 		List<net.lunalabs.central.domain.oracle.patient.Patient> patients = patientMapper2.findAll();	
 		return patients;
