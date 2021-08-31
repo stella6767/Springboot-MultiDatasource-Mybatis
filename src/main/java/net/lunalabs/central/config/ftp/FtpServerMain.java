@@ -36,7 +36,8 @@ public class FtpServerMain {
 
 	private final FtpService ftpService;	
 	private static final Logger logger = LoggerFactory.getLogger(FtpServerMain.class);
-
+	private final FtpProperties ftpProperties;
+	
 	
 	@PostConstruct
 	public void ftpServerStart(){
@@ -44,21 +45,18 @@ public class FtpServerMain {
 		FtpServerFactory serverFactory = new FtpServerFactory();
 		ListenerFactory factory = new ListenerFactory();
 		// set the port of the listener
-		factory.setPort(2121);
+		factory.setPort(ftpProperties.getPort());
 				
 		//factory.set
-		
-		
 		
 		// replace the default listener
 		serverFactory.addListener("default", factory.createListener());
 		PropertiesUserManagerFactory userManagerFactory = new PropertiesUserManagerFactory();
 //		userManagerFactory.setFile(new File("conf/myusers.properties"));
 //		serverFactory.setUserManager(userManagerFactory.createUserManager());
-		
-		
-		
-		String[] strAccountList = "FX7102DATA/FUKUDADENSHI,mediana/1234,kyu/1234".split(",");
+				
+//		String[] strAccountList = "FX7102DATA/FUKUDADENSHI,mediana/1234,kyu/1234".split(",");
+		String[] strAccountList = ftpProperties.getUserlist().split(",");
 		
 		UserManager um = userManagerFactory.createUserManager();
 		
@@ -77,7 +75,7 @@ public class FtpServerMain {
 			logger.trace("dir==C:\\kangminkyu\\FTPfileUpload");
 			
 			
-			user.setHomeDirectory("C:\\kangminkyu\\FTPfileUpload"); //요기가 FTP server file root경로
+			user.setHomeDirectory(ftpProperties.getUploadDir()); //요기가 FTP server file root경로
 			
 			java.util.List<Authority> authorities = new java.util.ArrayList<Authority>();
 	        authorities.add(new WritePermission());
@@ -170,8 +168,6 @@ public class FtpServerMain {
 	            //do something
 	            return FtpletResult.DEFAULT;//...or return accordingly
 	        }
-	        
-	        
 	        
 
 	    });
