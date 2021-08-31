@@ -6,9 +6,10 @@ import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import lombok.RequiredArgsConstructor;
-import net.lunalabs.central.config.MeasureDataSink;
+import net.lunalabs.central.config.MeasureDataSse;
 import net.lunalabs.central.web.dto.CMRespDto;
 import reactor.core.publisher.Flux;
 
@@ -23,7 +24,7 @@ public class MeasureDataController {
 	private static final Logger log = LoggerFactory.getLogger(MeasureDataController.class);
 	
 	
-	private final MeasureDataSink measureDataSink;
+	private final MeasureDataSse measureDataSse;
 	
 	
 
@@ -37,17 +38,28 @@ public class MeasureDataController {
 
 	
 	
-	//data:실제값\n\n
-	@GetMapping(value="/sse")//, produces = MediaType.TEXT_EVENT_STREAM_VALUE (default) // 발행
-	public Flux<ServerSentEvent<String>> sse() { //ServerSentEvent의 ContentType은 text event stream
-		return measureDataSink.sink.asFlux().map(e->ServerSentEvent.builder(e).build()).doOnCancel(()->{
-			log.info("SSE 종료됨");
-			measureDataSink.sink.asFlux().blockLast();
-		}); //구독
-	}
-	
+	//data:실제값\n\n  webflux
+//	@GetMapping(value="/sse")//, produces = MediaType.TEXT_EVENT_STREAM_VALUE (default) // 발행
+//	public Flux<ServerSentEvent<String>> sse() { //ServerSentEvent의 ContentType은 text event stream
+//		return measureDataSink.sink.asFlux().map(e->ServerSentEvent.builder(e).build()).doOnCancel(()->{
+//			log.info("SSE 종료됨");
+//			measureDataSink.sink.asFlux().blockLast();
+//		}); //구독
+//	}
+//	
     
     
+    @GetMapping("/sse")
+    public SseEmitter streamDateTime() { //webmvc
+
+//        SseEmitter sseEmitter = new SseEmitter(Long.MAX_VALUE);
+
+    	measureDataSse.sseEmitter.onCompletion(() -> log.info("SseEmitter is completed"));
+    	measureDataSse.sseEmitter.onTimeout(() -> log.info("SseEmitter is timed out"));
+    	measureDataSse.sseEmitter.onError((ex) -> log.info("SseEmitter got error:", ex));
+
+        return measureDataSse.sseEmitter;
+    }
     
     
 	

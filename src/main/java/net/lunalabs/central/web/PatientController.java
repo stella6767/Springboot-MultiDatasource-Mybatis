@@ -12,35 +12,30 @@ import lombok.extern.slf4j.Slf4j;
 import net.lunalabs.central.service.mysql.PatientService;
 import net.lunalabs.central.web.dto.CMRespDto;
 
-
 @Slf4j
 @RequiredArgsConstructor
 @RestController
 public class PatientController {
 
-	
 	@Qualifier("MysqlPatientService")
 	private final PatientService patientService;
-	
-	
+
 	@GetMapping("/patient")
 	public CMRespDto<?> findAll() {
-		
+
 		return new CMRespDto<>(1, "환자 더미데이터", patientService.findAll());
-		
+
 	}
-	
+
 	@GetMapping
-	public CMRespDto<?> findById(@PathVariable int id){
-				
+	public CMRespDto<?> findById(@PathVariable int id) {
+
 		return new CMRespDto<>(1, "Id로 환자 조회", patientService.findById(id));
 	}
-	
-	
-	
-	  @GetMapping("/patient2") 
-	  public List<net.lunalabs.central.domain.oracle.patient.Patient> findAll2() { 
-		 return patientService.findAll2(); 
-	  }
-	 	
+
+	@GetMapping("/patient2")
+	public List<net.lunalabs.central.domain.oracle.patient.Patient> findAll2() {
+		return patientService.findAll2();
+	}
+
 }

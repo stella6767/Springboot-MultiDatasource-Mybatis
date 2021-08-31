@@ -6,6 +6,8 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -21,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.lunalabs.central.config.MeasureDataSink;
+import net.lunalabs.central.config.MeasureDataSse;
 import net.lunalabs.central.domain.mysql.MeasureDataJoinPatientBean;
 import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
 import net.lunalabs.central.domain.mysql.patient.Patient;
@@ -50,10 +52,11 @@ public class SocketThreadService {
 	
 	private final SessionDataMapper sessionDataMapper;
 	
-	private final MeasureDataSink measureDataSink;
+	private final MeasureDataSse measureDataSse;
 
 	StringBuffer sb = new StringBuffer();
 	Charset charset = Charset.forName("UTF-8");
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
 	
 	
@@ -218,9 +221,18 @@ public class SocketThreadService {
 				
 				seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
 				
-				EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData); //sent from server
+				//EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData); //sent from server
 				
-				logger.info("sse 로 보낼 결과 " + result.toString());
+                try {
+                	measureDataSse.sseEmitter.send(seeMeasurePatientData);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    measureDataSse.sseEmitter.completeWithError(e);
+                }
+				
+                
+				
+				//logger.info("sse 로 보낼 결과 " + result.toString());
 			} catch (JsonProcessingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
