@@ -14,19 +14,19 @@ import lombok.extern.slf4j.Slf4j;
 public class ConfigTest {
 	
 	
-	@Autowired
-	DefaultListableBeanFactory df;
-	
-	
-	@Test
-	public void beansListCheck() {
-		
-		for(String name : df.getBeanDefinitionNames()) {
-			//log.info("등록된 beans: " + df.getBean(name).getClass().getName());
-			log.info("등록된 beans: " + name);
-		}
-		
-	}
-	
+//	@Autowired
+//	DefaultListableBeanFactory df;
+//	
+//	
+//	@Test
+//	public void beansListCheck() {
+//		
+//		for(String name : df.getBeanDefinitionNames()) {
+//			//log.info("등록된 beans: " + df.getBean(name).getClass().getName());
+//			log.info("등록된 beans: " + name);
+//		}
+//		
+//	}
+//	
 
 }
