@@ -83,8 +83,6 @@ public class FtpServerMain {
 	        authorities.add(new WritePermission());
 			user.setAuthorities(authorities);
 			
-	
-			
 			try {
 				um.save(user);
 			} catch (FtpException e1) { 
@@ -138,6 +136,7 @@ public class FtpServerMain {
 					String ip=	session.getClientAddress().getAddress().toString();
 					
 					try{
+						
 						
 						ftpService.ftpFileDBSave("C:\\kangminkyu\\FTPfileUpload", strFileName); //일단은 하드코딩
 
