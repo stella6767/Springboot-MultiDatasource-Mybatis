@@ -54,7 +54,11 @@ public class MeasureDataController {
 
 //        SseEmitter sseEmitter = new SseEmitter(Long.MAX_VALUE);
 
-    	measureDataSse.sseEmitter.onCompletion(() -> log.info("SseEmitter is completed"));
+    	measureDataSse.sseEmitter.onCompletion(() -> {
+    		log.info("SseEmitter is completed");
+    		//measureDataSse.sseEmitter.de; 객체를 제거해야 되나.
+    		measureDataSse.sseEmitter = new SseEmitter(Long.MAX_VALUE); 
+    	});
     	measureDataSse.sseEmitter.onTimeout(() -> log.info("SseEmitter is timed out"));
     	measureDataSse.sseEmitter.onError((ex) -> log.info("SseEmitter got error:", ex));
 

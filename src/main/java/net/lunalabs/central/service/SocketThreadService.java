@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -224,7 +225,7 @@ public class SocketThreadService {
 				//EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData); //sent from server
 				
                 try {
-                	measureDataSse.sseEmitter.send(seeMeasurePatientData);
+                	measureDataSse.sseEmitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
                 } catch (IOException e) {
                     e.printStackTrace();
                     measureDataSse.sseEmitter.completeWithError(e);
