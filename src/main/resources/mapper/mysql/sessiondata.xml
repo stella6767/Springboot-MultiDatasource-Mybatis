@@ -5,8 +5,8 @@
 <mapper namespace="net.lunalabs.central.mapper.mysql.SessionDataMapper">
 
 	<insert id="save">
-		INSERT INTO sessionData(sid, pid, deviceId, startTime, endTime)
-		VALUES(#{sid},#{pid}, #{deviceId}, #{startTime}, #{endTime})
+		INSERT INTO sessionData(sid, pid, deviceId, startTime)
+		VALUES(#{sid},#{pid}, #{deviceId}, #{startTime})
 	</insert>
 
 	<delete id="deleteById">
