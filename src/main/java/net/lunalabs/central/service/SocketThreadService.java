@@ -6,8 +6,6 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -16,7 +14,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -33,7 +30,6 @@ import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
 import net.lunalabs.central.mapper.mysql.SessionDataMapper;
 import net.lunalabs.central.utills.MParsing;
-import reactor.core.publisher.Sinks.EmitResult;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -41,36 +37,33 @@ import reactor.core.publisher.Sinks.EmitResult;
 @Service
 public class SocketThreadService {
 
-	
 	private static final Logger logger = LoggerFactory.getLogger(SocketThreadService.class);
 
-	
 	@Qualifier("MysqlMeasureDataMapper")
 	private final MeasureDataMapper measureDataMapper;
 
 	@Qualifier("MysqlPatientMapper")
 	private final PatientMapper patientMapper;
-	
+
 	private final SessionDataMapper sessionDataMapper;
-	
+
 	private final MeasureDataSse measureDataSse;
+
+	private final ServersentService serversentService;
 
 	StringBuffer sb = new StringBuffer();
 	Charset charset = Charset.forName("UTF-8");
-    private final ExecutorService executor = Executors.newSingleThreadExecutor();
+	// private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
-	
-	
 	ObjectMapper objectMapper = new ObjectMapper();
-	
+
 	@Async
 	public void serverSocketThread(ServerSocketChannel serverSocketChannel, SocketChannel schn) throws IOException {
 
-		//SocketChannel schn = null;
-
+		// SocketChannel schn = null;
 
 		logger.info("[ESMLC Listen[" + "] Socket Accept EsmlcIfWorkThread Start");
-		
+
 		log.info("read socket data");
 
 		String result = "";
@@ -93,20 +86,16 @@ public class SocketThreadService {
 		schn.close();
 
 	}
-	
-	
-
 
 	public void HL7DataFirstParse(String HL7Data, SocketChannel schn) {
 
 		String[] splitEnterArray = HL7Data.split("[\\r\\n]+"); // 개행문자 기준으로 1차 파싱
 
 		String[] headerArray = splitEnterArray[0].split("[|]");
-		
-		String trigger = HL7Data.contains("SS100") ?  "SS100" :headerArray[8];
-		
-		
-		//String trigger = headerArray[8];
+
+		String trigger = HL7Data.contains("SS100") ? "SS100" : headerArray[8];
+
+		// String trigger = headerArray[8];
 		log.info("trigger: " + trigger);
 
 		switch (trigger) {
@@ -135,15 +124,13 @@ public class SocketThreadService {
 				e.printStackTrace();
 			}
 
-			break;	
-			
+			break;
+
 		default:
 			break;
 		}
 
 	}
-	
-	
 
 	public void measureDataParsing(String[] array, SocketChannel schn) { // 5개의 parame이 오면 5번 insert
 
@@ -152,19 +139,19 @@ public class SocketThreadService {
 
 		String[] mshArray = array[0].split("[|]");
 		String trId = mshArray[9];
-		
+
 		String[] pidArray = array[1].split("[|]");
-		
+
 		Integer pid = Integer.parseInt(pidArray[2]);
-		
+
 		String[] obrArray = array[2].split("[|]");
 		String sid = obrArray[2];
 
 		String startTime = obrArray[7];
 		String endTime = obrArray[8];
-		
+
 		sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
-		+ "||RPI^I03|" + trId + "\r\n" + "");
+				+ "||RPI^I03|" + trId + "\r\n" + "");
 
 		log.info("session id: " + sid);
 		log.info("startTime: " + startTime);
@@ -181,79 +168,53 @@ public class SocketThreadService {
 			for (int j = 0; j < splitSecondArray.length; j++) {
 				log.info("| 기준으로 2차 파싱: " + splitSecondArray[j]);
 
-				measureData = MeasureData.builder()
-						.pid(pid)
-						.parame(splitSecondArray[3]).value(splitSecondArray[5])
+				measureData = MeasureData.builder().pid(pid).parame(splitSecondArray[3]).value(splitSecondArray[5])
 //					.endTime(MParsing.stringToDate(startTime))
 //					.startTime(MParsing.stringToDate(endTime))
 						.endTime(endTime).startTime(startTime).sid(sid).build();
 
 			}
-			
-						
+
 			measureDataMapper.save(measureData);
-			
-			
-			
+
 			Patient patient = patientMapper.findById(pid);
-			
+
 			patientMapper.updateLastSession(measureData.getSid(), patient.getPid());
-			
-			
+
 			String seeMeasurePatientData = "";
-			//this.objectMapper.setSerializationInclusion(Jsoninc);
-			
+			// this.objectMapper.setSerializationInclusion(Jsoninc);
+
 			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
-					//.deviceId() 굳이?
-					.age(patient.getAge())
-					.endTime(measureData.getEndTime())
-					.startTime(measureData.getStartTime())
-					.mid(measureData.getMid())
-					.parame(measureData.getParame())
-					.value(measureData.getValue())
-					.sid(measureData.getSid())
-					.build();
-			
+					// .deviceId() 굳이?
+					.age(patient.getAge()).endTime(measureData.getEndTime()).startTime(measureData.getStartTime())
+					.mid(measureData.getMid()).parame(measureData.getParame()).value(measureData.getValue())
+					.sid(measureData.getSid()).build();
 
-			
 			try {
-				//seeMeasureData = objectMapper.writeValueAsString(measureData);
+				// seeMeasureData = objectMapper.writeValueAsString(measureData);
 
-				
 				seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
-				
-				//EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData); //sent from server
-				
-                try {
-                	measureDataSse.sseEmitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    measureDataSse.sseEmitter.completeWithError(e);
-                }
-				
-                
-				
-				//logger.info("sse 로 보낼 결과 " + result.toString());
+
+				// EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData);
+				// //sent from server
+				// measureDataSse.sseEmitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
+
+				serversentService.sendSseEventsToUI(seeMeasurePatientData);
+
+				// logger.info("sse 로 보낼 결과 " + result.toString());
 			} catch (JsonProcessingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			//measureDataSink
-			
-			
+
+			// measureDataSink
 
 		}
 
-		
 		log.info("응답파싱결과: " + sb.toString());
-				
-		
 
-		
-		
 		writeBuffer = charset.encode(sb.toString());
-	    try {
+		try {
 			schn.write(writeBuffer);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -262,50 +223,39 @@ public class SocketThreadService {
 
 	}
 
-	
-	
-	
 	public void sessionDataParsing(String jsonData) throws JsonMappingException, JsonProcessingException {
-		
+
 		log.info("sessionData Parsing!!");
-		
+
 		SessionData sessionData = objectMapper.readValue(jsonData, SessionData.class);
-		
+
 		log.info("sessionData parsing 결과: " + sessionData);
-		
+
 		SessionData sessionEntity = sessionDataMapper.findById(sessionData.getSid());
-		
+
 		String startTime = sessionData.getStartTime();
 		String endTime = sessionData.getEndTime();
-		
-		
-		if(sessionEntity != null) {
-			
-			log.info("session: " + sessionData);
-			
 
-			
-			log.info("sessionEndTime: "+endTime);
-			log.info("sessionStartTime: "+startTime);
-			
-			
-			if(StringUtils.isNoneBlank(startTime)) {
-				
+		if (sessionEntity != null) {
+
+			log.info("session: " + sessionData);
+
+			log.info("sessionEndTime: " + endTime);
+			log.info("sessionStartTime: " + startTime);
+
+			if (StringUtils.isNoneBlank(startTime)) {
+
 				sessionDataMapper.updateStartTime(sessionData);
-				
-			}else if(StringUtils.isNoneBlank(endTime)){
+
+			} else if (StringUtils.isNoneBlank(endTime)) {
 				sessionDataMapper.updateEndTime(sessionData);
 			}
-			
-			
-		}else {
+
+		} else {
 			sessionDataMapper.save(sessionData);
 		}
-		
-		
+
 	}
-	
-	
 
 	// 환자정보 요청 처리
 	public void patientSearchProceed(String[] array, SocketChannel schn) throws IOException {
@@ -319,19 +269,19 @@ public class SocketThreadService {
 		String patietName = pidArray[5];
 
 		String trId = mshArray[9];
-		
+
 		log.info("trid: " + trId);
 
 		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
 
-		if (StringUtils.isNotBlank(patiendId)) {  //             patietName.equals("")
+		if (StringUtils.isNotBlank(patiendId)) { // patietName.equals("")
 			log.info("1.patiendId: " + patiendId + ",  patientName: " + patietName);
 			// 여기서 다시 HL7 파싱을 해서, 전달
 
 			sb.delete(0, sb.length()); // 초기화
 			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
-			+ "||RPI^I03|" + trId + "\r\n" + "");
-		
+					+ "||RPI^I03|" + trId + "\r\n" + "");
+
 			// 요렇게 받으면 안 되고 배열로 받아야 됨.
 			List<Patient> patients = patientMapper.findByContainId(Integer.parseInt(patiendId));
 
@@ -340,73 +290,64 @@ public class SocketThreadService {
 			log.info("응답파싱결과: " + sb.toString());
 
 			writeBuffer = charset.encode(sb.toString());
-		    schn.write(writeBuffer);
-	
+			schn.write(writeBuffer);
+
 			logger.info("응답 완료");
 
-		} else if(StringUtils.isNotBlank(patietName)){
+		} else if (StringUtils.isNotBlank(patietName)) {
 			log.info("2. patiendId: " + patiendId + ",  patientName: " + patietName);
-			
+
 			sb.delete(0, sb.length()); // 초기화
-			
+
 			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
-			+ "||RPI^I03|" + trId + "\r\n" + "");
+					+ "||RPI^I03|" + trId + "\r\n" + "");
 
 			// 요렇게 받으면 안 되고 배열로 받아야 됨.
 			List<Patient> patients = patientMapper.findByContainName(patietName);
-	
+
 			addPatientsList(patients);
 
 			log.info("응답파싱결과: " + sb.toString());
 
 			writeBuffer = charset.encode(sb.toString());
-		    schn.write(writeBuffer);
-	
-			logger.info("응답 완료");
-			
+			schn.write(writeBuffer);
 
-		}else {  //keyword가 없으면 모든 환자데이터 응답해라.
-			
+			logger.info("응답 완료");
+
+		} else { // keyword가 없으면 모든 환자데이터 응답해라.
+
 			sb.delete(0, sb.length()); // 초기화
-			
+
 			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
-			+ "||RPI^I03|" + trId + "\r\n" + "");
-			
-			
+					+ "||RPI^I03|" + trId + "\r\n" + "");
+
 			List<Patient> patients = patientMapper.findAll();
-			
+
 			addPatientsList(patients);
 
 			log.info("응답파싱결과: " + sb.toString());
 
 			writeBuffer = charset.encode(sb.toString());
-		    schn.write(writeBuffer);
-	
+			schn.write(writeBuffer);
+
 			logger.info("응답 완료");
-			
+
 		}
 
 	}
-	
-	
-	
-	
+
 	public void addPatientsList(List<Patient> patients) {
-		
-		
+
 		for (int i = 0; i < patients.size(); i++) {
 
 			sb.append("PID||" + patients.get(i).getPid() + "|" + patients.get(i).getAge() + "|"
 					+ patients.get(i).getHeight() + "|" + patients.get(i).getFirstname() + "|"
 					+ patients.get(i).getLastname() + "|" + patients.get(i).getWeight() + "|"
-					+ patients.get(i).getGender() + "|"+ patients.get(i).getComment() +"|"+ patients.get(i).getLastSession() +"|||||||||\r\n" + "");
+					+ patients.get(i).getGender() + "|" + patients.get(i).getComment() + "|"
+					+ patients.get(i).getLastSession() + "|||||||||\r\n" + "");
 		}
-		
-		
+
 	}
-	
-	
-	
 
 //	@Async
 //	public void FTPServiece() {
@@ -421,5 +362,5 @@ public class SocketThreadService {
 //		}
 //		
 //	}
-	
+
 }

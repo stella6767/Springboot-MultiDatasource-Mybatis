@@ -1,5 +1,8 @@
 package net.lunalabs.central.config;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +18,9 @@ public class MeasureDataSse {
 	
 	public Sinks.Many<String> sink = Sinks.many().multicast().onBackpressureBuffer(); //webflux
 	
-	public SseEmitter sseEmitter = new SseEmitter(Long.MAX_VALUE);  //webmvc
+	//public SseEmitter sseEmitter = new SseEmitter(Long.MAX_VALUE);  //webmvc
+	public final Collection<SseEmitter> emitters = Collections.synchronizedCollection(new HashSet<SseEmitter>());  //multi-Thread-Safe한 Collection 객체를 생성
+	
+	public String sseData;
 	
 }
