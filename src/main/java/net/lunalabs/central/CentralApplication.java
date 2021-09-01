@@ -2,25 +2,18 @@ package net.lunalabs.central;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 public class CentralApplication {
 
-	public static void main(String[] args) {
-		
+	private static final String PROPERTIES = "spring.config.location=" + "classpath:/application.yml"
+			+ ",classpath:/ftpconfig.yml";
 
-		SpringApplication.run(CentralApplication.class, args);
-		
+	public static void main(String[] args) {
+
+		new SpringApplicationBuilder(CentralApplication.class).run(args);  //properties(PROPERTIES).
+
 	}
 
-
-//	@Bean
-//	public CommandLineRunner emulatorStart(CSSocket emulator) {
-//		return (args) -> {
-//			// 데이터 초기화 하기			
-//			emulator.start();;			
-//		};
-//	}
-
-	
 }

@@ -1,7 +1,10 @@
 ftp:
   port: 2121
-  userlist: FX7102DATA/FUKUDADENSHI,mediana/1234,kyu/1234
   uploadDir: C:\\kangminkyu\\FTPfileUpload
+  userlist: 
+    - FX7102DATA/FUKUDADENSHI
+    - mediana/1234
+    - kyu/1234
 #  api:
 #    name: kakao
 #    key: 123123

@@ -56,11 +56,11 @@ public class FtpServerMain {
 //		serverFactory.setUserManager(userManagerFactory.createUserManager());
 				
 //		String[] strAccountList = "FX7102DATA/FUKUDADENSHI,mediana/1234,kyu/1234".split(",");
-		String[] strAccountList = ftpProperties.getUserlist().split(",");
+
 		
 		UserManager um = userManagerFactory.createUserManager();
 		
-		for(String AccountInfo : strAccountList) {
+		for(String AccountInfo : ftpProperties.getUserlist()) {
 			
 			int idx=AccountInfo.indexOf("/");
 			
@@ -74,6 +74,8 @@ public class FtpServerMain {
 			user.setEnabled(true);
 			logger.trace("dir==C:\\kangminkyu\\FTPfileUpload");
 			
+			logger.info("ftp 등록된 유저이름: " + user.getName());
+			logger.info("ftp 등록된 유저패스워드: " + user.getPassword());
 			
 			user.setHomeDirectory(ftpProperties.getUploadDir()); //요기가 FTP server file root경로
 			
