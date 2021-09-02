@@ -23,6 +23,7 @@ public class MeasureDataJoinPatientBean {  //sql에서 select 안 하고, 바로
 	private String sid; //세션데이터 id
 	private Integer pid;
 	private String parame;
+	private String valueUnit;
 	private String value;
 	private String startTime; 
 	private String endTime;

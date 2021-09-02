@@ -28,10 +28,11 @@ public class MeasureData {
 	private Integer mid;
 	private String sid; //세션데이터 id
 	private Integer pid;
+	private String patientUserId;
 	private String parame;
+	private String valueUnit;
 	private String value;
 	private String startTime; //이렇게 String으로 받아도 되나??
-	
 	//@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
 	private String endTime;
 	

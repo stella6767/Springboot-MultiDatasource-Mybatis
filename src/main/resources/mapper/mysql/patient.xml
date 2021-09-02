@@ -25,6 +25,13 @@
 		select * from patient where pid LIKE '%${id}%'
 		]]>
 	</select>
+	
+	
+	<select id="findByContainPatientUserId" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
+		<![CDATA[
+		select * from patient where patientUserId LIKE '%${patientUserId}%'
+		]]>
+	</select>
 
 	<select id="findByContainName" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
 		<![CDATA[
@@ -47,7 +54,11 @@
 		]]>
 	</select>
 
-
+	<select id="findByPatientUserId" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
+		<![CDATA[
+		select * from patient where patientUserId=#{patientUserId} 
+		]]>
+	</select>
 
 
 </mapper>

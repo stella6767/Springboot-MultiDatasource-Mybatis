@@ -71,7 +71,7 @@ public class SocketThreadService {
 		byte[] readByteArr;
 
 		// Client로부터 글자 받기
-		ByteBuffer readBuf = ByteBuffer.allocate(10240);
+		ByteBuffer readBuf = ByteBuffer.allocate(10240);//read into buffer. 일단은 버퍼 초과 신경쓰지 않고
 		schn.read(readBuf); // 클라이언트로부터 데이터 읽기
 		readBuf.flip();
 
@@ -79,6 +79,23 @@ public class SocketThreadService {
 		readBuf.get(readByteArr); // 데이터 읽기
 		result = result + new String(readByteArr, Charset.forName("UTF-8")); // 어차피 여기서 계속 더하니까.
 
+		
+//		int bytesRead = schn.read(readBuf); // 
+//		while (bytesRead != -1) {// 만약 소켓채널을 통해 buffer에 데이터를 받아왔으면
+//			readBuf.flip(); // make buffer ready for read
+//			while (readBuf.hasRemaining()) {
+////				System.out.print((char) readBuf.get()); // read 1 byte at a time
+//				result = result + String.valueOf(((char) readBuf.get())); //why dont work!!!!
+//			}
+//
+//			readBuf.clear(); //make buffer ready for writing
+//			bytesRead = schn.read(readBuf);
+//		}
+		
+		
+		log.info("------------------------------처음 파싱되서 도착한 데이터---------------------------------------");
+		log.info(result);
+		
 		HL7DataFirstParse(result, schn);
 //         log.info("Received Data : " + charset.decode(readBuf).toString());
 		log.info("Received Data : " + result);
@@ -143,6 +160,7 @@ public class SocketThreadService {
 		String[] pidArray = array[1].split("[|]");
 
 		Integer pid = Integer.parseInt(pidArray[2]);
+		String patientUserId = pidArray[5];
 
 		String[] obrArray = array[2].split("[|]");
 		String sid = obrArray[2];
@@ -156,7 +174,7 @@ public class SocketThreadService {
 		log.info("session id: " + sid);
 		log.info("startTime: " + startTime);
 		log.info("endTime: " + endTime);
-		log.info("patient Id: " + pid);
+		log.info("patient Id: " + patientUserId);
 
 		for (int i = 3; i < array.length; i++) { // 3부터 OBX param 시작
 			log.info("개행문자 기준으로 1차 파싱: " + array[i]);
@@ -168,17 +186,21 @@ public class SocketThreadService {
 			for (int j = 0; j < splitSecondArray.length; j++) {
 				log.info("| 기준으로 2차 파싱: " + splitSecondArray[j]);
 
-				measureData = MeasureData.builder().pid(pid).parame(splitSecondArray[3]).value(splitSecondArray[5])
-//					.endTime(MParsing.stringToDate(startTime))
-//					.startTime(MParsing.stringToDate(endTime))
-						.endTime(endTime).startTime(startTime).sid(sid).build();
+				measureData = MeasureData.builder()
+						.pid(pid)
+						.patientUserId(patientUserId)
+						.parame(splitSecondArray[3])
+						.valueUnit(splitSecondArray[6])
+						.value(splitSecondArray[5])
+						.endTime(endTime)
+						.startTime(startTime)
+						.sid(sid)
+						.build();
 
 			}
 
 			measureDataMapper.save(measureData);
-
 			Patient patient = patientMapper.findById(pid);
-
 			patientMapper.updateLastSession(measureData.getSid(), patient.getPid());
 
 			String seeMeasurePatientData = "";
@@ -186,9 +208,14 @@ public class SocketThreadService {
 
 			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
 					// .deviceId() 굳이?
-					.age(patient.getAge()).endTime(measureData.getEndTime()).startTime(measureData.getStartTime())
-					.mid(measureData.getMid()).parame(measureData.getParame()).value(measureData.getValue())
-					.sid(measureData.getSid()).build();
+					.age(patient.getAge())
+					.endTime(measureData.getEndTime())
+					.startTime(measureData.getStartTime())
+					.parame(measureData.getParame())
+					.value(measureData.getValue())
+					.sid(measureData.getSid())
+					.valueUnit(measureData.getValueUnit())
+					.build();
 
 			try {
 				// seeMeasureData = objectMapper.writeValueAsString(measureData);
@@ -265,7 +292,9 @@ public class SocketThreadService {
 		String[] pidArray = array[1].split("[|]");
 		String[] mshArray = array[0].split("[|]");
 
-		String patiendId = pidArray[2];
+		
+//		Integer pid = Integer.parseInt(pidArray[2]);
+		String patientUserId = pidArray[2];
 		String patietName = pidArray[5];
 
 		String trId = mshArray[9];
@@ -274,8 +303,8 @@ public class SocketThreadService {
 
 		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
 
-		if (StringUtils.isNotBlank(patiendId)) { // patietName.equals("")
-			log.info("1.patiendId: " + patiendId + ",  patientName: " + patietName);
+		if (StringUtils.isNotBlank(patientUserId)) { // patietName.equals("")
+			log.info("1.patientUserId: " + patientUserId + ",  patientName: " + patietName);
 			// 여기서 다시 HL7 파싱을 해서, 전달
 
 			sb.delete(0, sb.length()); // 초기화
@@ -283,7 +312,7 @@ public class SocketThreadService {
 					+ "||RPI^I03|" + trId + "\r\n" + "");
 
 			// 요렇게 받으면 안 되고 배열로 받아야 됨.
-			List<Patient> patients = patientMapper.findByContainId(Integer.parseInt(patiendId));
+			List<Patient> patients = patientMapper.findByContainPatientUserId(patientUserId);
 
 			addPatientsList(patients);
 
@@ -295,7 +324,7 @@ public class SocketThreadService {
 			logger.info("응답 완료");
 
 		} else if (StringUtils.isNotBlank(patietName)) {
-			log.info("2. patiendId: " + patiendId + ",  patientName: " + patietName);
+			log.info("2. patientUserId: " + patientUserId + ",  patientName: " + patietName);
 
 			sb.delete(0, sb.length()); // 초기화
 
@@ -340,7 +369,7 @@ public class SocketThreadService {
 
 		for (int i = 0; i < patients.size(); i++) {
 
-			sb.append("PID||" + patients.get(i).getPid() + "|" + patients.get(i).getAge() + "|"
+			sb.append("PID||" + patients.get(i).getPatientUserId() + "|" + patients.get(i).getAge() + "|"
 					+ patients.get(i).getHeight() + "|" + patients.get(i).getFirstname() + "|"
 					+ patients.get(i).getLastname() + "|" + patients.get(i).getWeight() + "|"
 					+ patients.get(i).getGender() + "|" + patients.get(i).getComment() + "|"

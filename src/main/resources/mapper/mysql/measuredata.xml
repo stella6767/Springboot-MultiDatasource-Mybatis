@@ -5,8 +5,8 @@
 <mapper namespace="net.lunalabs.central.mapper.mysql.MeasureDataMapper">
 
 	<insert id="save">
-		INSERT INTO MeasureData(sid, pid, parame, value, startTime, endTime)
-		VALUES(#{sid},#{pid},#{parame}, #{value}, STR_TO_DATE(CONCAT(#{startTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'), STR_TO_DATE(CONCAT(#{endTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'))
+		INSERT INTO MeasureData(sid, pid, patientUserId, parame, valueUnit, value, startTime, endTime)
+		VALUES(#{sid},#{pid},#{patientUserId},#{parame},#{valueUnit},#{value},STR_TO_DATE(CONCAT(#{startTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'), STR_TO_DATE(CONCAT(#{endTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'))
 	</insert>
 
 	<delete id="deleteById">
