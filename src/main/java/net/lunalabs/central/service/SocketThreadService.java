@@ -213,6 +213,7 @@ public class SocketThreadService {
 					.startTime(measureData.getStartTime())
 					.parame(measureData.getParame())
 					.value(measureData.getValue())
+					.patientUserId(measureData.getPatientUserId())
 					.sid(measureData.getSid())
 					.valueUnit(measureData.getValueUnit())
 					.build();
