@@ -12,10 +12,5 @@ public class SessionDataService {
 
 	private final SessionDataMapper sessionDataMapper;
 	
-	
-	
-	
-	
-	
-	
+
 }

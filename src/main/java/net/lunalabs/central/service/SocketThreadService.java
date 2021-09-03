@@ -374,7 +374,7 @@ public class SocketThreadService {
 					+ patients.get(i).getHeight() + "|" + patients.get(i).getFirstname() + "|"
 					+ patients.get(i).getLastname() + "|" + patients.get(i).getWeight() + "|"
 					+ patients.get(i).getGender() + "|" + patients.get(i).getComment() + "|"
-					+ patients.get(i).getLastSession() + "|||||||||\r\n" + "");
+					+ patients.get(i).getLastSession() + "|"+ patients.get(i).getPid() +"||||||||\r\n" + "");
 		}
 
 	}

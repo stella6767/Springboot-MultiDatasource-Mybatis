@@ -75,49 +75,46 @@ public class ServersentService {
 	}
 	
 	
-	@Scheduled(fixedDelay = 3000) //3초마다 실행, 테스트용도
-	public void sendSseEventsToUITest() throws JsonProcessingException { 
-					
-		
-		
-		
-		String[] parames ={"mv","rr","rvs","spo2","tv"}; 
-		
-		for(int i=0; i<parames.length; i++) {
-			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
-					// .deviceId() 굳이?
-					.age(28)
-					.endTime("2021-07-16 03:09:06.868000000")
-					.startTime("2021-07-16 03:09:06.766000000")
-					.parame(parames[i])
-					.value((random.nextInt(100)+1)+"")
-					.patientUserId("patient 10")
-					.sid("patient10_20210826_114616")
-					.valueUnit("LM")
-					.build();
-
-			String seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
-			
-		
-			logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
-			
-			Iterator<SseEmitter> iter = measureDataSse.emitters.iterator();
-
-			while (iter.hasNext()) {
-			    SseEmitter emitter = iter.next();
-			   
-		        try {
-		        	logger.info("data 보내는 객체 주소: " + emitter.toString());
-		            emitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
-		            Thread.sleep(1000);
-		        } catch (Throwable e) {
-		            emitter.complete();
-		        }
-			}		
-			
-			
-		}
-	}
+//	@Scheduled(fixedDelay = 3000) //3초마다 실행, 테스트용도
+//	public void sendSseEventsToUITest() throws JsonProcessingException { 
+//	
+//		String[] parames ={"mv","rr","rvs","spo2","tv"}; 
+//		
+//		for(int i=0; i<parames.length; i++) {
+//			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
+//					// .deviceId() 굳이?
+//					.age(28)
+//					.endTime("2021-07-16 03:09:06.868000000")
+//					.startTime("2021-07-16 03:09:06.766000000")
+//					.parame(parames[i])
+//					.value((random.nextInt(100)+1)+"")
+//					.patientUserId("patient 10")
+//					.sid("patient10_20210826_114616")
+//					.valueUnit("LM")
+//					.build();
+//
+//			String seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
+//			
+//		
+//			logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
+//			
+//			Iterator<SseEmitter> iter = measureDataSse.emitters.iterator();
+//
+//			while (iter.hasNext()) {
+//			    SseEmitter emitter = iter.next();
+//			   
+//		        try {
+//		        	logger.info("data 보내는 객체 주소: " + emitter.toString());
+//		            emitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
+//		            Thread.sleep(1000);
+//		        } catch (Throwable e) {
+//		            emitter.complete();
+//		        }
+//			}		
+//			
+//			
+//		}
+//	}
 	
 }
 
