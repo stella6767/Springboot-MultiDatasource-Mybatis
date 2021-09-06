@@ -152,6 +152,7 @@ public class SocketThreadService {
 
 	public void measureDataParsing(String[] array, SocketChannel schn) { // 5개의 parame이 오면 5번 insert
 
+		List<MeasureDataJoinPatientBean> sses = new ArrayList<>();
 		
 		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
 		sb.delete(0, sb.length()); // 초기화
@@ -221,30 +222,48 @@ public class SocketThreadService {
 					.sid(measureData.getSid())
 					.valueUnit(measureData.getValueUnit())
 					.build();
+			
+			
+			sses.add(dataJoinPatientBean);
 
-			try {
-				// seeMeasureData = objectMapper.writeValueAsString(measureData);
-
-				seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
-
-				// EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData);
-				// //sent from server
-				// measureDataSse.sseEmitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
-				
-				serversentService.sendSseEventsToUI(seeMeasurePatientData, deviceId);
-
-				// logger.info("sse 로 보낼 결과 " + result.toString());
-			} catch (JsonProcessingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			try {
+//				// seeMeasureData = objectMapper.writeValueAsString(measureData);
+//
+//				seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
+//
+//				// EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData);
+//				// //sent from server
+//				// measureDataSse.sseEmitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
+//				
+//				serversentService.sendSseEventsToUI(seeMeasurePatientData, deviceId);
+//
+//				// logger.info("sse 로 보낼 결과 " + result.toString());
+//			} catch (JsonProcessingException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 			
 			// measureDataSink
 
 		}
 
 		
-		
+		try {
+			// seeMeasureData = objectMapper.writeValueAsString(measureData);
+
+			String seeMeasurePatientData = objectMapper.writeValueAsString(sses);
+
+			// EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData);
+			// //sent from server
+			// measureDataSse.sseEmitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
+			
+			serversentService.sendSseEventsToUI(seeMeasurePatientData, deviceId);
+
+			// logger.info("sse 로 보낼 결과 " + result.toString());
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		log.info("응답파싱결과: " + sb.toString());
 

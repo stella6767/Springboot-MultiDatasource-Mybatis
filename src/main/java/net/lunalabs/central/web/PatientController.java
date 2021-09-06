@@ -27,7 +27,7 @@ public class PatientController {
 
 	}
 
-	@GetMapping
+	@GetMapping("/patient/{id}")
 	public CMRespDto<?> findById(@PathVariable int id) {
 
 		return new CMRespDto<>(1, "Id로 환자 조회", patientService.findById(id));
