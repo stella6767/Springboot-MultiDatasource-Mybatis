@@ -5,6 +5,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -151,6 +152,7 @@ public class SocketThreadService {
 
 	public void measureDataParsing(String[] array, SocketChannel schn) { // 5개의 parame이 오면 5번 insert
 
+		
 		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
 		sb.delete(0, sb.length()); // 초기화
 
@@ -236,13 +238,12 @@ public class SocketThreadService {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+			
 			// measureDataSink
 
 		}
 
 		
-		//여기서 프론트로 보내줄까....
 		
 		
 		log.info("응답파싱결과: " + sb.toString());
