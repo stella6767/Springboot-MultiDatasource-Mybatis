@@ -2,6 +2,7 @@ package net.lunalabs.central.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -54,7 +55,7 @@ public class ServersentService {
 	}
 
 	//@Scheduled(fixedDelay = 3000)
-	public void sendSseEventsToUI(String seeMeasurePatientData) { 
+	public void sendSseEventsToUI(String seeMeasurePatientData, String eventName) { 
 		
 		logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
 		
@@ -66,7 +67,7 @@ public class ServersentService {
 	        try {
 	        	logger.info("data 보내는 객체 주소: " + emitter.toString());
 //	            emitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData), MediaType.APPLICATION_JSON);
-	            emitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
+	            emitter.send(SseEmitter.event().name(eventName).reconnectTime(500).data(seeMeasurePatientData));
 	        } catch (Throwable e) {
 	            emitter.complete();
 	        }
@@ -78,14 +79,19 @@ public class ServersentService {
 //	@Scheduled(fixedDelay = 3000) //3초마다 실행, 테스트용도
 //	public void sendSseEventsToUITest() throws JsonProcessingException { 
 //	
-//		String[] parames ={"mv","rr","rvs","spo2","tv"}; 
+//		String[] parames ={"mv","rr","rvs","spo2","tv"};
+//		
+//		String[] sessionId = {"session1","session2","session3","session4","session5"};
+//	
+//		
+//		HashMap<String, MeasureDataJoinPatientBean> hashMap = new HashMap<>();
 //		
 //		for(int i=0; i<parames.length; i++) {
 //			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
 //					// .deviceId() 굳이?
 //					.age(28)
-//					.endTime("2021-07-16 03:09:06.868000000")
-//					.startTime("2021-07-16 03:09:06.766000000")
+////					.endTime("2021-07-16 03:09:06.868000000")
+////					.startTime("2021-07-16 03:09:06.766000000")
 //					.parame(parames[i])
 //					.value((random.nextInt(100)+1)+"")
 //					.patientUserId("patient 10")
@@ -93,7 +99,10 @@ public class ServersentService {
 //					.valueUnit("LM")
 //					.build();
 //
+//			hashMap.put(dataJoinPatientBean.getSid(), dataJoinPatientBean);
+//			
 //			String seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
+//			//String seeMeasurePatientData = objectMapper.writeValueAsString(hashMap);
 //			
 //		
 //			logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);

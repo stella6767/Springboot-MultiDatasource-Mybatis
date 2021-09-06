@@ -118,6 +118,9 @@ public class FtpServerMain {
 	            logger.info("Thread #" + Thread.currentThread().getId());
 
 	            //do something
+	            
+	            
+	            
 	            return FtpletResult.DEFAULT;//...or return accordingly
 	        }
 
@@ -138,7 +141,7 @@ public class FtpServerMain {
 					try{
 						
 						
-						ftpService.ftpFileDBSave("C:\\kangminkyu\\FTPfileUpload", strFileName); //일단은 하드코딩
+						ftpService.ftpFileDBSave(ftpProperties.getUploadDir(), strFileName); //일단은 하드코딩
 
 					}catch(Exception e)	{
 						

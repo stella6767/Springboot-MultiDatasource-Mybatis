@@ -156,6 +156,7 @@ public class SocketThreadService {
 
 		String[] mshArray = array[0].split("[|]");
 		String trId = mshArray[9];
+		String deviceId = mshArray[7];
 
 		String[] pidArray = array[1].split("[|]");
 
@@ -175,6 +176,7 @@ public class SocketThreadService {
 		log.info("startTime: " + startTime);
 		log.info("endTime: " + endTime);
 		log.info("patient Id: " + patientUserId);
+		log.info("device Id: " + deviceId);
 
 		for (int i = 3; i < array.length; i++) { // 3부터 OBX param 시작
 			log.info("개행문자 기준으로 1차 파싱: " + array[i]);
@@ -226,8 +228,8 @@ public class SocketThreadService {
 				// EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData);
 				// //sent from server
 				// measureDataSse.sseEmitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
-
-				serversentService.sendSseEventsToUI(seeMeasurePatientData);
+				
+				serversentService.sendSseEventsToUI(seeMeasurePatientData, deviceId);
 
 				// logger.info("sse 로 보낼 결과 " + result.toString());
 			} catch (JsonProcessingException e) {
@@ -239,6 +241,10 @@ public class SocketThreadService {
 
 		}
 
+		
+		//여기서 프론트로 보내줄까....
+		
+		
 		log.info("응답파싱결과: " + sb.toString());
 
 		writeBuffer = charset.encode(sb.toString());
