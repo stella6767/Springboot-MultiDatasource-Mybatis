@@ -23,9 +23,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.lunalabs.central.config.MeasureDataSse;
+import net.lunalabs.central.domain.Patient;
 import net.lunalabs.central.domain.mysql.MeasureDataJoinPatientBean;
 import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
-import net.lunalabs.central.domain.mysql.patient.Patient;
 import net.lunalabs.central.domain.mysql.sessiondata.SessionData;
 import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
@@ -42,9 +42,15 @@ public class SocketThreadService {
 
 	@Qualifier("MysqlMeasureDataMapper")
 	private final MeasureDataMapper measureDataMapper;
+	
+	@Qualifier("OracleMeasureDataMapper")
+	private final net.lunalabs.central.mapper.oracle.MeasureDataMapper oracleMeasureDataMapper; //oracle package 안에 MAPPER, 이름이 같으니 주의
+	
+	//@Qualifier("MysqlPatientMapper")
+	private final PatientMapper mysqlPatientMapper;
+	
+	private final net.lunalabs.central.mapper.oracle.PatientMapper oraclePatientMapper;
 
-	@Qualifier("MysqlPatientMapper")
-	private final PatientMapper patientMapper;
 
 	private final SessionDataMapper sessionDataMapper;
 
@@ -204,9 +210,12 @@ public class SocketThreadService {
 
 			}
 
+			//현재단계에서는 측정데이터를 보낼때, oracle과 mariaDB 둘다 저장하도록=>2차에서는 프로시저로 대체
 			measureDataMapper.save(measureData);
-			Patient patient = patientMapper.findById(pid);
-			patientMapper.updateLastSession(measureData.getSid(), patient.getPid());
+			oracleMeasureDataMapper.save(measureData); 
+			
+			Patient patient = mysqlPatientMapper.findById(pid);
+			mysqlPatientMapper.updateLastSession(measureData.getSid(), patient.getPid());
 
 			String seeMeasurePatientData = "";
 			// this.objectMapper.setSerializationInclusion(Jsoninc);
@@ -338,9 +347,20 @@ public class SocketThreadService {
 			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
 					+ "||RPI^I03|" + trId + "\r\n" + "");
 
-			// 요렇게 받으면 안 되고 배열로 받아야 됨.
-			List<Patient> patients = patientMapper.findByContainPatientUserId(patientUserId);
+			List<Patient> patients = mysqlPatientMapper.findByContainPatientUserId(patientUserId);
 
+			//만약 patientUserId가 없다면, oracle DB에서 찾는 로직 추가	
+			if(patients.isEmpty()) {
+				
+				log.info("여길 타는지");
+				
+				List<Patient> bilabPatients = oraclePatientMapper.findByContainPatientUserId(patientUserId);
+				
+				log.info("확인... " + bilabPatients);
+				
+			}
+			
+			
 			addPatientsList(patients);
 
 			log.info("응답파싱결과: " + sb.toString());
@@ -359,7 +379,7 @@ public class SocketThreadService {
 					+ "||RPI^I03|" + trId + "\r\n" + "");
 
 			// 요렇게 받으면 안 되고 배열로 받아야 됨.
-			List<Patient> patients = patientMapper.findByContainName(patietName);
+			List<Patient> patients = mysqlPatientMapper.findByContainName(patietName);
 
 			addPatientsList(patients);
 
@@ -377,7 +397,7 @@ public class SocketThreadService {
 			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
 					+ "||RPI^I03|" + trId + "\r\n" + "");
 
-			List<Patient> patients = patientMapper.findAll();
+			List<Patient> patients = mysqlPatientMapper.findAll();
 
 			addPatientsList(patients);
 

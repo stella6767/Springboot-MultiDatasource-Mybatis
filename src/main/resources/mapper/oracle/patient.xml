@@ -2,26 +2,18 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper
-	namespace="net.lunalabs.central.mapper.oracle.PatientMapper">
-	
-<!-- 	<insert id="save">
-		INSERT INTO MeasureData(name, code)
-		VALUES(#{name},#{code})
-	</insert> -->
+<mapper namespace="net.lunalabs.central.mapper.oracle.PatientMapper">
+
+	<!-- <insert id="save"> INSERT INTO MeasureData(name, code) VALUES(#{name},#{code}) </insert> -->
 
 	<delete id="deleteById">
 		DELETE FROM Patient WHERE pid = #{id}
 	</delete>
 
-<!-- 	<update id="update">
-		UPDATE MeasureData SET name=#{name}, code=#{code} WHERE
-		mid = #{id}
-	</update> -->
-	
-	
-	<select id="findAll"
-		resultType="net.lunalabs.central.domain.oracle.patient.Patient">
+	<!-- <update id="update"> UPDATE MeasureData SET name=#{name}, code=#{code} WHERE mid = #{id} </update> -->
+
+
+	<select id="findAll" resultType="net.lunalabs.central.domain.oracle.patient.Patient">
 		<![CDATA[
 		select * from Patient order by pid desc 
 		]]>
@@ -29,13 +21,25 @@
 
 
 
-	<select id="findById"
-		resultType="net.lunalabs.central.domain.oracle.patient.Patient">
+	<select id="findById" resultType="net.lunalabs.central.domain.oracle.patient.Patient">
 		<![CDATA[
 		select * from Patient where pid=#{id} 
 		]]>
 	</select>
-	
+
+
+	<select id="findByContainPatientUserId" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
+		<![CDATA[
+		EXEC GETEMP5(${patientUserId}, :RC);
+		]]>
+	</select>
+
+<!-- 	<select id="findByContainName" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
+		<![CDATA[
+		select * from patient where firstname LIKE '%${name}%' or lastname LIKE '%${name}%'  
+		]]>
+	</select>
+ -->
 
 
 

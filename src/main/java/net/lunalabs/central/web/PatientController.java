@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.lunalabs.central.domain.Patient;
 import net.lunalabs.central.service.mysql.PatientService;
 import net.lunalabs.central.web.dto.CMRespDto;
 
@@ -34,7 +35,7 @@ public class PatientController {
 	}
 
 	@GetMapping("/patient2")
-	public List<net.lunalabs.central.domain.oracle.patient.Patient> findAll2() {
+	public List<Patient> findAll2() {
 		return patientService.findAll2();
 	}
 

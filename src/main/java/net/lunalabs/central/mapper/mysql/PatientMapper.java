@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import net.lunalabs.central.config.db.MysqlConnMapper;
-import net.lunalabs.central.domain.mysql.patient.Patient;
+import net.lunalabs.central.domain.Patient;
 
 @MysqlConnMapper("MysqlPatientMapper")
 public interface PatientMapper {

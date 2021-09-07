@@ -11,7 +11,7 @@ import net.lunalabs.central.domain.oracle.measuredata.MeasureData;
 public interface MeasureDataMapper {
 	
 	
-	public void save(MeasureData measureData); 
+	public void save(net.lunalabs.central.domain.mysql.measuredata.MeasureData measureData); 
 	public void deleteById(int id);
 	public void update(MeasureData measureData);
 	public List<MeasureData> findAll();

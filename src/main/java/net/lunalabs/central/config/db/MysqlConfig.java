@@ -47,7 +47,8 @@ public class MysqlConfig{
           sqlSessionFactoryBean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("mybatis-config/mysql-config.xml")); //mybatis 설정 xml 파일매핑 
           sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("mapper/mysql/*.xml"));
           //sqlSessionFactoryBean.setMapperLocations(applicationContex.getResources("classpath:mapper/mysql/*.xml"));
-          sqlSessionFactoryBean.setTypeAliasesPackage("net.lunalabs.central.domain.mysql"); //benas pakage에 dao나 vo 모아둘 때 구분하기 위해 쓰는 것도 좋음
+          //sqlSessionFactoryBean.setTypeAliasesPackage("net.lunalabs.central.domain.mysql"); //benas pakage에 dao나 vo 모아둘 때 구분하기 위해 쓰는 것도 좋음
+          sqlSessionFactoryBean.setTypeAliasesPackage("net.lunalabs.central.domain"); //찜찜하긴 한데.
           //log.info("여기" + new PathMatchingResourcePatternResolver().getResources("mapper/mysql/*.xml").toString());
           
           //sqlSessionFactoryBean.setTypeAliasesPackage(null); //Mapper 에서 사용하고자하는 VO 및 Entity 에 대해서

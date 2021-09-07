@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
-import net.lunalabs.central.domain.mysql.patient.Patient;
+import net.lunalabs.central.domain.Patient;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
 
 @RequiredArgsConstructor
@@ -38,8 +38,8 @@ public class PatientService {
 	
 	
 	@Transactional(readOnly = true)
-	public List<net.lunalabs.central.domain.oracle.patient.Patient> findAll2(){	
-		List<net.lunalabs.central.domain.oracle.patient.Patient> patients = patientMapper2.findAll();	
+	public List<Patient> findAll2(){	
+		List<Patient> patients = patientMapper2.findAll();	
 		return patients;
 	}
 	

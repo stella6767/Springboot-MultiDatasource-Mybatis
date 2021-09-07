@@ -5,11 +5,11 @@
 <mapper
 	namespace="net.lunalabs.central.mapper.oracle.MeasureDataMapper">
 	
-<!-- 	<insert id="save">
-		INSERT INTO MeasureData(name, code)
-		VALUES(#{name},#{code})
-	</insert> -->
-
+	<insert id="save">
+		INSERT INTO MeasureData(mid, sid, pid, patientUserId, parame, valueUnit, value, startTime, endTime)
+		VALUES(MeasureData_seq.nextval,#{sid},#{pid},#{patientUserId},#{parame},#{valueUnit},#{value},TO_TIMESTAMP(CONCAT(#{startTime}, '000'), 'YY.MM.DD-HH24:MI:SS.FF6'), TO_TIMESTAMP(CONCAT(#{endTime}, '000'), 'YY.MM.DD-HH24:MI:SS.FF6'))
+	</insert>
+	
 	<delete id="deleteById">
 		DELETE FROM MeasureData WHERE mid = #{id}
 	</delete>
