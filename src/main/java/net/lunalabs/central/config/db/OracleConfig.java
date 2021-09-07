@@ -40,8 +40,8 @@ public class OracleConfig {
         sqlSessionFactoryBean.setDataSource(oracleDataSource);
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("mapper/oracle/*.xml"));
         sqlSessionFactoryBean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("mybatis-config/oracle-config.xml")); //mybatis 설정 xml 파일매핑
-        sqlSessionFactoryBean.setTypeAliasesPackage("net.lunalabs.central.domain.oracle");
-        //sqlSessionFactoryBean.setTypeAliasesPackage("net.lunalabs.central.domain");
+        //sqlSessionFactoryBean.setTypeAliasesPackage("net.lunalabs.central.domain.oracle");
+        sqlSessionFactoryBean.setTypeAliasesPackage("net.lunalabs.central.domain");
         return sqlSessionFactoryBean.getObject();
     }
 

@@ -1,4 +1,4 @@
-package net.lunalabs.central.domain;
+package net.lunalabs.central.domain.patient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Patient { // oracle, mysql 칼럼이 같다고 가정하고, 공용으로 쓰겠다. MeasureData는 일단 보류
+public class Patient { // oracle, mysql 칼럼이 같다고 가정하고, 공용으로 쓰겠다. 
 	
 	private Integer pid; //protoType이니 일단 integer로 받기로
 	private String patientUserId;

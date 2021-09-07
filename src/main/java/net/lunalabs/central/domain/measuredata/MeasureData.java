@@ -1,20 +1,30 @@
-package net.lunalabs.central.domain.oracle.measuredata;
+package net.lunalabs.central.domain.measuredata;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 
-@JsonInclude(JsonInclude.Include.NON_ABSENT) //json 직렬화 시 null 제외
+
+
+@JsonInclude(JsonInclude.Include.NON_ABSENT) //null 제외
+//@JsonIgnoreProperties(ignoreUnknown = true)
+@Accessors(chain=true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class MeasureData {
-	
+public class MeasureData { //MeasureData VO 도 공용
+			
 	private Integer mid;
 	private String sid; //세션데이터 id
 	private Integer pid;

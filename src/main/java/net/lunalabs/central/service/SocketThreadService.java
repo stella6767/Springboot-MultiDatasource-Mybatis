@@ -6,6 +6,7 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -23,10 +24,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.lunalabs.central.config.MeasureDataSse;
-import net.lunalabs.central.domain.Patient;
+import net.lunalabs.central.domain.measuredata.MeasureData;
 import net.lunalabs.central.domain.mysql.MeasureDataJoinPatientBean;
-import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
 import net.lunalabs.central.domain.mysql.sessiondata.SessionData;
+import net.lunalabs.central.domain.patient.Patient;
 import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
 import net.lunalabs.central.mapper.mysql.SessionDataMapper;
@@ -354,7 +355,13 @@ public class SocketThreadService {
 				
 				log.info("여길 타는지");
 				
-				List<Patient> bilabPatients = oraclePatientMapper.findByContainPatientUserId(patientUserId);
+				HashMap<String,Object> map = new HashMap<String,Object>();
+
+				map.put(patientUserId, 7369);
+				
+				oraclePatientMapper.findByContainPatientUserId(map);
+				
+				List<Patient> bilabPatients = (List<Patient>)map.get(patientUserId); //이게 무슨 로직이야..
 				
 				log.info("확인... " + bilabPatients);
 				

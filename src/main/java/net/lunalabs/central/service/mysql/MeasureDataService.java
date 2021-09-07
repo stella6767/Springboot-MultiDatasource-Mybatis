@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
-import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
+import net.lunalabs.central.domain.measuredata.MeasureData;
 import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
 
 @Primary 

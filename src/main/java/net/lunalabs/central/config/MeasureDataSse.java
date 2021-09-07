@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
+import net.lunalabs.central.domain.measuredata.MeasureData;
 import reactor.core.publisher.Sinks;
 
 @Configuration

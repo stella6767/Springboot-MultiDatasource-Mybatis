@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.lunalabs.central.domain.Patient;
+import net.lunalabs.central.domain.patient.Patient;
 import net.lunalabs.central.service.mysql.PatientService;
 import net.lunalabs.central.web.dto.CMRespDto;
 

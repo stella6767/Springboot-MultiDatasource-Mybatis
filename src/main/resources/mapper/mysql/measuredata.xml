@@ -16,14 +16,14 @@
 	<!-- <update id="update"> UPDATE MeasureData SET name=#{name}, code=#{code} WHERE mid = #{id} </update> -->
 
 
-	<select id="findAll" resultType="net.lunalabs.central.domain.mysql.measuredata.MeasureData">
+	<select id="findAll" resultType="net.lunalabs.central.domain.measuredata.MeasureData">
 		<![CDATA[
 		select * from MeasureData order by mid desc 
 		]]>
 	</select>
 
 
-	<select id="findRvsAll" resultType="net.lunalabs.central.domain.mysql.measuredata.MeasureData">
+	<select id="findRvsAll" resultType="net.lunalabs.central.domain.measuredata.MeasureData">
 		<![CDATA[
 		SELECT * FROM MeasureData md WHERE parame ='rvs'
 		]]>
@@ -31,7 +31,7 @@
 
 
 
-	<select id="findLatestParame" resultType="net.lunalabs.central.domain.mysql.measuredata.MeasureData">
+	<select id="findLatestParame" resultType="net.lunalabs.central.domain.measuredata.MeasureData">
 		<![CDATA[
 		SELECT * FROM MeasureData WHERE mid in (
 		(SELECT max(mid)  FROM MeasureData t1  WHERE parame = 'mv')
@@ -42,7 +42,7 @@
 	</select>
 
 
-	<select id="findById" resultType="net.lunalabs.central.domain.mysql.measuredata.MeasureData">
+	<select id="findById" resultType="net.lunalabs.central.domain.measuredata.MeasureData">
 		<![CDATA[
 		select * from MeasureData where mid=#{id} 
 		]]>

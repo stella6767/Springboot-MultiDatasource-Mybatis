@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.lunalabs.central.domain.Patient;
-import net.lunalabs.central.domain.mysql.measuredata.MeasureData;
+import net.lunalabs.central.domain.measuredata.MeasureData;
+import net.lunalabs.central.domain.patient.Patient;
 import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
 import net.lunalabs.central.utills.MParsing;

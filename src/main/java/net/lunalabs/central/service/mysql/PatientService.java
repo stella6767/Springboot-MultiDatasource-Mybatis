@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
-import net.lunalabs.central.domain.Patient;
+import net.lunalabs.central.domain.patient.Patient;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
 
 @RequiredArgsConstructor
