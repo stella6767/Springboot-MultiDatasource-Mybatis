@@ -29,6 +29,19 @@ public class PatientService {
 		return patients;
 	}
 	
+	@Transactional(readOnly = true)
+	public List<Patient> findByName(String name){	
+		List<Patient> patients = patientMapper.findByContainName(name);	
+		return patients;
+	}
+	
+	
+	@Transactional(readOnly = true)
+	public List<Patient> findByPatinetUserId(String patientUserId){	
+		List<Patient> patients = patientMapper.findByContainPatientUserId(patientUserId);	
+		return patients;
+	}
+	
 	
 	@Transactional(readOnly = true)
 	public Patient findById(Integer id){	
