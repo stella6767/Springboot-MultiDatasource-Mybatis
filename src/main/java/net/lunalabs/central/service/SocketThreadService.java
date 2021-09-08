@@ -344,44 +344,23 @@ public class SocketThreadService {
 			log.info("1.patientUserId: " + patientUserId + ",  patientName: " + patietName);
 			// 여기서 다시 HL7 파싱을 해서, 전달
 
-			sb.delete(0, sb.length()); // 초기화
-			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
-					+ "||RPI^I03|" + trId + "\r\n" + "");
-
 			List<Patient> patients = mysqlPatientMapper.findByContainPatientUserId(patientUserId);
-
-			List<Patient> respPatients = dbMergeProceed(patients, "patientUserId", patientUserId);
-			
-
-			
-			addPatientsListAndWriteOut(respPatients, schn, sb,  writeBuffer);	
+			List<Patient> respPatients = dbMergeProceed(patients, "patientUserId", patientUserId);	
+			addPatientsListAndWriteOut(respPatients, schn, sb,  writeBuffer,trId );	
 
 		} else if (StringUtils.isNotBlank(patietName)) {
 			log.info("2. patientUserId: " + patientUserId + ",  patientName: " + patietName);
 
-			sb.delete(0, sb.length()); // 초기화
-
-			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
-					+ "||RPI^I03|" + trId + "\r\n" + "");
-
 			// 요렇게 받으면 안 되고 배열로 받아야 됨.
-			List<Patient> patients = mysqlPatientMapper.findByContainName(patietName);
-			
-			List<Patient> respPatients = dbMergeProceed(patients, "name", patientUserId);
-
-			addPatientsListAndWriteOut(respPatients, schn, sb,  writeBuffer);
+			List<Patient> patients = mysqlPatientMapper.findByContainName(patietName);			
+			List<Patient> respPatients = dbMergeProceed(patients, "name", patietName);
+			addPatientsListAndWriteOut(respPatients, schn, sb,  writeBuffer, trId);
 
 
 		} else { // keyword가 없으면 모든 환자데이터 응답해라.
 
-			sb.delete(0, sb.length()); // 초기화
-
-			sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
-					+ "||RPI^I03|" + trId + "\r\n" + "");
-
 			List<Patient> patients = mysqlPatientMapper.findAll();
-
-			addPatientsListAndWriteOut(patients, schn, sb,  writeBuffer);
+			addPatientsListAndWriteOut(patients, schn, sb,  writeBuffer, trId);
 
 
 		}
@@ -391,11 +370,11 @@ public class SocketThreadService {
 	public List<Patient> dbMergeProceed(List<Patient> patients, String searchType, String searchWord) {
 		
 		
-		boolean classify  = searchType.equals("patientUserId") ? true : false; //여기서 프로시저 호출을 분류 
+		boolean procedureClasfy  = searchType.equals("patientUserId") ? true : false; //여기서 프로시저 호출을 분류 
 		
 		if(patients.isEmpty()) {
 			
-			log.info("여길 타는지");
+			log.info("사내 DB에 환자 정보가 없다면.");
 			
 			//약간 애매 포함하는 거라서 먼저 병원 DB에서 찾아야 될 것 같기도 하고.
 			
@@ -403,7 +382,7 @@ public class SocketThreadService {
 
 			map.put(searchType, searchWord);				//공백문제..일단은 컨셉 프로젝트에서 제외
 			
-			if(classify) {
+			if(procedureClasfy) {
 				oraclePatientMapper.findByContainPatientUserId(map);		//오라클 프로시저 호출	
 			}else {
 				oraclePatientMapper.findByContainName(map);		//오라클 프로시저 호출
@@ -414,8 +393,11 @@ public class SocketThreadService {
 			
 			log.info("확인... " + bilabPatients);
 			
-			//merge into			
-			mysqlPatientMapper.insertOnDuplicateKeyUpdate(bilabPatients);
+			//merge into
+			
+			if(bilabPatients.size() != 0) {
+				mysqlPatientMapper.insertOnDuplicateKeyUpdate(bilabPatients);	
+			}		
 			return bilabPatients;
 			
 		}else {
@@ -431,8 +413,13 @@ public class SocketThreadService {
 	
 	
 	
-	public void addPatientsListAndWriteOut(List<Patient> patients, SocketChannel schn, StringBuffer sb, ByteBuffer writeBuffer) throws IOException {
+	public void addPatientsListAndWriteOut(List<Patient> patients, SocketChannel schn, StringBuffer sb, ByteBuffer writeBuffer, String trId) throws IOException {
 
+		sb.delete(0, sb.length()); // 초기화
+
+		sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
+				+ "||RPI^I03|" + trId + "\r\n" + "");
+		
 		for (int i = 0; i < patients.size(); i++) {
 
 			sb.append("PID||" + patients.get(i).getPatientUserId() + "|" + patients.get(i).getAge() + "|"
