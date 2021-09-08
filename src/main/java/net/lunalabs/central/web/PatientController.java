@@ -40,7 +40,7 @@ public class PatientController {
 //		return patientService.findAll2();
 //	}
 
-	@GetMapping("/patient") //?patientUserId=""
+	@GetMapping("/patient/searchById") //?patientUserId=""
 	public CMRespDto<?> findByPatientUserId(@RequestParam(value="patientUserId") String patientUserId) {
 
 		return new CMRespDto<>(1, "환자 UserId로 조회", patientService.findByPatinetUserId(patientUserId));
@@ -48,7 +48,7 @@ public class PatientController {
 	
 	
 	
-	@GetMapping("/patient") //?name=""
+	@GetMapping("/patient/searchByName") //?name=""
 	public CMRespDto<?> findByName(@RequestParam(value="name") String name) {
 
 		return new CMRespDto<>(1, "이름으로 환자 조회", patientService.findByName(name));
