@@ -11,6 +11,8 @@ import net.lunalabs.central.domain.patient.Patient;
 public interface PatientMapper {
 	
 	
+	public void insertOnDuplicateKeyUpdate(List<Patient> patients);
+	
 	//public void save(Patient patient); 
 	public void deleteById(int id);
 	//public void update(Patient patient);

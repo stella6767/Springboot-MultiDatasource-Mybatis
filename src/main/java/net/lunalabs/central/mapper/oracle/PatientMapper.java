@@ -16,7 +16,7 @@ public interface PatientMapper {
 	public List<Patient> findAll();
 	public Patient findById(int id);	
 	
-	public List<Patient> findByContainPatientUserId(Map<String,Object> map); //프로시저로 대체
-//	public List<Patient> findByContainName(String name);
+	public void findByContainPatientUserId(Map<String,Object> map); //프로시저 호출
+	public void findByContainName(Map<String,Object> map);//프로시저 호출
 
 }

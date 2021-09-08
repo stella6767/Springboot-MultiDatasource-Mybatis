@@ -41,12 +41,15 @@
 		} 
 	</select>
 
-<!-- 	<select id="findByContainName" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
-		<![CDATA[
-		select * from patient where firstname LIKE '%${name}%' or lastname LIKE '%${name}%'  
-		]]>
+	<select id="findByContainName" statementType="CALLABLE">
+		{
+			CALL GETEMP6(
+				#{name, mode=IN, jdbcType=VARCHAR}, 
+				#{key, jdbcType=CURSOR, mode=OUT, javaType=java.sql.ResultSet, resultMap=patientMap}
+			)
+		} 
 	</select>
- -->
+
 
 
 
