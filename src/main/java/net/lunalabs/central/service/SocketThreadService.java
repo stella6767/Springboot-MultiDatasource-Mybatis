@@ -357,25 +357,23 @@ public class SocketThreadService {
 				
 				HashMap<String,Object> map = new HashMap<String,Object>();
 
-				map.put(patientUserId, 7369);
-				
-				oraclePatientMapper.findByContainPatientUserId(map);
-				
-				List<Patient> bilabPatients = (List<Patient>)map.get(patientUserId); //이게 무슨 로직이야..
+				map.put("patientUserId", patientUserId);				//공백문제..일단은 컨셉 프로젝트에서 제외		
+				oraclePatientMapper.findByContainPatientUserId(map);		//오라클 프로시저 호출
+				//log.info(map.toString());
+				List<Patient> bilabPatients = (List<Patient>)map.get("key"); //key가 out
 				
 				log.info("확인... " + bilabPatients);
+				
+				
+				//여기서 merge into
+				
+				
 				
 			}
 			
 			
-			addPatientsList(patients);
+			addPatientsListAndWriteOut(patients, schn, sb,  writeBuffer);
 
-			log.info("응답파싱결과: " + sb.toString());
-
-			writeBuffer = charset.encode(sb.toString());
-			schn.write(writeBuffer);
-
-			logger.info("응답 완료");
 
 		} else if (StringUtils.isNotBlank(patietName)) {
 			log.info("2. patientUserId: " + patientUserId + ",  patientName: " + patietName);
@@ -388,14 +386,8 @@ public class SocketThreadService {
 			// 요렇게 받으면 안 되고 배열로 받아야 됨.
 			List<Patient> patients = mysqlPatientMapper.findByContainName(patietName);
 
-			addPatientsList(patients);
+			addPatientsListAndWriteOut(patients, schn, sb,  writeBuffer);
 
-			log.info("응답파싱결과: " + sb.toString());
-
-			writeBuffer = charset.encode(sb.toString());
-			schn.write(writeBuffer);
-
-			logger.info("응답 완료");
 
 		} else { // keyword가 없으면 모든 환자데이터 응답해라.
 
@@ -406,20 +398,15 @@ public class SocketThreadService {
 
 			List<Patient> patients = mysqlPatientMapper.findAll();
 
-			addPatientsList(patients);
+			addPatientsListAndWriteOut(patients, schn, sb,  writeBuffer);
 
-			log.info("응답파싱결과: " + sb.toString());
-
-			writeBuffer = charset.encode(sb.toString());
-			schn.write(writeBuffer);
-
-			logger.info("응답 완료");
 
 		}
-
 	}
 
-	public void addPatientsList(List<Patient> patients) {
+	
+	
+	public void addPatientsListAndWriteOut(List<Patient> patients, SocketChannel schn, StringBuffer sb, ByteBuffer writeBuffer) throws IOException {
 
 		for (int i = 0; i < patients.size(); i++) {
 
@@ -429,9 +416,25 @@ public class SocketThreadService {
 					+ patients.get(i).getGender() + "|" + patients.get(i).getComment() + "|"
 					+ patients.get(i).getLastSession() + "|"+ patients.get(i).getPid() +"||||||||\r\n" + "");
 		}
+		
+		log.info("응답파싱결과: " + sb.toString());
+
+		writeBuffer = charset.encode(sb.toString());
+		schn.write(writeBuffer);
+
+		logger.info("응답 완료");
 
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 //	@Async
 //	public void FTPServiece() {
 //		

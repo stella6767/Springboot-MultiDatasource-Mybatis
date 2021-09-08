@@ -32,10 +32,13 @@
 	</select>
 
 
-	<select id="findByContainPatientUserId" parameterType="java.util.Map" statementType="CALLABLE">
-		<![CDATA[
-		CALL GETEMP5(${patientUserId, mode=IN}, #{key, jdbcType=CURSOR, mode=OUT, javaType=java.sql.ResultSet.resultMap=patientMap})} );
-		]]>
+	<select id="findByContainPatientUserId" statementType="CALLABLE">
+		{
+			CALL GETEMP5(
+				#{patientUserId, mode=IN, jdbcType=VARCHAR}, 
+				#{key, jdbcType=CURSOR, mode=OUT, javaType=java.sql.ResultSet, resultMap=patientMap}
+			)
+		} 
 	</select>
 
 <!-- 	<select id="findByContainName" resultType="net.lunalabs.central.domain.mysql.patient.Patient">
