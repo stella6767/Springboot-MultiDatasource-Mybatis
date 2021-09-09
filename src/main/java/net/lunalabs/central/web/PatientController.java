@@ -3,8 +3,11 @@ package net.lunalabs.central.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,22 +38,21 @@ public class PatientController {
 		return new CMRespDto<>(1, "Id로 환자 조회", patientService.findById(id));
 	}
 
-//	@GetMapping("/patient2")
-//	public List<Patient> findAll2() {
-//		return patientService.findAll2();
-//	}
 
-	@GetMapping("/patient/searchById") //?patientUserId=""
-	public CMRespDto<?> findByPatientUserId(@RequestParam(value="patientUserId") String patientUserId) {
 
-		return new CMRespDto<>(1, "환자 UserId로 조회", patientService.findByPatinetUserId(patientUserId));
+	//@GetMapping(value = "/patient/search", consumes = MediaType.APPLICATION_JSON_VALUE) //?patientUserId=""
+	//@RequestMapping(value = "/patient/search", method = RequestMethod.GET, consumes = "application/json")
+	@GetMapping("/patient/search")
+	public CMRespDto<?> searchByPatientUserIdOrName(@RequestParam(value="searchType") String searchType, @RequestParam(value="searchWord") String searchWord) {
+
+		
+		log.info("searchType: " + searchType +  " , searchWord:  " + searchWord);
+		
+		return new CMRespDto<>(1, "환자 Search", patientService.searchByIdOrName(searchType, searchWord));
+		
+		
 	}
 	
 	
 	
-	@GetMapping("/patient/searchByName") //?name=""
-	public CMRespDto<?> findByName(@RequestParam(value="name") String name) {
-
-		return new CMRespDto<>(1, "이름으로 환자 조회", patientService.findByName(name));
-	}
 }

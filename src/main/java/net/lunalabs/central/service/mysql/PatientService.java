@@ -1,5 +1,6 @@
 package net.lunalabs.central.service.mysql;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,18 +30,37 @@ public class PatientService {
 		return patients;
 	}
 	
+//	@Transactional(readOnly = true)
+//	public List<Patient> findByName(String name){	
+//		List<Patient> patients = patientMapper.findByContainName(name);	
+//		return patients;
+//	}
+//	
+//	
+//	@Transactional(readOnly = true)
+//	public List<Patient> findByPatinetUserId(String patientUserId){	
+//		List<Patient> patients = patientMapper.findByContainPatientUserId(patientUserId);	
+//		return patients;
+//	}
+	
+	
 	@Transactional(readOnly = true)
-	public List<Patient> findByName(String name){	
-		List<Patient> patients = patientMapper.findByContainName(name);	
+	public List<Patient> searchByIdOrName(String searchKeyword, String searchWord){	
+		
+		List<Patient> patients = new ArrayList<>();
+		
+		if(searchKeyword.equals("patientUserId")) {
+			
+			patients = patientMapper.findByContainPatientUserId(searchWord);	
+
+		}else {
+			patients = patientMapper.findByContainName(searchWord);	
+
+		}	
 		return patients;
 	}
 	
 	
-	@Transactional(readOnly = true)
-	public List<Patient> findByPatinetUserId(String patientUserId){	
-		List<Patient> patients = patientMapper.findByContainPatientUserId(patientUserId);	
-		return patients;
-	}
 	
 	
 	@Transactional(readOnly = true)
