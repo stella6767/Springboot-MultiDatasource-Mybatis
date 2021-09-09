@@ -29,28 +29,19 @@ public class PatientController {
 	public CMRespDto<?> findAll() {
 
 		return new CMRespDto<>(1, "환자 더미데이터", patientService.findAll());
-
 	}
 
 	@GetMapping("/patient/{id}")
 	public CMRespDto<?> findById(@PathVariable int id) {
-
 		return new CMRespDto<>(1, "Id로 환자 조회", patientService.findById(id));
 	}
-
-
 
 	//@GetMapping(value = "/patient/search", consumes = MediaType.APPLICATION_JSON_VALUE) //?patientUserId=""
 	//@RequestMapping(value = "/patient/search", method = RequestMethod.GET, consumes = "application/json")
 	@GetMapping("/patient/search")
 	public CMRespDto<?> searchByPatientUserIdOrName(@RequestParam(value="searchType") String searchType, @RequestParam(value="searchWord") String searchWord) {
-
-		
 		log.info("searchType: " + searchType +  " , searchWord:  " + searchWord);
-		
 		return new CMRespDto<>(1, "환자 Search", patientService.searchByIdOrName(searchType, searchWord));
-		
-		
 	}
 	
 	
