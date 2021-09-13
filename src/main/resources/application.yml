@@ -15,7 +15,7 @@ spring:
 ---
       
 server:
-  port: 8088           
+  port: 8081           
       
 spring:
   config:
@@ -50,24 +50,34 @@ spring:
       enabled: always
 
 
-
 ---
 
 server:
-  port: 8081
+  port: 8088
 spring:
   config:
     activate:
       on-profile: prod     
+      
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://hk-mysql:3306/cos?serverTimezone=Asia/Seoul
-    username: root
-    password: bitc5600
+    mysql:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      jdbc-url: jdbc:log4jdbc:mysql://db.rigel.kr:3306/bilab?&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
 
-  jpa:
-    hibernate:
-      ddl-auto: update # create, update, none
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      jdbc-url: jdbc:log4jdbc:mysql://db.rigel.kr:3306/bilab?&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      username: bilab
+      password: bilab1234
+    oracle:
+#      driver-class-name: oracle.jdbc.driver.OracleDriver
+#      jdbc-url: jdbc:oracle:thin:@localhost:1521/xe
+
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      jdbc-url: jdbc:log4jdbc:oracle:thin:@db.rigel.kr:1521:xe
+      username: bilab
+      password: 1234
+      
+
+  output:
+    ansi:
+      enabled: always
