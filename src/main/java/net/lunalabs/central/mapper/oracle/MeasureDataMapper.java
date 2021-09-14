@@ -17,5 +17,5 @@ public interface MeasureDataMapper {
 	public List<MeasureData> findAll();
 	public MeasureData findById(int id);	
 	
-
+	public void deleteAll();
 }

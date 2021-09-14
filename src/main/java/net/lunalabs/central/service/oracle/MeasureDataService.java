@@ -1,7 +1,13 @@
 package net.lunalabs.central.service.oracle;
 
+import java.util.Iterator;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import lombok.RequiredArgsConstructor;
 import net.lunalabs.central.mapper.oracle.MeasureDataMapper;
@@ -11,9 +17,23 @@ import net.lunalabs.central.mapper.oracle.MeasureDataMapper;
 public class MeasureDataService {
 
 	
+	
+	private static final Logger log = LoggerFactory.getLogger(MeasureDataService.class);
+
+	
 	@Qualifier("OracleMeasureDataMapper")
 	private final MeasureDataMapper measureDataMapper; //oracle package 안에 MAPPER, 이름이 같으니 주의
 	
+	
+	
+	@Scheduled(fixedDelay = 1000 * 60 * 60)
+	public void deleteMeasureDataByOneHour() { 
+		
+		log.info("1시간마다 주기적으로 오라클 측정 DB 칼럼 삭제");
+		
+		measureDataMapper.deleteAll();
+		
+	}
 	
 	
 	
