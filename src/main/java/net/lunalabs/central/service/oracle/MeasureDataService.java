@@ -26,10 +26,10 @@ public class MeasureDataService {
 	
 	
 	
-	@Scheduled(fixedDelay = 1000 * 60 * 60)
+	@Scheduled(fixedDelay = 1000 * 60 * 30)
 	public void deleteMeasureDataByOneHour() { 
 		
-		log.info("1시간마다 주기적으로 오라클 측정 DB 칼럼 삭제");
+		log.info("30분마다 주기적으로 오라클 측정 DB 칼럼 삭제");
 		
 		measureDataMapper.deleteAll();
 		
