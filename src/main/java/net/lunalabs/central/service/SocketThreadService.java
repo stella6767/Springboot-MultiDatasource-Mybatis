@@ -108,7 +108,7 @@ public class SocketThreadService {
 //         log.info("Received Data : " + charset.decode(readBuf).toString());
 		log.info("Received Data : " + result);
 
-		schn.close();
+		schn.close(); //요기서 -1를 리턴해주는거만
 
 	}
 
