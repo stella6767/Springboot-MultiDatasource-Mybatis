@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.lunalabs.central.config.SocketProperties;
 import net.lunalabs.central.domain.measuredata.MeasureData;
 import net.lunalabs.central.domain.patient.Patient;
 import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
@@ -32,18 +33,19 @@ public class GWSocketService {
 	private static final Logger logger = LoggerFactory.getLogger(GWSocketService.class);
 
 	private final SocketThreadService socketThreadService;
+	private final SocketProperties socketProperties;
 
 	@Async // 비동기로 동작하는 메소드
 	public void csSocketStart() {
 
-		logger.info("CsServerSocketStart1!!!!!");
+		logger.info("CsServerSocketStart1!!!!!" + socketProperties.port);
 
 		try {
 
 			ServerSocketChannel serverSocketChannel = null; // ServerSocketChannel은 하나
 
 			serverSocketChannel = ServerSocketChannel.open();
-			serverSocketChannel.bind(new InetSocketAddress(5051)); // socket().
+			serverSocketChannel.bind(new InetSocketAddress(socketProperties.port)); // socket().
 
 			boolean bLoop = true;
 

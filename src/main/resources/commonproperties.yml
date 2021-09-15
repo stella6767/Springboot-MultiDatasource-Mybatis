@@ -5,6 +5,10 @@ ftp:
     - FX7102DATA/FUKUDADENSHI
     - mediana/1234
     - kyu/1234
+    
+socket:
+  port: 5051
+
 #  api:
 #    name: kakao
 #    key: 123123
