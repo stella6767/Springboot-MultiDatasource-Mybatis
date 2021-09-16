@@ -126,7 +126,7 @@ public class ServersentService {
 //		}
 //	}
 	
-	//@Scheduled(fixedDelay = 3000) //3초마다 실행, 테스트용도
+	  //@Scheduled(fixedDelay = 100) //3초마다 실행, 테스트용도
 	  public void sendSseEventsToUITest() throws JsonProcessingException {
 
 	    String[] parames ={"mv","rr","rvs","spo2","tv"};
