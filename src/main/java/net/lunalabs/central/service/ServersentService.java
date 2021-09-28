@@ -54,7 +54,7 @@ public class ServersentService {
 	    measureDataSse.emitters.remove(emitter);
 	}
 
-	//@Scheduled(fixedDelay = 3000)
+
 	public void sendSseEventsToUI(String seeMeasurePatientData, String eventName) { 
 		
 		logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
@@ -77,7 +77,7 @@ public class ServersentService {
 	
 	
 
-	@Scheduled(fixedDelay = 100) //3초마다 실행, 테스트용도
+	//@Scheduled(fixedDelay = 100) //3초마다 실행, 테스트용도
 	public void sendSseEventsToUITest2() throws JsonProcessingException { 
 	
 
