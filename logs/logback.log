@@ -288,3 +288,22 @@ Caused by: java.io.IOException: 현재 연결은 원격 호스트에 의해 강�
 	at oracle.jdbc.driver.T4C7Ocommoncall.doOLOGOFF(T4C7Ocommoncall.java:74)
 	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:1507)
 	... 7 common frames omitted
+[2021-09-28 11:45:03:125699][taskExecutor-2] ERRORo.s.a.i.SimpleAsyncUncaughtExceptionHandler - Unexpected exception occurred invoking async method: public void net.lunalabs.central.service.SocketThreadService.serverSocketThread(java.nio.channels.ServerSocketChannel,java.nio.channels.SocketChannel) throws java.io.IOException
+java.io.IOException: 현재 연결은 원격 호스트에 의해 강제로 끊겼습니다
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:245)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:355)
+	at net.lunalabs.central.service.SocketThreadService.serverSocketThread(SocketThreadService.java:83)
+	at net.lunalabs.central.service.SocketThreadService$$FastClassBySpringCGLIB$$b637870b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:115)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
