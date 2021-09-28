@@ -1,6 +1,6 @@
 ftp:
   port: 2121
-  uploadDir: C:\\kangminkyu\\FTPfileUpload
+  uploadDir: /springBoot/bilabCs/file/
   userlist: 
     - FX7102DATA/FUKUDADENSHI
     - mediana/1234
