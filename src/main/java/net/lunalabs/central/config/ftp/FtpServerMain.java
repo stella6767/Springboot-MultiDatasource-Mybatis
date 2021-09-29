@@ -77,8 +77,8 @@ public class FtpServerMain {
 			logger.info("ftp 등록된 유저이름: " + user.getName());
 			logger.info("ftp 등록된 유저패스워드: " + user.getPassword());
 			
-			//user.setHomeDirectory(ftpProperties.getUploadDir()); //요기가 FTP server file root경로
-			//logger.info("ftp 등록된 유저홈디렉토리: " + user.getHomeDirectory());
+			user.setHomeDirectory(ftpProperties.getUploadDir()); //요기가 FTP server file root경로
+			logger.info("ftp 등록된 유저홈디렉토리: " + user.getHomeDirectory() + " user이름: " + user.getName());
 
 			java.util.List<Authority> authorities = new java.util.ArrayList<Authority>();
 	        authorities.add(new WritePermission());
