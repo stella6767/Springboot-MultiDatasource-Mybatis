@@ -55,7 +55,7 @@ public class ServersentService {
 	}
 
 
-	public void sendSseEventsToUI(String seeMeasurePatientData, String eventName) { 
+	public void sendSseEventsToUI(String seeMeasurePatientData, String eventName) { // ConcurrentModificationException
 		
 		logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
 		
@@ -69,7 +69,8 @@ public class ServersentService {
 //	            emitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData), MediaType.APPLICATION_JSON);
 	            emitter.send(SseEmitter.event().name(eventName).reconnectTime(500).data(seeMeasurePatientData));
 	        } catch (Throwable e) {
-	            emitter.complete();
+	            //emitter.complete();
+	        	iter.remove();
 	        }
 		}
 		
