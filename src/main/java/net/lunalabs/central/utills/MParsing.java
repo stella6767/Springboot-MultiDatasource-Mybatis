@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 
 import lombok.extern.slf4j.Slf4j;
@@ -57,6 +58,33 @@ public class MParsing {
 		}
 		return null;
 	}
+	
+	
+	public static String getNowTime(Integer i){ //1이면 startTime, 아니면 endTime
+	    long now = System.currentTimeMillis();
+	    Date mDate = new Date(now);
+	    
+	    Calendar cal = Calendar.getInstance();
+        cal.setTime(mDate);
+        
+        cal.add(Calendar.MILLISECOND, 20);
+
+	    SimpleDateFormat sdfNow = new SimpleDateFormat("yy.MM.dd-HH:mm:ss:SS");
+	    
+	    String Time;
+	    
+	    if(i==1) {
+	    	
+		    Time = sdfNow.format(mDate);
+
+	    }else {
+	    	 Time = sdfNow.format(cal.getTime());
+	    }
+	    
+	    String nowTime =Time;
+	    return nowTime;
+
+	    }
 	
 
 }

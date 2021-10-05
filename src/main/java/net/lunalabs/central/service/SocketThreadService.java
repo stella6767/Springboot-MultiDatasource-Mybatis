@@ -240,11 +240,7 @@ public class SocketThreadService {
 				// seeMeasureData = objectMapper.writeValueAsString(measureData);
 
 				seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
-
-				// EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData);
-				// //sent from server
-				// measureDataSse.sseEmitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
-				
+				// //sent from server				
 				serversentService.sendSseEventsToUI(seeMeasurePatientData, deviceId);
 
 				// logger.info("sse 로 보낼 결과 " + result.toString());

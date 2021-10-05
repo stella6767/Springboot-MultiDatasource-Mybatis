@@ -20,6 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import net.lunalabs.central.config.MeasureDataSse;
 import net.lunalabs.central.domain.mysql.MeasureDataJoinPatientBean;
+import net.lunalabs.central.utills.MParsing;
 
 @RequiredArgsConstructor
 @Service
@@ -88,10 +89,10 @@ public class ServersentService {
 			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
 					// .deviceId() 굳이?
 					.age(28)
-//					.endTime("2021-07-16 03:09:06.868000000")
-//					.startTime("2021-07-16 03:09:06.766000000")
+					.endTime(MParsing.getNowTime(2))
+					.startTime(MParsing.getNowTime(1))
 					.parame("rvs")
-					.value(((random.nextInt(100)+1)+"")+"^"+((random.nextInt(100)+1)))
+					.value("1.50596E+10^1.50596E+10")
              		//.value(random.ints()^)
 					.patientUserId("patient 10")
 					.sid("patient10_20210826_114616")
@@ -127,59 +128,6 @@ public class ServersentService {
 		}
 	}
 	
-	
-	
-	
-	  //@Scheduled(fixedDelay = 100) //3초마다 실행, 테스트용도
-	  public void sendSseEventsToUITest() throws JsonProcessingException {
-
-	    String[] parames ={"mv","rr","rvs","spo2","tv"};
-
-	    String[] sessionId = {"session1","session2","session3","session4","session5"};
-
-
-	    HashMap<String, MeasureDataJoinPatientBean> hashMap = new HashMap<>();
-
-	    for(int i=0; i<parames.length; i++) {
-	      MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
-	          // .deviceId() 굳이?
-	          .age(28)
-	          //.parame(parames[i])
-	          .parame("rvs")
-	          .value(((random.nextInt(100)+1)+"")+"^"+((random.nextInt(100)+1)+"")+"^"+((random.nextInt(100)+1)+"")+"^"+((random.nextInt(500)+1)+"")+"^"+((random.nextInt(300)+1)+""))
-	          .patientUserId("patient 10")
-	          .sid("patient10_20210826_114616")
-	          .valueUnit("LM")
-	          .build();
-
-	      hashMap.put(dataJoinPatientBean.getSid(), dataJoinPatientBean);
-
-	      String seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
-	      //String seeMeasurePatientData = objectMapper.writeValueAsString(hashMap);
-
-
-	      logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
-
-	      Iterator<SseEmitter> iter = measureDataSse.emitters.iterator();
-
-	      while (iter.hasNext()) {
-	          SseEmitter emitter = iter.next();
-
-	            try {
-	              logger.info("data 보내는 객체 주소: " + emitter.toString());
-	                //emitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
-	          emitter.send(SseEmitter.event().name("CPM0000").reconnectTime(500).data(seeMeasurePatientData));
-	         // emitter.send(SseEmitter.event().name("CPM0005").reconnectTime(500).data(seeMeasurePatientData));
-
-	                Thread.sleep(1000);
-	            } catch (Throwable e) {
-	                emitter.complete();
-	            }
-	      }
-
-
-	    }
-	  }
 	
 }
 
