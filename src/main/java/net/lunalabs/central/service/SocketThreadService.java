@@ -309,16 +309,14 @@ public class SocketThreadService {
 					.build();
 			
 			
-			//sses.add(dataJoinPatientBean);
 
 			try {
-				// seeMeasureData = objectMapper.writeValueAsString(measureData);
 
 				seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
 				// //sent from server				
+				logger.info("??");
 				serversentService.sendSseEventsToUI(seeMeasurePatientData, deviceId);
 
-				// logger.info("sse 로 보낼 결과 " + result.toString());
 			} catch (JsonProcessingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
