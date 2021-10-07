@@ -1,6 +1,5 @@
 package net.lunalabs.central.config;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 

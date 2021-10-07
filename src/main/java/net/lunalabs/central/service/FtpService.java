@@ -19,7 +19,6 @@ import net.lunalabs.central.mapper.mysql.BilabFileMapper;
 
 
 @RequiredArgsConstructor
-@EnableAsync
 @Service
 public class FtpService {
 

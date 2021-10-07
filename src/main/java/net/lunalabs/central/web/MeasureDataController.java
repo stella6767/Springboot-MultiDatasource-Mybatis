@@ -21,7 +21,6 @@ public class MeasureDataController {
 
 	private static final Logger log = LoggerFactory.getLogger(MeasureDataController.class);
 
-	private final MeasureDataSse measureDataSse;
 	private final ServersentService serversentService;
 
 

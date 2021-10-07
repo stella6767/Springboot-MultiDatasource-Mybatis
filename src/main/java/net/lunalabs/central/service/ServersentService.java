@@ -3,12 +3,16 @@ package net.lunalabs.central.service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
+import org.apache.mina.util.ConcurrentHashSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -31,36 +35,35 @@ public class ServersentService {
 	
 	ObjectMapper objectMapper = new ObjectMapper();
 	Random random = new Random();
+    //private Set<SseEmitter> sseEmitters = new HashSet<SseEmitter>();
+    private final ConcurrentHashSet<SseEmitter> sseEmitters = new ConcurrentHashSet<>();
 	
-	
-	private final MeasureDataSse measureDataSse;
 	
 	public void register(SseEmitter emitter) {
 		
 		logger.info("브라우저마다 eventsource 연결할때마다 emitter 객체 생성하여 등록(새로고침 시 혹은 페이지 이동, 새로 브라우저 띄울때마다");
 		
-	    emitter.onTimeout(() -> timeout(emitter));
-	    emitter.onCompletion(() -> complete(emitter));
+		emitter.onCompletion(() -> {
+            synchronized (this.sseEmitters) {
+                this.sseEmitters.remove(emitter);
+            }
+        });
 
-	    measureDataSse.emitters.add(emitter);
+		emitter.onTimeout(()-> {
+			emitter.complete();
+        });
+
+        // Put context in a map
+        sseEmitters.add(emitter);
 	}
 
-	private void complete(SseEmitter emitter) {
-	    System.out.println("emitter completed");
-	    measureDataSse.emitters.remove(emitter);
-	}
 
-	private void timeout(SseEmitter emitter) {
-	    System.out.println("emitter timeout");
-	    measureDataSse.emitters.remove(emitter);
-	}
-
-
+	@Cacheable(value="kang")
 	public void sendSseEventsToUI(String seeMeasurePatientData, String eventName) { // ConcurrentModificationException
 		
 		logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
 		
-		Iterator<SseEmitter> iter = measureDataSse.emitters.iterator();
+		Iterator<SseEmitter> iter = sseEmitters.iterator();
 
 		while (iter.hasNext()) {
 		    SseEmitter emitter = iter.next();
@@ -78,7 +81,6 @@ public class ServersentService {
 	}
 	
 	
-
 	//@Scheduled(fixedDelay = 100) //3초마다 실행, 테스트용도
 	public void sendSseEventsToUITest2() throws JsonProcessingException { 
 	
@@ -92,7 +94,7 @@ public class ServersentService {
 					.endTime(MParsing.getNowTime(2))
 					.startTime(MParsing.getNowTime(1))
 					.parame("rvs")
-					.value("1.50596E+10^1.50596E+10")
+					.value(random.nextInt(1000)+1 + "^" +random.nextInt(10)+1)
              		//.value(random.ints()^)
 					.patientUserId("patient 10")
 					.sid("patient10_20210826_114616")
@@ -108,7 +110,7 @@ public class ServersentService {
 		
 			logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData );						
 			
-			Iterator<SseEmitter> iter = measureDataSse.emitters.iterator();
+			Iterator<SseEmitter> iter = sseEmitters.iterator();
 
 			while (iter.hasNext()) {
 			    SseEmitter emitter = iter.next();

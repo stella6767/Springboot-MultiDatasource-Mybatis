@@ -6,7 +6,6 @@ import org.springframework.context.annotation.PropertySource;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.lunalabs.central.config.YamlPropertySourceFactory;
 
 @Setter //이걸로 값을 집어넣는 가보다.
 @Getter

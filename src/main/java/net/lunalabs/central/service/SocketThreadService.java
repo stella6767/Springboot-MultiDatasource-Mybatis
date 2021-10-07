@@ -13,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,6 @@ import net.lunalabs.central.utills.MParsing;
 
 @Slf4j
 @RequiredArgsConstructor
-@EnableAsync
 @Service
 public class SocketThreadService {
 
@@ -66,11 +66,9 @@ public class SocketThreadService {
 	ObjectMapper objectMapper = new ObjectMapper();
 
 	@Async
-	public void serverSocketThread(ServerSocketChannel serverSocketChannel, SocketChannel schn) throws IOException {
+	public void serverSocketThread(SocketChannel schn) throws IOException {
 
 		// SocketChannel schn = null;
-
-		logger.info("[ESMLC Listen[" + "] Socket Accept EsmlcIfWorkThread Start");
 
 		log.info("read socket data");
 
@@ -88,30 +86,105 @@ public class SocketThreadService {
 		result = result + new String(readByteArr, Charset.forName("UTF-8")); // 어차피 여기서 계속 더하니까.
 
 		
-//		int bytesRead = schn.read(readBuf); // 
-//		while (bytesRead != -1) {// 만약 소켓채널을 통해 buffer에 데이터를 받아왔으면
-//			readBuf.flip(); // make buffer ready for read
-//			while (readBuf.hasRemaining()) {
-////				System.out.print((char) readBuf.get()); // read 1 byte at a time
-//				result = result + String.valueOf(((char) readBuf.get())); //why dont work!!!!
-//			}
-//
-//			readBuf.clear(); //make buffer ready for writing
-//			bytesRead = schn.read(readBuf);
-//		}
-		
 		
 		log.info("------------------------------처음 파싱되서 도착한 데이터---------------------------------------");
 		log.info(result);
 		
 		HL7DataFirstParse(result, schn);
-//         log.info("Received Data : " + charset.decode(readBuf).toString());
 		log.info("Received Data : " + result);
 
 		schn.close(); //요기서 -1를 리턴해주는거만
 
 	}
+	
+	
+    @Async //멀티접속을 위해서 비동기처리 해야됨..
+    public void readSocketData(SocketChannel schn) throws IOException {
 
+        log.info("read Charger Socket Client ");
+
+        boolean isRunning = true; // 일단 추가, socketWork 중지할지 안 중지할지
+
+        while (isRunning && schn.isConnected()) {
+
+            try {
+                long lThId = Thread.currentThread().getId();
+                int byteCount = 0;
+                byte[] readByteArr;
+
+                // ByteBuffer readBuf = ByteBuffer.allocate(10); //버퍼 메모리 공간확보
+                ByteBuffer readBuf = ByteBuffer.allocate(10240);
+
+                log.info("첫번째  while문");
+
+                // 무한 루프
+                String result = ""; // 요기서 초기화
+
+                while (byteCount >= 0) {
+
+                    try {
+
+                        byteCount = schn.read(readBuf); // 소켓채널에서 한번에 초과되는 버퍼사이즈의 데이터가 들어오면..
+
+                        log.info("[gwEmulThread #100] TID[" + "] byteCount :  " + byteCount);
+                        // logger.debug("isRunning why: " + isRunning);
+                    } catch (Exception e) {
+                        // e.printStackTrace();
+                        log.info("갑자기 클라이언트 소켓이 닫혔을 시");
+                        schn.close();
+                        isRunning = false;
+                        break;
+                    }
+
+                    int i = 0;
+
+                    // 버퍼에 값이 있다면 계속 버퍼에서 값을 읽어 result 를 완성한다.
+                    while (byteCount > 0) {
+
+
+                        readBuf.flip(); // 입력된 데이터를 읽기 위해 read-mode로 바꿈, positon이 데이터의 시작인 0으로 이동
+                        readByteArr = new byte[readBuf.remaining()]; // 현재 위치에서 limit까지 읽어드릴 수 있는 데이터의 개수를 리턴
+                        readBuf.get(readByteArr); // 데이터 읽기
+
+                        result = result + new String(readByteArr, Charset.forName("UTF-8"));
+
+                        try {
+                            byteCount = schn.read(readBuf);
+                            log.info("[gwEmulThread #210] TID[" + result + "] byteCount :  " + byteCount);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            // break;
+                        }
+
+                        boolean bEtxEnd = true; // 아래 while문을 실행할지 안할지
+
+                        while (!result.equals("") && bEtxEnd) {
+                            
+                        	HL7DataFirstParse(result, schn);
+
+                            result = "";
+                            bEtxEnd = false;
+                            readBuf.clear();
+                        }
+
+                    } // #ETX# 단위로 루프
+                } // byteCount > 0
+
+                log.info("소켓 닫기");
+                schn.close(); // 소켓 닫기
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                continue;
+            }
+        }
+    }
+    
+    
+	
+	
+
+	@Cacheable(value="kang")
 	public void HL7DataFirstParse(String HL7Data, SocketChannel schn) {
 
 		String[] splitEnterArray = HL7Data.split("[\\r\\n]+"); // 개행문자 기준으로 1차 파싱
@@ -157,6 +230,8 @@ public class SocketThreadService {
 
 	}
 
+	
+	@Cacheable(value="kang")
 	public void measureDataParsing(String[] array, SocketChannel schn) { // 5개의 parame이 오면 5번 insert
 
 		//List<MeasureDataJoinPatientBean> sses = new ArrayList<>();
@@ -182,21 +257,21 @@ public class SocketThreadService {
 		sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
 				+ "||RPI^I03|" + trId + "\r\n" + "");
 
-		log.info("session id: " + sid);
-		log.info("startTime: " + startTime);
-		log.info("endTime: " + endTime);
-		log.info("patient Id: " + patientUserId);
-		log.info("device Id: " + deviceId);
+//		log.info("session id: " + sid);
+//		log.info("startTime: " + startTime);
+//		log.info("endTime: " + endTime);
+//		log.info("patient Id: " + patientUserId);
+//		log.info("device Id: " + deviceId);
 
 		for (int i = 3; i < array.length; i++) { // 3부터 OBX param 시작
-			log.info("개행문자 기준으로 1차 파싱: " + array[i]);
+			//log.info("개행문자 기준으로 1차 파싱: " + array[i]);
 
 			String[] splitSecondArray = array[i].split("[|]");
 
 			MeasureData measureData = null;
 
 			for (int j = 0; j < splitSecondArray.length; j++) {
-				log.info("| 기준으로 2차 파싱: " + splitSecondArray[j]);
+				//log.info("| 기준으로 2차 파싱: " + splitSecondArray[j]);
 
 				measureData = MeasureData.builder()
 						.pid(pid)
@@ -253,33 +328,32 @@ public class SocketThreadService {
 
 		}
 
-		
+			
+		log.info("응답파싱결과: " + sb.toString());
+
+//		writeBuffer = charset.encode(sb.toString());
 //		try {
-//			// seeMeasureData = objectMapper.writeValueAsString(measureData);
-//
-//			String seeMeasurePatientData = objectMapper.writeValueAsString(sses);
-//
-//			// EmitResult result = measureDataSink.sink.tryEmitNext(seeMeasurePatientData);
-//			// //sent from server
-//			// measureDataSse.sseEmitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
-//			
-//			serversentService.sendSseEventsToUI(seeMeasurePatientData, deviceId);
-//
-//			// logger.info("sse 로 보낼 결과 " + result.toString());
-//		} catch (JsonProcessingException e) {
+//			schn.write(writeBuffer);
+//		} catch (IOException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-//		
-		log.info("응답파싱결과: " + sb.toString());
+		
+		
+	       if (schn.isConnected()) {
+	            log.info("Socket channel이 정상적으로 연결되었고 버퍼를 씁니다.");
+	    		writeBuffer = charset.encode(sb.toString());
+	            try {
+					schn.write(writeBuffer);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
-		writeBuffer = charset.encode(sb.toString());
-		try {
-			schn.write(writeBuffer);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+	        } else if (!schn.isConnected()) {
+	            log.info("Socket channel이 연결이 끊어졌습니다.");
+	        }
 
 	}
 

@@ -26,7 +26,6 @@ import net.lunalabs.central.utills.MParsing;
 
 @Slf4j
 @RequiredArgsConstructor
-@EnableAsync
 @Service
 public class GWSocketService {
 
@@ -38,7 +37,7 @@ public class GWSocketService {
 	@Async // 비동기로 동작하는 메소드
 	public void csSocketStart() {
 
-		logger.info("CsServerSocketStart1!!!!!" + socketProperties.port);
+		
 
 		try {
 
@@ -49,19 +48,21 @@ public class GWSocketService {
 
 			boolean bLoop = true;
 
-			logger.info("CsServerSocketStart2!!!!!");
+			logger.info("CsServerSocketStart!!!!! " + socketProperties.port);
 
 			while (bLoop) {
-				logger.info("CsServerSocketStart3!!!!!");
+				logger.info("CsServerSocket connect 대기");
 
 				try {
-					logger.info("CsServerSocketStart4!!!!!");
 					SocketChannel schn = null;
 					
 					schn = serverSocketChannel.accept(); // 이 부분에서 연결이 될때까지 블로킹
 					schn.configureBlocking(true); // 블록킹 방식
 					//여기서 계속 한 소켓당 스레드로 분기해서 맡음.
-					socketThreadService.serverSocketThread(serverSocketChannel, schn);
+					logger.info("CsServerSocket connected " + socketProperties.port + " port");
+
+					//socketThreadService.serverSocketThread(schn);
+					socketThreadService.readSocketData(schn);
 
 				} catch (Exception e) {
 					//logger.debug("AsynchronousCloseException 터짐");
