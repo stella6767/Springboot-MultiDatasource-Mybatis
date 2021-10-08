@@ -237,7 +237,7 @@ public class SocketThreadService {
 
 		//List<MeasureDataJoinPatientBean> sses = new ArrayList<>();
 		
-		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
+		ByteBuffer writeBuffer = ByteBuffer.allocate(102400);
 		sb.delete(0, sb.length()); // 초기화
 
 		String[] mshArray = array[0].split("[|]");
