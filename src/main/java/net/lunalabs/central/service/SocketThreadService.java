@@ -405,9 +405,9 @@ public class SocketThreadService {
 
 		String trId = mshArray[9];
 
-		log.info("trid: " + trId);
+		log.info("trid 최신: " + trId);
 
-		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
+		ByteBuffer writeBuffer = ByteBuffer.allocate(102400);
 
 		if (StringUtils.isNotBlank(patientUserId)) { // patietName.equals("")
 			log.info("1.patientUserId: " + patientUserId + ",  patientName: " + patietName);
