@@ -65,38 +65,38 @@ public class SocketThreadService {
 
 	ObjectMapper objectMapper = new ObjectMapper();
 
-	@Async
-	public void serverSocketThread(SocketChannel schn) throws IOException {
-
-		// SocketChannel schn = null;
-
-		log.info("read socket data");
-
-		String result = "";
-
-		byte[] readByteArr;
-
-		// Client로부터 글자 받기
-		ByteBuffer readBuf = ByteBuffer.allocate(10240);//read into buffer. 일단은 버퍼 초과 신경쓰지 않고
-		schn.read(readBuf); // 클라이언트로부터 데이터 읽기
-		readBuf.flip();
-
-		readByteArr = new byte[readBuf.remaining()];
-		readBuf.get(readByteArr); // 데이터 읽기
-		result = result + new String(readByteArr, Charset.forName("UTF-8")); // 어차피 여기서 계속 더하니까.
-
-		
-		
-		log.info("------------------------------처음 파싱되서 도착한 데이터---------------------------------------");
-		log.info(result);
-		
-		HL7DataFirstParse(result, schn);
-		log.info("Received Data : " + result);
-
-		schn.close(); //요기서 -1를 리턴해주는거만
-
-	}
-	
+//	@Async
+//	public void serverSocketThread(SocketChannel schn) throws IOException {
+//
+//		// SocketChannel schn = null;
+//
+//		log.info("read socket data");
+//
+//		String result = "";
+//
+//		byte[] readByteArr;
+//
+//		// Client로부터 글자 받기
+//		ByteBuffer readBuf = ByteBuffer.allocate(10240);//read into buffer. 일단은 버퍼 초과 신경쓰지 않고
+//		schn.read(readBuf); // 클라이언트로부터 데이터 읽기
+//		readBuf.flip();
+//
+//		readByteArr = new byte[readBuf.remaining()];
+//		readBuf.get(readByteArr); // 데이터 읽기
+//		result = result + new String(readByteArr, Charset.forName("UTF-8")); // 어차피 여기서 계속 더하니까.
+//
+//		
+//		
+//		log.info("------------------------------처음 파싱되서 도착한 데이터---------------------------------------");
+//		log.info(result);
+//		
+//		HL7DataFirstParse(result, schn);
+//		log.info("Received Data : " + result);
+//
+//		schn.close(); //요기서 -1를 리턴해주는거만
+//
+//	}
+//	
 	
     @Async //멀티접속을 위해서 비동기처리 해야됨..
     public void readSocketData(SocketChannel schn) throws IOException {
@@ -184,7 +184,8 @@ public class SocketThreadService {
 	
 	
 
-	@Cacheable(value="kang")
+    
+	//@Cacheable(value="kang")
 	public void HL7DataFirstParse(String HL7Data, SocketChannel schn) {
 
 		String[] splitEnterArray = HL7Data.split("[\\r\\n]+"); // 개행문자 기준으로 1차 파싱
@@ -231,7 +232,7 @@ public class SocketThreadService {
 	}
 
 	
-	@Cacheable(value="kang")
+	//@Cacheable(value="kang")
 	public void measureDataParsing(String[] array, SocketChannel schn) { // 5개의 parame이 오면 5번 insert
 
 		//List<MeasureDataJoinPatientBean> sses = new ArrayList<>();
@@ -499,11 +500,27 @@ public class SocketThreadService {
 		
 		log.info("응답파싱결과: " + sb.toString());
 
-		writeBuffer = charset.encode(sb.toString());
-		schn.write(writeBuffer);
+//		writeBuffer = charset.encode(sb.toString());
+//		schn.write(writeBuffer);
+//
+//		logger.info("응답 완료");
 
-		logger.info("응답 완료");
+		
+	       if (schn.isConnected()) {
+	            log.info("Socket channel이 정상적으로 연결되었고 버퍼를 씁니다.");
+	    		writeBuffer = charset.encode(sb.toString());
+	            try {
+					schn.write(writeBuffer);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
+
+	        } else if (!schn.isConnected()) {
+	            log.info("Socket channel이 연결이 끊어졌습니다.");
+	        }
+		
 	}
 	
 	
