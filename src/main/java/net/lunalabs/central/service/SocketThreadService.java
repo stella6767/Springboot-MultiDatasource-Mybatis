@@ -237,7 +237,7 @@ public class SocketThreadService {
 
 		//List<MeasureDataJoinPatientBean> sses = new ArrayList<>();
 		
-		ByteBuffer writeBuffer = ByteBuffer.allocate(102400);
+		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
 		sb.delete(0, sb.length()); // 초기화
 
 		String[] mshArray = array[0].split("[|]");
@@ -407,7 +407,7 @@ public class SocketThreadService {
 
 		log.info("trid 최신: " + trId);
 
-		ByteBuffer writeBuffer = ByteBuffer.allocate(102400);
+		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
 
 		if (StringUtils.isNotBlank(patientUserId)) { // patietName.equals("")
 			log.info("1.patientUserId: " + patientUserId + ",  patientName: " + patietName);
@@ -427,6 +427,7 @@ public class SocketThreadService {
 
 
 		} else { // keyword가 없으면 모든 환자데이터 응답해라.
+			log.info("2. 전체환자목록");
 
 			List<Patient> patients = mysqlPatientMapper.findAll();
 			addPatientsListAndWriteOut(patients, schn, sb,  writeBuffer, trId);
