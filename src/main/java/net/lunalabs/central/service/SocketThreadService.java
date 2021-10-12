@@ -315,7 +315,7 @@ public class SocketThreadService {
 
 				seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
 				// //sent from server				
-				logger.info("??");
+				//logger.info("??");
 				serversentService.sendSseEventsToUI(seeMeasurePatientData, deviceId);
 
 			} catch (JsonProcessingException e) {
