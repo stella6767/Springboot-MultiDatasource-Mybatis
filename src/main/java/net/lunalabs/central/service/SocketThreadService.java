@@ -96,7 +96,28 @@ public class SocketThreadService {
 //		schn.close(); //요기서 -1를 리턴해주는거만
 //
 //	}
-//	
+
+	
+	
+	
+	/*
+
+		MSH는 무조건 온다고 가정
+	 * 
+	 * CASE 1 : MSH 가 1개 있고 버퍼의 끝인 경우 메서드 호출
+	 * 
+	 * CASE 2 :MSH 가 1개 있고 버퍼의 끝이 아닌 경우 -MSH 단위로 메서드 호출하고 나머지 부분은
+	 * 저장하여 버퍼에서 계속읽어서 append 함
+	 * 
+	 * CASE 3 :MSH 가 2개 이상 있고 버퍼의 끝인 경우 -MSH 만 버리고 메서드 호출 하고 다시MSH
+	 * 를 읽어 동일하게 처리
+	 * 
+	 * CASE 4 :MSH 가 2개 이상 있고 버퍼의 끝이 아닌 경우 -MSH 단위로 메서드 호출하고 나머지 부분은
+	 * 저장하여 버퍼에서 계속읽어서 append 함
+	 */
+	
+	
+	
 	
     @Async //멀티접속을 위해서 비동기처리 해야됨..
     public void readSocketData(SocketChannel schn) throws IOException {
@@ -113,7 +134,7 @@ public class SocketThreadService {
                 byte[] readByteArr;
 
                 // ByteBuffer readBuf = ByteBuffer.allocate(10); //버퍼 메모리 공간확보
-                ByteBuffer readBuf = ByteBuffer.allocate(10240);
+                ByteBuffer readBuf = ByteBuffer.allocate(600);
 
                 log.info("첫번째  while문");
 
@@ -160,11 +181,60 @@ public class SocketThreadService {
 
                         while (!result.equals("") && bEtxEnd) {
                             
-                        	HL7DataFirstParse(result, schn);
+                        	logger.info("#ETX#단위로 루프 돌기 전 result: " + result);
+                        	
+							Integer countMSH = StringUtils.countMatches(result, "MSH");
 
-                            result = "";
-                            bEtxEnd = false;
-                            readBuf.clear();
+							int indMSH = (result.lastIndexOf("MSH"));
+
+							logger.info("indEtx: " + indMSH + " result.length:  " + result.length() + "  countMSH: " + countMSH);
+
+							
+                        	Thread.sleep(300);
+							
+							
+                        	//string1.split("(?=-)");
+                        	
+            				if ( (indMSH == 0 || indMSH== result.length()) && countMSH == 1) { 
+
+								HL7DataFirstParse(result, schn);
+
+
+								result = "";
+								bEtxEnd = false;
+								readBuf.clear();
+							} else if (result.length() != indMSH && countMSH > 1) { // case5
+
+								String[] resultArray = result.split("(?=MSH)");
+
+								logger.info("case5 길이: " + resultArray.length);
+
+									for (int a = 0; a < resultArray.length - 1; a++) {
+										
+										//logger.info("정규표현식활용: " + resultArray[i]);
+										
+										HL7DataFirstParse(resultArray[i], schn);
+									}
+
+									// 예를 들어 #ETX# #STX#{sdfsfdsdf data가 있을시 #STX#로 이어지는 데이터를 저장
+									result = resultArray[resultArray.length - 1];
+									// 다시 버퍼를 읽음
+									readBuf.clear();
+									break;
+					
+							} 
+                        
+                        	
+                        	
+                        	
+                        	//HL7DataFirstParse(result, schn);
+
+                        	
+                        	
+                        	
+//                            result = "";
+//                            bEtxEnd = false;
+//                            readBuf.clear();
                         }
 
                     } // #ETX# 단위로 루프
@@ -187,6 +257,10 @@ public class SocketThreadService {
     
 	//@Cacheable(value="kang")
 	public void HL7DataFirstParse(String HL7Data, SocketChannel schn) {
+		
+		
+		logger.info("문제원인..." + HL7Data);
+		
 
 		String[] splitEnterArray = HL7Data.split("[\\r\\n]+"); // 개행문자 기준으로 1차 파싱
 
