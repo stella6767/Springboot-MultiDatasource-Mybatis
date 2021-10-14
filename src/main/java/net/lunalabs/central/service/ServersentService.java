@@ -61,7 +61,13 @@ public class ServersentService {
 	//@Cacheable(value="kang")
 	public void sendSseEventsToUI(String seeMeasurePatientData, String eventName) { // ConcurrentModificationException
 		
-		logger.info(eventName + ":  서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
+		//logger.info(eventName + ":  서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
+		
+		
+		if(seeMeasurePatientData.contains("rvs")) {
+			logger.info(eventName + ":  서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
+		}
+		
 		
 		Iterator<SseEmitter> iter = sseEmitters.iterator();
 
