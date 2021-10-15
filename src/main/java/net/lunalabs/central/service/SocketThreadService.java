@@ -166,8 +166,8 @@ public class SocketThreadService {
                         	
             				if ( (indMSH == 0 || indMSH== result.length()) && countMSH == 1) { 
 
-								//HL7DataFirstParse(result, schn);
-								check(result);
+								HL7DataFirstParse(result, schn);
+								//check(result);
 
 
 								result = "";
@@ -183,9 +183,9 @@ public class SocketThreadService {
 										
 										logger.info("정규표현식활용: " + resultArray[i]);
 										
-										//HL7DataFirstParse(resultArray[i], schn);
+										HL7DataFirstParse(resultArray[i], schn);
 										
-										check(resultArray[i]);
+										//check(resultArray[i]);
 									}
 
 									// 예를 들어 #ETX# #STX#{sdfsfdsdf data가 있을시 #STX#로 이어지는 데이터를 저장
@@ -226,7 +226,7 @@ public class SocketThreadService {
 	public void HL7DataFirstParse(String HL7Data, SocketChannel schn) {
 		
 		
-		logger.info("문제원인..." + HL7Data);
+		logger.info("확인..." + HL7Data);
 		
 
 		String[] splitEnterArray = HL7Data.split("[\\r\\n]+"); // 개행문자 기준으로 1차 파싱
