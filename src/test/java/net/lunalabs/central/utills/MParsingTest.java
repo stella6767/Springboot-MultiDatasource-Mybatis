@@ -157,4 +157,27 @@ public class MParsingTest {
 //		GenderType.values();
 //	}
 	
+	
+	@Test
+	public void 정규표현식테스트() {
+		
+		String result ="MSH1MSH2MSH3MSH";
+		
+		String[] resultArray = result.split("(?=MSH)");
+
+		log.info("case5 길이: " + resultArray.length);
+
+			for (int a = 0; a < resultArray.length - 1; a++) {
+				
+				log.info("정규표현식활용: " + resultArray[a]);
+				
+				//HL7DataFirstParse(resultArray[i], schn);
+				
+			}
+		
+			log.info(resultArray[resultArray.length - 1]);
+		
+
+	}
+	
 }

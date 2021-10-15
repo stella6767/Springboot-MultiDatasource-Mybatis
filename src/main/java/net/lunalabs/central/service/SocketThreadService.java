@@ -117,7 +117,7 @@ public class SocketThreadService {
 
                         byteCount = schn.read(readBuf); // 소켓채널에서 한번에 초과되는 버퍼사이즈의 데이터가 들어오면..
 
-                        log.info("[gwEmulThread #100] TID[" + "] byteCount :  " + byteCount);
+                        //log.info("[gwEmulThread #100] TID[" + "] byteCount :  " + byteCount);
                         // logger.debug("isRunning why: " + isRunning);
                     } catch (Exception e) {
                         // e.printStackTrace();
@@ -126,9 +126,8 @@ public class SocketThreadService {
                         isRunning = false;
                         break;
                     }
-
-                    int i = 0;
-
+                    
+                    
                     // 버퍼에 값이 있다면 계속 버퍼에서 값을 읽어 result 를 완성한다.
                     while (byteCount > 0) {
 
@@ -141,7 +140,7 @@ public class SocketThreadService {
 
                         try {
                             byteCount = schn.read(readBuf);
-                            log.info("[gwEmulThread #210] TID[" + result + "] byteCount :  " + byteCount);
+                            //log.info("[gwEmulThread #210] TID[" + result + "] byteCount :  " + byteCount);
                         } catch (Exception e) {
                             e.printStackTrace();
                             // break;
@@ -167,7 +166,8 @@ public class SocketThreadService {
                         	
             				if ( (indMSH == 0 || indMSH== result.length()) && countMSH == 1) { 
 
-								HL7DataFirstParse(result, schn);
+								//HL7DataFirstParse(result, schn);
+								check(result);
 
 
 								result = "";
@@ -179,11 +179,13 @@ public class SocketThreadService {
 
 								logger.info("case5 길이: " + resultArray.length);
 
-									for (int a = 0; a < resultArray.length - 1; a++) {
+									for (int i = 0; i < resultArray.length - 1; i++) {
 										
-										//logger.info("정규표현식활용: " + resultArray[i]);
+										logger.info("정규표현식활용: " + resultArray[i]);
 										
-										HL7DataFirstParse(resultArray[i], schn);
+										//HL7DataFirstParse(resultArray[i], schn);
+										
+										check(resultArray[i]);
 									}
 
 									// 예를 들어 #ETX# #STX#{sdfsfdsdf data가 있을시 #STX#로 이어지는 데이터를 저장
@@ -209,6 +211,12 @@ public class SocketThreadService {
         }
     }
     
+    
+    public void check(String data) {
+    	
+    	logger.info("확인: " + data);
+    	
+    }
     
 	
 	
