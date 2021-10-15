@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.net.httpserver.Authenticator.Result;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -154,10 +155,13 @@ public class SocketThreadService {
                         	
 							Integer countMSH = StringUtils.countMatches(result, "MSH");
 
+							int lastIndex = (result.lastIndexOf("|"));
+														
 							int indMSH = (result.lastIndexOf("MSH"));
 
-							logger.info("indEtx: " + indMSH + " result.length:  " + result.length() + "  countMSH: " + countMSH);
-
+							logger.info("indEtx: " + indMSH + " result.length:  " + result.length() + "  countMSH: " + countMSH);							
+							logger.info("lastIndex: " + lastIndex);
+							
 							
                         	Thread.sleep(300);
 							
@@ -228,13 +232,13 @@ public class SocketThreadService {
 		
 		logger.info("확인..." + HL7Data);
 		
-
 		String[] splitEnterArray = HL7Data.split("[\\r\\n]+"); // 개행문자 기준으로 1차 파싱
-
 		String[] headerArray = splitEnterArray[0].split("[|]");
 
-		String trigger = HL7Data.contains("SS100") ? "SS100" : headerArray[8];
+		//String trigger = HL7Data.contains("SS100") ? "SS100" : headerArray[8];
+		String trigger = headerArray[8];
 
+		
 		// String trigger = headerArray[8];
 		log.info("trigger: " + trigger);
 
@@ -258,7 +262,7 @@ public class SocketThreadService {
 		case "SS100":
 
 			try {
-				sessionDataParsing(HL7Data);
+				sessionDataParsing(splitEnterArray);
 			} catch (JsonProcessingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -397,11 +401,52 @@ public class SocketThreadService {
 
 	}
 
-	public void sessionDataParsing(String jsonData) throws JsonMappingException, JsonProcessingException {
+	public void sessionDataParsing(String [] array) throws JsonMappingException, JsonProcessingException {
 
 		log.info("sessionData Parsing!!");
 
-		SessionData sessionData = objectMapper.readValue(jsonData, SessionData.class);
+		
+		String[] mshArray = array[0].split("[|]");
+		String trId = mshArray[9];
+		String deviceId = mshArray[7];
+
+		String[] pidArray = array[1].split("[|]");
+		
+		String startOrEnd = pidArray[0];
+		String sid = pidArray[1];
+		Integer pid = Integer.parseInt(pidArray[2]);
+
+		String time = pidArray[3];
+
+		SessionData sessionData = null;
+		
+		
+		switch (startOrEnd) {
+			case "SID1":
+				
+				sessionData = SessionData.builder()
+				.deviceId(deviceId)
+				.pid(pid)
+				.sid(sid)
+				.startTime(time)
+				.build();
+				break;
+			case "SID2":
+				sessionData = SessionData.builder()
+				.deviceId(deviceId)
+				.pid(pid)
+				.sid(sid)
+				.endTime(time)
+				.build();
+				
+				break;
+	
+			default:
+				break;
+		}
+		
+		
+
 
 		log.info("sessionData parsing 결과: " + sessionData);
 
@@ -566,26 +611,6 @@ public class SocketThreadService {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-//	@Async
-//	public void FTPServiece() {
-//		
-//		boolean isFTPRunning = true;
-//		
-//		while(isFTPRunning) {
-//			
-//			
-//			
-//			
-//		}
-//		
-//	}
+
 
 }
