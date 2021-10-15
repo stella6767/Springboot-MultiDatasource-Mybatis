@@ -65,37 +65,7 @@ public class SocketThreadService {
 
 	ObjectMapper objectMapper = new ObjectMapper();
 
-//	@Async
-//	public void serverSocketThread(SocketChannel schn) throws IOException {
-//
-//		// SocketChannel schn = null;
-//
-//		log.info("read socket data");
-//
-//		String result = "";
-//
-//		byte[] readByteArr;
-//
-//		// Client로부터 글자 받기
-//		ByteBuffer readBuf = ByteBuffer.allocate(10240);//read into buffer. 일단은 버퍼 초과 신경쓰지 않고
-//		schn.read(readBuf); // 클라이언트로부터 데이터 읽기
-//		readBuf.flip();
-//
-//		readByteArr = new byte[readBuf.remaining()];
-//		readBuf.get(readByteArr); // 데이터 읽기
-//		result = result + new String(readByteArr, Charset.forName("UTF-8")); // 어차피 여기서 계속 더하니까.
-//
-//		
-//		
-//		log.info("------------------------------처음 파싱되서 도착한 데이터---------------------------------------");
-//		log.info(result);
-//		
-//		HL7DataFirstParse(result, schn);
-//		log.info("Received Data : " + result);
-//
-//		schn.close(); //요기서 -1를 리턴해주는거만
-//
-//	}
+
 
 	
 	
@@ -224,17 +194,6 @@ public class SocketThreadService {
 					
 							} 
                         
-                        	
-                        	
-                        	
-                        	//HL7DataFirstParse(result, schn);
-
-                        	
-                        	
-                        	
-//                            result = "";
-//                            bEtxEnd = false;
-//                            readBuf.clear();
                         }
 
                     } // #ETX# 단위로 루프
