@@ -163,7 +163,7 @@ public class SocketThreadService {
 							logger.info("lastIndex: " + lastIndex);
 							
 							
-                        	Thread.sleep(300);
+                        	//Thread.sleep(300);
 							
 							
                         	//string1.split("(?=-)");
