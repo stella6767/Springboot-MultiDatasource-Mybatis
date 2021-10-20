@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
@@ -59,6 +60,7 @@ public class ServersentService {
 
 
 	//@Cacheable(value="kang")
+	@Async
 	public void sendSseEventsToUI(String seeMeasurePatientData, String eventName) { // ConcurrentModificationException
 		
 		//logger.info(eventName + ":  서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
@@ -87,7 +89,8 @@ public class ServersentService {
 	}
 	
 	
-	//@Scheduled(fixedDelay = 100) //3초마다 실행, 테스트용도
+	@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
+	@Async
 	public void sendSseEventsToUITest2() throws JsonProcessingException { 
 	
 
@@ -100,7 +103,7 @@ public class ServersentService {
 					.endTime(MParsing.getNowTime(2))
 					.startTime(MParsing.getNowTime(1))
 					.parame("rvs")
-					.value(random.nextInt(1000)+1 + "^" +random.nextInt(10)+1)
+					.value(random.nextInt(100)+1 + "^" +(random.nextInt(100)+1))
              		//.value(random.ints()^)
 					.patientUserId("patient 10")
 					.sid("patient10_20210826_114616")
