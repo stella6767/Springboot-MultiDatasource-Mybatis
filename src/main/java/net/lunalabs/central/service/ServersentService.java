@@ -89,10 +89,12 @@ public class ServersentService {
 	}
 	
 	
-	@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
+	//@Scheduled(fixedRate = 1000) //3초마다 실행, 테스트용도
 	@Async
 	public void sendSseEventsToUITest2() throws JsonProcessingException { 
 	
+		
+		//Thread.sleep(3000);
 
 		HashMap<String, MeasureDataJoinPatientBean> hashMap = new HashMap<>();
 		
@@ -139,6 +141,162 @@ public class ServersentService {
 		}
 	}
 	
+	//@Scheduled(fixedRate = 1000) //3초마다 실행, 테스트용도
+	@Async
+	public void sendSseEventsToUITest3() throws JsonProcessingException { 
+	
+		
+		//Thread.sleep(3000);
+
+		HashMap<String, MeasureDataJoinPatientBean> hashMap = new HashMap<>();
+		
+
+			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
+					// .deviceId() 굳이?
+					.age(28)
+					.endTime(MParsing.getNowTime(2))
+					.startTime(MParsing.getNowTime(1))
+					.parame("rvs")
+					.value(random.nextInt(100)+1 + "^" +(random.nextInt(100)+1))
+             		//.value(random.ints()^)
+					.patientUserId("patient 10")
+					.sid("patient10_20210826_114616")
+					.valueUnit("LM")
+					.build();
+			
+
+			hashMap.put(dataJoinPatientBean.getSid(), dataJoinPatientBean);
+			
+			String seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
+			//String seeMeasurePatientData = objectMapper.writeValueAsString(hashMap);
+			
+		
+			logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData );						
+			
+			Iterator<SseEmitter> iter = sseEmitters.iterator();
+
+			while (iter.hasNext()) {
+			    SseEmitter emitter = iter.next();
+			   
+		        try {
+		        	logger.info("data 보내는 객체 주소: " + emitter.toString());
+//		            emitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
+		            emitter.send(SseEmitter.event().name("CPM0001").reconnectTime(500).data(seeMeasurePatientData));
+		         
+		            Thread.sleep(1000);
+		        } catch (Throwable e) {
+		            emitter.complete();
+		        }
+		
+			
+			
+		}
+	}
+	
+	//@Scheduled(fixedRate = 1000) //3초마다 실행, 테스트용도
+	@Async
+	public void sendSseEventsToUITest4() throws JsonProcessingException { 
+	
+		
+		//Thread.sleep(3000);
+
+		HashMap<String, MeasureDataJoinPatientBean> hashMap = new HashMap<>();
+		
+
+			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
+					// .deviceId() 굳이?
+					.age(28)
+					.endTime(MParsing.getNowTime(2))
+					.startTime(MParsing.getNowTime(1))
+					.parame("rvs")
+					.value(random.nextInt(100)+1 + "^" +(random.nextInt(100)+1))
+             		//.value(random.ints()^)
+					.patientUserId("patient 10")
+					.sid("patient10_20210826_114616")
+					.valueUnit("LM")
+					.build();
+			
+
+			hashMap.put(dataJoinPatientBean.getSid(), dataJoinPatientBean);
+			
+			String seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
+			//String seeMeasurePatientData = objectMapper.writeValueAsString(hashMap);
+			
+		
+			logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData );						
+			
+			Iterator<SseEmitter> iter = sseEmitters.iterator();
+
+			while (iter.hasNext()) {
+			    SseEmitter emitter = iter.next();
+			   
+		        try {
+		        	logger.info("data 보내는 객체 주소: " + emitter.toString());
+//		            emitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
+		            emitter.send(SseEmitter.event().name("CPM0002").reconnectTime(500).data(seeMeasurePatientData));
+		         
+		            Thread.sleep(1000);
+		        } catch (Throwable e) {
+		            emitter.complete();
+		        }
+		
+			
+			
+		}
+	}
+	
+	//@Scheduled(fixedRate = 1000) //3초마다 실행, 테스트용도
+	@Async
+	public void sendSseEventsToUITest5() throws JsonProcessingException { 
+	
+		
+		//Thread.sleep(3000);
+
+		HashMap<String, MeasureDataJoinPatientBean> hashMap = new HashMap<>();
+		
+
+			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
+					// .deviceId() 굳이?
+					.age(28)
+					.endTime(MParsing.getNowTime(2))
+					.startTime(MParsing.getNowTime(1))
+					.parame("rvs")
+					.value(random.nextInt(100)+1 + "^" +(random.nextInt(100)+1))
+             		//.value(random.ints()^)
+					.patientUserId("patient 10")
+					.sid("patient10_20210826_114616")
+					.valueUnit("LM")
+					.build();
+			
+
+			hashMap.put(dataJoinPatientBean.getSid(), dataJoinPatientBean);
+			
+			String seeMeasurePatientData = objectMapper.writeValueAsString(dataJoinPatientBean);
+			//String seeMeasurePatientData = objectMapper.writeValueAsString(hashMap);
+			
+		
+			logger.info("서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData );						
+			
+			Iterator<SseEmitter> iter = sseEmitters.iterator();
+
+			while (iter.hasNext()) {
+			    SseEmitter emitter = iter.next();
+			   
+		        try {
+		        	logger.info("data 보내는 객체 주소: " + emitter.toString());
+//		            emitter.send(SseEmitter.event().reconnectTime(500).data(seeMeasurePatientData));
+		            emitter.send(SseEmitter.event().name("CPM0003").reconnectTime(500).data(seeMeasurePatientData));
+		         
+		            Thread.sleep(1000);
+		        } catch (Throwable e) {
+		            emitter.complete();
+		        }
+		
+			
+			
+		}
+	}
+
 	
 }
 

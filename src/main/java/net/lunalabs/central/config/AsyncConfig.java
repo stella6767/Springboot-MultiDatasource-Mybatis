@@ -22,7 +22,7 @@ public class AsyncConfig extends AsyncConfigurerSupport{
     public Executor getAsyncExecutor() {
 
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(10);
+        executor.setCorePoolSize(100);
         executor.setThreadNamePrefix("kang-");
         executor.initialize();
 
@@ -39,7 +39,7 @@ public class AsyncConfig extends AsyncConfigurerSupport{
     public ThreadPoolTaskScheduler configureTasks() {
         ThreadPoolTaskScheduler threadPoolTaskScheduler = new ThreadPoolTaskScheduler();
 
-        threadPoolTaskScheduler.setPoolSize(10);
+        threadPoolTaskScheduler.setPoolSize(100);
         threadPoolTaskScheduler.setThreadNamePrefix("kang-scheduled-");
         threadPoolTaskScheduler.initialize();
 
