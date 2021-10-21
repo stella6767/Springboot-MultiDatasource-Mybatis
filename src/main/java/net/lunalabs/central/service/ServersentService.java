@@ -60,7 +60,7 @@ public class ServersentService {
 
 
 	//@Cacheable(value="kang")
-	@Async
+	//@Async
 	public void sendSseEventsToUI(String seeMeasurePatientData, String eventName) { // ConcurrentModificationException
 		
 		//logger.info(eventName + ":  서버에서 단방향으로 브라우저에 보낼 데이터: "+seeMeasurePatientData);
@@ -90,7 +90,7 @@ public class ServersentService {
 	
 	
 	//@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
-	@Async
+	//@Async
 	public void sendSseEventsToUITest2() throws JsonProcessingException { 
 	
 		
