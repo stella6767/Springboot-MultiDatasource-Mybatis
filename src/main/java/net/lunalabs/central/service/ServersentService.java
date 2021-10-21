@@ -89,7 +89,7 @@ public class ServersentService {
 	}
 	
 	
-	@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
+	//@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
 	@Async
 	public void sendSseEventsToUITest2() throws JsonProcessingException { 
 	
@@ -141,7 +141,7 @@ public class ServersentService {
 		}
 	}
 	
-	@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
+	//@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
 	@Async
 	public void sendSseEventsToUITest3() throws JsonProcessingException { 
 	
@@ -193,7 +193,7 @@ public class ServersentService {
 		}
 	}
 	
-	@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
+	//@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
 	@Async
 	public void sendSseEventsToUITest4() throws JsonProcessingException { 
 	
@@ -245,7 +245,7 @@ public class ServersentService {
 		}
 	}
 	
-	@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
+	//@Scheduled(fixedRate = 100) //3초마다 실행, 테스트용도
 	@Async
 	public void sendSseEventsToUITest5() throws JsonProcessingException { 
 	

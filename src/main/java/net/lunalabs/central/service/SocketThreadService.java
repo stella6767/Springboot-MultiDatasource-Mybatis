@@ -17,6 +17,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -105,7 +106,7 @@ public class SocketThreadService {
                 byte[] readByteArr;
 
                 // ByteBuffer readBuf = ByteBuffer.allocate(10); //버퍼 메모리 공간확보
-                ByteBuffer readBuf = ByteBuffer.allocate(600);
+                ByteBuffer readBuf = ByteBuffer.allocate(10240);
 
                 log.info("첫번째  while문");
 
@@ -278,6 +279,7 @@ public class SocketThreadService {
 
 	
 	//@Cacheable(value="kang")
+	@Transactional
 	public void measureDataParsing(String[] array, SocketChannel schn) { // 5개의 parame이 오면 5번 insert
 
 		//List<MeasureDataJoinPatientBean> sses = new ArrayList<>();
