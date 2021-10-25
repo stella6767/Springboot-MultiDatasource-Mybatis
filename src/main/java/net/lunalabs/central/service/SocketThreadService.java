@@ -334,19 +334,16 @@ public class SocketThreadService {
 
 			}
 
-			//현재단계에서는 측정데이터를 보낼때, oracle과 mariaDB 둘다 저장하도록=>2차에서는 프로시저로 대체
-			measureDataMapper.save(measureData);
-			oracleMeasureDataMapper.save(measureData); 
+
 			
-			Patient patient = mysqlPatientMapper.findById(pid);
-			mysqlPatientMapper.updateLastSession(measureData.getSid(), patient.getPid());
+			//Patient patient = mysqlPatientMapper.findById(pid);
 
 			String seeMeasurePatientData = "";
 			// this.objectMapper.setSerializationInclusion(Jsoninc);
 
 			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
 					// .deviceId() 굳이?
-					.age(patient.getAge())
+					//.age(patient.getAge())
 					.endTime(measureData.getEndTime())
 					.startTime(measureData.getStartTime())
 					.parame(measureData.getParame())
@@ -371,7 +368,13 @@ public class SocketThreadService {
 			}
 			
 			// measureDataSink
+			
+			//현재단계에서는 측정데이터를 보낼때, oracle과 mariaDB 둘다 저장하도록=>2차에서는 프로시저로 대체
+//			measureDataMapper.save(measureData);
+//			oracleMeasureDataMapper.save(measureData); 
+//			mysqlPatientMapper.updateLastSession(measureData.getSid(), patient.getPid());
 
+			
 		}
 
 			
