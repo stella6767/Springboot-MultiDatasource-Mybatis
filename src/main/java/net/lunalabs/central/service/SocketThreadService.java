@@ -2,10 +2,8 @@ package net.lunalabs.central.service;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,16 +11,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.net.httpserver.Authenticator.Result;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +29,7 @@ import net.lunalabs.central.domain.patient.Patient;
 import net.lunalabs.central.mapper.mysql.MeasureDataMapper;
 import net.lunalabs.central.mapper.mysql.PatientMapper;
 import net.lunalabs.central.mapper.mysql.SessionDataMapper;
+import net.lunalabs.central.service.mysql.PatientService;
 import net.lunalabs.central.utills.MParsing;
 
 @Slf4j
@@ -49,8 +45,11 @@ public class SocketThreadService {
 	@Qualifier("OracleMeasureDataMapper")
 	private final net.lunalabs.central.mapper.oracle.MeasureDataMapper oracleMeasureDataMapper; //oracle package 안에 MAPPER, 이름이 같으니 주의
 	
-	//@Qualifier("MysqlPatientMapper")
+	@Qualifier("MysqlPatientMapper")
 	private final PatientMapper mysqlPatientMapper;
+	
+	@Qualifier("MysqlPatientService")
+	private final PatientService patientService; //별로 맘에 안 들지만..
 	
 	private final net.lunalabs.central.mapper.oracle.PatientMapper oraclePatientMapper;
 
@@ -336,7 +335,7 @@ public class SocketThreadService {
 
 
 			
-			//Patient patient = mysqlPatientMapper.findById(pid);
+			Patient patient = patientService.findById(pid);
 
 			String seeMeasurePatientData = "";
 			// this.objectMapper.setSerializationInclusion(Jsoninc);
@@ -344,7 +343,7 @@ public class SocketThreadService {
 			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
 					// .deviceId() 굳이?
 					//.age(patient.getAge())
-					.age(18)
+					.age(patient.getAge())
 					.endTime(measureData.getEndTime())
 					.startTime(measureData.getStartTime())
 					.parame(measureData.getParame())
@@ -373,7 +372,8 @@ public class SocketThreadService {
 			//현재단계에서는 측정데이터를 보낼때, oracle과 mariaDB 둘다 저장하도록=>2차에서는 프로시저로 대체
 //			measureDataMapper.save(measureData);
 //			oracleMeasureDataMapper.save(measureData); 
-//			mysqlPatientMapper.updateLastSession(measureData.getSid(), patient.getPid());
+			//비동기 메서드 안에 있어도 캐싱이 전역으로 관리하지 않고 메서드 단위로 관리해서, 잘 관리되나보다..
+			patientService.updateLastSession(measureData.getSid(), patient.getPid());
 
 			
 		}

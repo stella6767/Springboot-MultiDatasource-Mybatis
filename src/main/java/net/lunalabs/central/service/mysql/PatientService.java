@@ -3,7 +3,10 @@ package net.lunalabs.central.service.mysql;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +18,11 @@ import net.lunalabs.central.mapper.mysql.PatientMapper;
 @Service("MysqlPatientService")
 public class PatientService {
 
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(PatientService.class);
+
+	
 	
 	@Qualifier("MysqlPatientMapper")
 	private final PatientMapper patientMapper;
@@ -43,6 +51,16 @@ public class PatientService {
 //		return patients;
 //	}
 	
+	@Cacheable(value = "kang")
+	@Transactional
+	public void updateLastSession(String sid, Integer pid) {
+		
+		log.info("캐싱 테스트 " + sid + "  " + pid);
+		
+		patientMapper.updateLastSession(sid, pid);
+		
+	}
+	
 	
 	@Transactional(readOnly = true)
 	public List<Patient> searchByIdOrName(String searchKeyword, String searchWord){	
@@ -62,9 +80,12 @@ public class PatientService {
 	
 	
 	
-	
+	@Cacheable(value = "kang")
 	@Transactional(readOnly = true)
 	public Patient findById(Integer id){	
+		
+		log.info("캐싱 잘 되나 테스트 " + id);
+		
 		Patient patient = patientMapper.findById(id);	
 		return patient;
 	}
