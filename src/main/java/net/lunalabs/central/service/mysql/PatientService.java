@@ -29,7 +29,7 @@ public class PatientService {
 	
 	
 	@Qualifier("OraclePatientMapper")
-	private final net.lunalabs.central.mapper.oracle.PatientMapper patientMapper2;
+	private final net.lunalabs.central.mapper.oracle.PatientMapper oraclePatientMapper;
 	
 	
 	@Transactional(readOnly = true)
@@ -50,6 +50,14 @@ public class PatientService {
 //		List<Patient> patients = patientMapper.findByContainPatientUserId(patientUserId);	
 //		return patients;
 //	}
+	
+	
+	@Transactional
+	public void insertOnDuplicateKeyUpdate(List<Patient> patients) {
+		
+		patientMapper.insertOnDuplicateKeyUpdate(patients);
+		
+	}
 	
 	@Cacheable(value = "kang")
 	@Transactional
@@ -79,6 +87,21 @@ public class PatientService {
 	}
 	
 	
+	@Transactional(readOnly = true)
+	public List<Patient> findByContainPatientUserId(String patientUserId){	
+		
+
+		return patientMapper.findByContainPatientUserId(patientUserId);
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Patient> findByContainName(String patietName){	
+		
+
+		return patientMapper.findByContainName(patietName);
+	}
+	
+	
 	
 	@Cacheable(value = "kang")
 	@Transactional(readOnly = true)
@@ -93,7 +116,7 @@ public class PatientService {
 	
 	@Transactional(readOnly = true)
 	public List<Patient> findAll2(){	
-		List<Patient> patients = patientMapper2.findAll();	
+		List<Patient> patients = oraclePatientMapper.findAll();	
 		return patients;
 	}
 	

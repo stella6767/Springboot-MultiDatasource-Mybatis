@@ -6,7 +6,7 @@
 
 	<insert id="save">
 		INSERT INTO MeasureData(sid, pid, patientUserId, parame, valueUnit, value, startTime, endTime)
-		VALUES(#{sid},#{pid},#{patientUserId},#{parame},#{valueUnit},#{value},STR_TO_DATE(CONCAT(#{startTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'), STR_TO_DATE(CONCAT(#{endTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'))
+		VALUES(#{sid},#{pid},#{patientUserId},#{parame},#{valueUnit},#{value}, STR_TO_DATE(CONCAT(#{startTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'), STR_TO_DATE(CONCAT(#{endTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'))
 	</insert>
 
 	<delete id="deleteById">
@@ -14,6 +14,24 @@
 	</delete>
 
 	<!-- <update id="update"> UPDATE MeasureData SET name=#{name}, code=#{code} WHERE mid = #{id} </update> -->
+
+
+	<insert id="insertBatch" >
+		insert into MeasureData(sid, pid, patientUserId, parame, valueUnit, value, startTime, endTime)
+		values
+		<foreach collection="list" index="index" item="data" separator=",">
+		(
+			#{data.sid},
+			#{data.pid},
+			#{data.patientUserId},
+			#{data.parame},		
+			#{data.valueUnit},		
+			#{data.value},
+			STR_TO_DATE(CONCAT(#{data.startTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'),
+			STR_TO_DATE(CONCAT(#{data.endTime}, '000'), '%y.%m.%d-%H:%i:%S.%f')		
+		)		
+		</foreach>
+	</insert>	
 
 
 	<select id="findAll" resultType="net.lunalabs.central.domain.measuredata.MeasureData">

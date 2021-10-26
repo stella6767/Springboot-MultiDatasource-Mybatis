@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import lombok.RequiredArgsConstructor;
-import net.lunalabs.central.config.MeasureDataSse;
 import net.lunalabs.central.service.ServersentService;
 import net.lunalabs.central.web.dto.CMRespDto;
 

@@ -28,7 +28,7 @@
 //@MybatisTest(properties = "spring.datasource.mysql")
 ////@PropertySource("persistence-generic-entity.properties")
 ////@ContextConfiguration(classes = MysqlConfig.class)
-//class PatientMapperTest {
+//class MapperTest {
 //	
 //	
 //	@Test

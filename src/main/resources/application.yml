@@ -30,7 +30,7 @@ spring:
 #      jdbc-url: jdbc:log4jdbc:mysql://db.rigel.kr:3306/bilab?&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
 
       driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-      jdbc-url: jdbc:log4jdbc:mysql://db.rigel.kr:3306/bilab?&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      jdbc-url: jdbc:log4jdbc:mysql://db.rigel.kr:3306/bilab?&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowMultiQueries=true
       username: bilab
       password: bilab1234
     oracle:
@@ -49,6 +49,8 @@ spring:
     ansi:
       enabled: always
 
+
+insertBatchTime: 1000 * 60
 
 ---
 

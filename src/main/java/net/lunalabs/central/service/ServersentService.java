@@ -1,21 +1,13 @@
 package net.lunalabs.central.service;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import org.apache.mina.util.ConcurrentHashSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.http.MediaType;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
@@ -23,7 +15,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.RequiredArgsConstructor;
-import net.lunalabs.central.config.MeasureDataSse;
 import net.lunalabs.central.domain.mysql.MeasureDataJoinPatientBean;
 import net.lunalabs.central.utills.MParsing;
 

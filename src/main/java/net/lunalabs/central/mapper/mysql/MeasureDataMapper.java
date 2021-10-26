@@ -20,7 +20,7 @@ public interface MeasureDataMapper {
 	public List<MeasureData> findLatestParame();
 
 	
-	public void insertBatch(List<MeasureData> meauserDatas);
+	public Integer insertBatch(List<MeasureData> meauserDatas);
 
 	
 	
