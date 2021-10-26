@@ -278,7 +278,6 @@ public class SocketThreadService {
 
 	
 	//@Cacheable(value="kang")
-	@Transactional
 	public void measureDataParsing(String[] array, SocketChannel schn) { // 5개의 parame이 오면 5번 insert
 
 		//List<MeasureDataJoinPatientBean> sses = new ArrayList<>();
@@ -375,11 +374,11 @@ public class SocketThreadService {
 			//비동기 메서드 안에 있어도 캐싱이 전역으로 관리하지 않고 메서드 단위로 관리해서, 잘 관리되나보다..
 			patientService.updateLastSession(measureData.getSid(), patient.getPid());
 
-			
 		}
 
 			
 		log.info("응답파싱결과: " + sb.toString());
+		
 
 //		writeBuffer = charset.encode(sb.toString());
 //		try {
