@@ -1,4 +1,4 @@
-package net.lunalabs.central.config;
+package net.lunalabs.central.config.async;
 
 import java.util.concurrent.Executor;
 
@@ -25,6 +25,7 @@ public class AsyncConfig extends AsyncConfigurerSupport{
         executor.setCorePoolSize(100);
 		executor.setMaxPoolSize(1000);
 		executor.setQueueCapacity(1000);
+		executor.setRejectedExecutionHandler(new RejectedExecutionHandlerImpl());
         executor.setThreadNamePrefix("kang-");
         executor.initialize();
 

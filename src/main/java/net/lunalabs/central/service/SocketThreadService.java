@@ -344,6 +344,7 @@ public class SocketThreadService {
 			MeasureDataJoinPatientBean dataJoinPatientBean = MeasureDataJoinPatientBean.builder()
 					// .deviceId() 굳이?
 					//.age(patient.getAge())
+					.age(18)
 					.endTime(measureData.getEndTime())
 					.startTime(measureData.getStartTime())
 					.parame(measureData.getParame())
