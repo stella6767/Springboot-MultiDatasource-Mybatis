@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.lunalabs.central.mapper.oracle.PatientMapper">
+
+	<!-- <insert id="save"> INSERT INTO MeasureData(name, code) VALUES(#{name},#{code}) </insert> -->
+
+    <resultMap id="patientMap" type="net.lunalabs.central.domain.patient.Patient">
+    </resultMap>
+
+
+	<delete id="deleteById">
+		DELETE FROM Patient WHERE pid = #{id}
+	</delete>
+
+	<!-- <update id="update"> UPDATE MeasureData SET name=#{name}, code=#{code} WHERE mid = #{id} </update> -->
+
+
+	<select id="findAll" resultType="net.lunalabs.central.domain.patient.Patient">
+		<![CDATA[
+		select * from Patient order by pid desc 
+		]]>
+	</select>
+
+
+
+	<select id="findById" resultType="net.lunalabs.central.domain.patient.Patient">
+		<![CDATA[
+		select * from Patient where pid=#{id} 
+		]]>
+	</select>
+
+
+	<select id="findByContainPatientUserId" statementType="CALLABLE">
+		{
+			CALL GETEMP5(
+				#{patientUserId, mode=IN, jdbcType=VARCHAR}, 
+				#{key, jdbcType=CURSOR, mode=OUT, javaType=java.sql.ResultSet, resultMap=patientMap}
+			)
+		} 
+	</select>
+
+	<select id="findByContainName" statementType="CALLABLE">
+		{
+			CALL GETEMP6(
+				#{name, mode=IN, jdbcType=VARCHAR}, 
+				#{key, jdbcType=CURSOR, mode=OUT, javaType=java.sql.ResultSet, resultMap=patientMap}
+			)
+		} 
+	</select>
+
+
+
+
+</mapper>

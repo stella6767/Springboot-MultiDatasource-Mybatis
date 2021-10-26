@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.lunalabs.central.mapper.mysql.MeasureDataMapper">
+
+	<insert id="save">
+		INSERT INTO MeasureData(sid, pid, patientUserId, parame, valueUnit, value, startTime, endTime)
+		VALUES(#{sid},#{pid},#{patientUserId},#{parame},#{valueUnit},#{value},STR_TO_DATE(CONCAT(#{startTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'), STR_TO_DATE(CONCAT(#{endTime}, '000'), '%y.%m.%d-%H:%i:%S.%f'))
+	</insert>
+
+	<delete id="deleteById">
+		DELETE FROM MeasureData WHERE mid = #{id}
+	</delete>
+
+	<!-- <update id="update"> UPDATE MeasureData SET name=#{name}, code=#{code} WHERE mid = #{id} </update> -->
+
+
+	<select id="findAll" resultType="net.lunalabs.central.domain.measuredata.MeasureData">
+		<![CDATA[
+		select * from MeasureData order by mid desc 
+		]]>
+	</select>
+
+
+	<select id="findRvsAll" resultType="net.lunalabs.central.domain.measuredata.MeasureData">
+		<![CDATA[
+		SELECT * FROM MeasureData md WHERE parame ='rvs'
+		]]>
+	</select>
+
+
+
+	<select id="findLatestParame" resultType="net.lunalabs.central.domain.measuredata.MeasureData">
+		<![CDATA[
+		SELECT * FROM MeasureData WHERE mid in (
+		(SELECT max(mid)  FROM MeasureData t1  WHERE parame = 'mv')
+		,(SELECT max(mid)  FROM MeasureData t1  WHERE parame = 'rr')
+		,(SELECT max(mid)  FROM MeasureData t1  WHERE parame = 'spo2')
+		,(SELECT max(mid)  FROM MeasureData t1  WHERE parame = 'tv'))
+		]]>
+	</select>
+
+
+	<select id="findById" resultType="net.lunalabs.central.domain.measuredata.MeasureData">
+		<![CDATA[
+		select * from MeasureData where mid=#{id} 
+		]]>
+	</select>
+
+
+
+
+</mapper>

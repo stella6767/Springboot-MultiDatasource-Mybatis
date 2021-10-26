@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.lunalabs.central.mapper.mysql.PatientMapper">
+
+
+	<!-- Table 대소문자 구분함!! -->
+
+	<!-- <insert id="save"> INSERT INTO MeasureData(name, code) VALUES(#{name},#{code}) </insert> -->
+
+	<insert id="insertOnDuplicateKeyUpdate" >
+		INSERT INTO patient
+		(pid, patientUserId, firstname, lastname, gender, age, height, weight, lastSession, comment)
+			values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.pid} , #{item.patientUserId}, #{item.firstname}, #{item.lastname}, #{item.gender}, #{item.age}, #{item.height}, #{item.weight}, #{item.lastSession}, #{item.comment} )
+		</foreach>
+		ON DUPLICATE KEY
+			UPDATE
+			patientUserId = values(patientUserId), firstname =values(firstname), lastname= values(lastname), 
+			gender = values(gender), age=values(age), height=values(height), weight = values(weight), lastSession= values(lastSession), comment=values(comment)
+	</insert>
+
+
+
+
+
+	<delete id="deleteById">
+		DELETE FROM patient WHERE pid = #{id}
+	</delete>
+
+	<update id="updateLastSession">
+		UPDATE patient SET lastSession=#{sid} WHERE
+		pid = #{pid}
+	</update>
+
+	<!-- <update id="update"> UPDATE MeasureData SET name=#{name}, code=#{code} WHERE mid = #{id} </update> -->
+
+	<select id="findByContainId" resultType="net.lunalabs.central.domain.patient.Patient">
+		<![CDATA[
+		select * from patient where pid LIKE '%${id}%'
+		]]>
+	</select>
+
+
+	<select id="findByContainPatientUserId" resultType="net.lunalabs.central.domain.patient.Patient">
+		<![CDATA[
+		select * from patient where patientUserId LIKE '%${patientUserId}%'
+		]]>
+	</select>
+
+	<select id="findByContainName" resultType="net.lunalabs.central.domain.patient.Patient">
+		<![CDATA[
+		select * from patient where firstname LIKE '%${name}%' or lastname LIKE '%${name}%'  
+		]]>
+	</select>
+
+
+	<select id="findAll" resultType="net.lunalabs.central.domain.patient.Patient">
+		<![CDATA[
+		select * from patient order by pid desc 
+		]]>
+	</select>
+
+
+
+	<select id="findById" resultType="net.lunalabs.central.domain.patient.Patient">
+		<![CDATA[
+		select * from patient where pid=#{id} 
+		]]>
+	</select>
+
+	<select id="findByPatientUserId" resultType="net.lunalabs.central.domain.patient.Patient">
+		<![CDATA[
+		select * from patient where patientUserId=#{patientUserId} 
+		]]>
+	</select>
+
+
+</mapper>

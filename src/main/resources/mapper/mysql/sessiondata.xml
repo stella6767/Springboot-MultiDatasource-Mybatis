@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.lunalabs.central.mapper.mysql.SessionDataMapper">
+
+	<insert id="save">
+		INSERT INTO sessionData(sid, pid, deviceId, startTime)
+		VALUES(#{sid},#{pid}, #{deviceId}, #{startTime})
+	</insert>
+
+	<delete id="deleteById">
+		DELETE FROM sessionData WHERE sid = #{id}
+	</delete>
+
+	<update id="updateStartTime">
+		UPDATE sessionData SET startTime=#{startTime} WHERE
+		sid = #{sid}
+	</update>
+
+	<update id="updateEndTime">
+		UPDATE sessionData SET endTime=#{endTime} WHERE
+		sid = #{sid}
+	</update>
+
+	<select id="findAll" resultType="net.lunalabs.central.domain.mysql.sessiondata.SessionData">
+		<![CDATA[
+		select * from sessionData order by sid desc 
+		]]>
+	</select>
+
+
+
+	<select id="findById" resultType="net.lunalabs.central.domain.mysql.sessiondata.SessionData">
+		<![CDATA[
+		select * from sessionData where sid=#{id} 
+		]]>
+	</select>
+
+
+
+
+</mapper>
