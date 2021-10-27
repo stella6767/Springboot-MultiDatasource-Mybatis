@@ -23,7 +23,7 @@ public class MeasureDataService {
 	
 	private static final Logger log = LoggerFactory.getLogger(MeasureDataService.class);
 
-	private static final Long insertBatchTime = (long) (1000 * 60);
+	//private static final Long insertBatchTime = (long) (1000 * 60);
 	
 	
 	private final GlobalVar globalVar;
@@ -42,19 +42,24 @@ public class MeasureDataService {
 	}
 	
 	
-	@Scheduled(initialDelay = 1000 * 60, fixedRate = 1000 * 60)
+	@Scheduled(initialDelayString = "${initialDelay}", fixedRate = 1000 * 60)
 	@Async
 	@Transactional
 	public void insertBatch() {
 		
-		log.info("");
+		log.info("1분마다 측정데이터 bulk insert");
+
 		
-		mysqlMeasureDataMapper.insertBatch(globalVar.batchMeasureDatas);
-		
-		//oracleMeasureDataMapper.
-		
-		globalVar.batchMeasureDatas.clear();
-		
+		if(!globalVar.batchMeasureDatas.isEmpty()) {
+			int result = mysqlMeasureDataMapper.insertBatch(globalVar.batchMeasureDatas);
+			
+			log.info("bulkInsert result: " + result);
+			
+			globalVar.batchMeasureDatas.clear();
+
+		}
+				
+		//oracleMeasureDataMapper.		
 	}
 	
 	
