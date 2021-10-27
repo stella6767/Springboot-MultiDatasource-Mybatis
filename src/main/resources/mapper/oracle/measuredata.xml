@@ -35,6 +35,45 @@
 	</select>
 
 
+<!-- 	<insert id="insertBatch">
+		INSERT INTO MeasureData(mid, sid, pid, patientUserId, parame, valueUnit, value, startTime, endTime)
+		VALUES
+		<foreach collection="list" index="index" item="data" separator="," open="INSERT ALL" close="SELECT * FROM DUAL">
+			(
+			MeasureData_seq.nextval,
+			#{data.sid},
+			#{data.pid},
+			#{data.patientUserId},
+			#{data.parame},
+			#{data.valueUnit},
+			#{data.value},
+			TO_TIMESTAMP(CONCAT(#{data.startTime}, '000'), 'YY.MM.DD-HH24:MI:SS.FF6'),
+			TO_TIMESTAMP(CONCAT(#{data.endTime}, '000'), 'YY.MM.DD-HH24:MI:SS.FF6')
+			)
+		</foreach>
+	</insert> -->
+
+
+
+<!-- useGeneratedKeys="true" keyColumn="mid" keyProperty="mid" --> 
+ 	<insert id="insertBatch" >
+		<foreach collection="list" item="data" close="SELECT * FROM DUAL"  open="INSERT ALL" separator=" ">
+			into MeasureData(mid, sid, pid, patientUserId, parame, valueUnit, value, startTime, endTime)
+			values 
+			(
+			get_seq( 'MeasureData_seq' ),
+			#{data.sid},
+			#{data.pid},
+			#{data.patientUserId},
+			#{data.parame},
+			#{data.valueUnit},
+			#{data.value},
+			TO_TIMESTAMP(CONCAT(#{data.startTime}, '000'), 'YY.MM.DD-HH24:MI:SS.FF6'),
+			TO_TIMESTAMP(CONCAT(#{data.endTime}, '000'), 'YY.MM.DD-HH24:MI:SS.FF6')
+			)
+		</foreach>
+	</insert> 
+		<!-- select * from DUAL -->
 
 
 </mapper>

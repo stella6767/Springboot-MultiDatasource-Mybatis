@@ -53,7 +53,9 @@ public class MeasureDataService {
 		if(!globalVar.batchMeasureDatas.isEmpty()) {
 			int result = mysqlMeasureDataMapper.insertBatch(globalVar.batchMeasureDatas);
 			
-			log.info("bulkInsert result: " + result);
+			int result2 = oracleMeasureDataMapper.insertBatch(globalVar.batchMeasureDatas);
+			
+			log.info("bulkInsert result: " + result +"  " + result2);
 			
 			globalVar.batchMeasureDatas.clear();
 

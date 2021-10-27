@@ -35,6 +35,11 @@
 //	@Autowired
 //	private MeasureDataMapper measureDataMapper;
 //
+//	
+//	@Qualifier("OracleMeasureDataMapper")
+//	@Autowired
+//	private net.lunalabs.central.mapper.oracle.MeasureDataMapper oracleMeasureDataMapper;
+//	
 //	@Autowired
 //	private net.lunalabs.central.mapper.oracle.PatientMapper oraclePatientMapper;
 //	
@@ -139,6 +144,62 @@
 //		
 //
 //		
+//	}
+//	
+//	
+//	//@Transactional
+//	@Test
+//	public void oracleBulkInsertTest() {
+//		
+//
+//		List<MeasureData> measureDatas = new ArrayList<>();
+//				
+//		//뿌리기 받을사람 정보 추가
+//		for(int i=0; i<3; i++) {
+//
+//			MeasureData measureData = MeasureData.builder()
+//					.sid("patient100_20211021_171700")
+//					.pid(100)
+//					.patientUserId("patient100")
+//					.parame("rvs")
+//					.valueUnit("NA")
+//					.value("-5.30485E+6^-2.40058E+7")
+//					.startTime(getNowTime(1))
+//					.endTime(getNowTime(2))
+//					.build();
+//			
+//			measureDatas.add(measureData);
+//		}
+//		
+//		//measureDatas.clear();
+//		
+//		if(!measureDatas.isEmpty()) {
+//			int result = oracleMeasureDataMapper.insertBatch(measureDatas);
+//			
+//			log.info("result: " + result);
+//		}
+//		
+//
+//		
+//	}
+//	
+//	
+//	@Transactional
+//	@Test
+//	public void oracleSaveTest() {
+//		
+//		MeasureData measureData = MeasureData.builder()
+//				.sid("patient100_20211021_171700")
+//				.pid(100)
+//				.patientUserId("patient100")
+//				.parame("rvs")
+//				.valueUnit("NA")
+//				.value("-5.30485E+6^-2.40058E+7")
+//				.startTime(getNowTime(1))
+//				.endTime(getNowTime(2))
+//				.build();
+//		
+//		oracleMeasureDataMapper.save(measureData);
 //	}
 //	
 //	
