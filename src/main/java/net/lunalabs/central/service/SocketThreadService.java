@@ -54,9 +54,7 @@ public class SocketThreadService {
 	private final ServersentService serversentService;
 
 	StringBuffer sb = new StringBuffer();
-	Charset charset = Charset.forName("UTF-8");
 
-	ObjectMapper objectMapper = new ObjectMapper();
 
 
 
@@ -272,6 +270,9 @@ public class SocketThreadService {
 	//@Cacheable(value="kang")
 	public void measureDataParsing(String[] array, SocketChannel schn) { // 5개의 parame이 오면 5번 insert
 
+		Charset charset = Charset.forName("UTF-8");
+
+		ObjectMapper objectMapper = new ObjectMapper();
 		//List<MeasureDataJoinPatientBean> sses = new ArrayList<>();
 		
 		ByteBuffer writeBuffer = ByteBuffer.allocate(10240);
@@ -571,6 +572,10 @@ public class SocketThreadService {
 	
 	public void addPatientsListAndWriteOut(List<Patient> patients, SocketChannel schn, StringBuffer sb, ByteBuffer writeBuffer, String trId) throws IOException {
 
+		Charset charset = Charset.forName("UTF-8");
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		
 		sb.delete(0, sb.length()); // 초기화
 
 		sb.append("MSH|^~\\&|BILABCENTRAL|NULL|RECEIVER|RECEIVER_FACILITY|" + MParsing.parseLocalDateTime()
